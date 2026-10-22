@@ -1,5 +1,5 @@
 export interface Env {
-  MLBB_KV: KVNamespace;
+  MLBB_KV?: KVNamespace;
   UPSTREAM_BASE_URL?: string;
   ALLOWED_ORIGIN?: string;
   MANUAL_REFRESH_TOKEN?: string;

@@ -1,4 +1,4 @@
-name = "mlbb-meta-worker"
+name = "mlbb-data-workflow"
 main = "src/index.ts"
 compatibility_date = "2026-10-22"
 
@@ -6,12 +6,6 @@ compatibility_date = "2026-10-22"
 
 [triggers]
 crons = ["0 2 * * *"]
-
-[[kv_namespaces]]
-binding = "MLBB_KV"
-# Replace with your real KV namespace IDs before production deploy
-id = "00000000000000000000000000000000"
-preview_id = "00000000000000000000000000000000"
 
 [vars]
 UPSTREAM_BASE_URL = "https://raw.githubusercontent.com/achedon12/mlbb/develop"
