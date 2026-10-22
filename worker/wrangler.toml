@@ -2,6 +2,8 @@ name = "mlbb-meta-worker"
 main = "src/index.ts"
 compatibility_date = "2026-10-22"
 
+[previews]
+
 [triggers]
 crons = ["0 2 * * *"]
 
