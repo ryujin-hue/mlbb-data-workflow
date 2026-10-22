@@ -466,7 +466,14 @@ function normalizeItems(rawItems: unknown, visualsItems: Record<string, unknown>
   for (const row of itemsArray) {
     const item = asRecord(row);
     const id = toStr(item.slug) ?? toStr(item.id) ?? slugify(toStr(item.name) ?? 'item');
-    const iconHint = asRecord(visualsItems[id]);
+    const visualEntry = visualsItems[id];
+    const iconHint = asRecord(visualEntry);
+
+    const iconSource =
+      toStr(item.icon_url) ??
+      toStr(item.icon) ??
+      (typeof visualEntry === 'string' ? toStr(visualEntry) : null) ??
+      toStr(iconHint.url ?? iconHint.path ?? iconHint.icon);
 
     items.push({
       id,
@@ -480,7 +487,7 @@ function normalizeItems(rawItems: unknown, visualsItems: Record<string, unknown>
       active: toStr(item.active),
       recipe: asArray(item.recipe).map((value) => toStr(value)).filter((value): value is string => Boolean(value)),
       best_for: toStr(item.best_for ?? item.bestFor),
-      icon_url: toAbsoluteAssetUrl(toStr(item.icon_url ?? item.icon ?? iconHint.url ?? iconHint.path)),
+      icon_url: toAbsoluteAssetUrl(iconSource) ?? toAbsoluteAssetUrl(`visuels/objets/${id}.webp`),
     });
   }
 
