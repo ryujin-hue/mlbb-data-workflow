@@ -1,0 +1,21 @@
+name = "mlbb-meta-worker"
+main = "src/index.ts"
+compatibility_date = "2026-10-22"
+
+[triggers]
+crons = ["0 2 * * *"]
+
+[[kv_namespaces]]
+binding = "MLBB_KV"
+# Replace with your real KV namespace IDs before production deploy
+id = "00000000000000000000000000000000"
+preview_id = "00000000000000000000000000000000"
+
+[vars]
+UPSTREAM_BASE_URL = "https://raw.githubusercontent.com/achedon12/mlbb/develop"
+CRON_HOUR_UTC = "2"
+DATA_CACHE_SECONDS = "300"
+
+# 本地开发可在 worker/.dev.vars 中覆盖：
+# MANUAL_REFRESH_TOKEN = "your-local-token"
+# ALLOWED_ORIGIN = "http://127.0.0.1:5173"

@@ -13,6 +13,95 @@ cd site && python3 -m http.server 5173
 Butiran seni bina, cara matchup dikira, dan senarai data rosak yang dikendalikan
 oleh laman web: [`docs/design/website.md`](docs/design/website.md).
 
+## Daily Auto Update (Cloudflare Worker + KV)
+
+Aliran runtime baharu:
+
+1. Cloudflare Cron Trigger memanggil `scheduled()` sekali sehari.
+2. Worker ambil data terkini dari sumber MLBBDex mirror (`achedon12/mlbb`).
+3. Worker normalisasi ke kontrak `manifest + heroes + counters + items + maps`.
+4. Snapshot terkini disimpan di Cloudflare KV:
+   - `mlbb:dataset:latest`
+   - `mlbb:meta:latest`
+5. Frontend baca data dari endpoint Worker:
+   - `GET /api/dataset`
+   - `GET /api/meta`
+
+Metadata runtime yang disediakan API:
+- `lastUpdated`
+- `patch`
+- `totalHeroes`
+- `source`
+- `nextUpdateAt`
+
+### Struktur fail Worker
+
+```text
+worker/
+  wrangler.toml
+  package.json
+  tsconfig.json
+  .dev.vars.example
+  src/
+    index.ts
+    types.ts
+    lib/
+      fetch-upstream.ts
+      normalize.ts
+      store.ts
+      time.ts
+```
+
+### Setup tempatan
+
+```bash
+cd worker
+pnpm install
+cp .dev.vars.example .dev.vars
+pnpm dev
+```
+
+Trigger cron secara lokal:
+
+```bash
+pnpm dev:cron
+```
+
+Trigger manual refresh:
+
+```bash
+curl -X POST "http://127.0.0.1:8787/api/refresh" -H "X-Refresh-Token: replace-with-local-token"
+```
+
+### Setup production (wrangler + dashboard)
+
+1. Cipta KV namespace:
+   - `wrangler kv namespace create MLBB_KV`
+   - `wrangler kv namespace create MLBB_KV --preview`
+2. Isikan `id` dan `preview_id` dalam `worker/wrangler.toml`.
+3. Set secret token manual refresh (opsyenal):
+   - `wrangler secret put MANUAL_REFRESH_TOKEN`
+4. Deploy Worker:
+   - `pnpm deploy`
+5. Dashboard Cloudflare > Worker > Triggers:
+   - pastikan cron `0 2 * * *` aktif (UTC).
+
+## Frontend Status Bar (v2)
+
+Status bar dipasang di atas hero roster (global di bawah topbar):
+
+- `Live Data` + green pulsing dot
+- `Updated X mins/hours ago`
+- `Next update in Xh`
+
+Fail berkaitan:
+- `site/index.html`
+- `site/assets/css/app.css`
+- `site/assets/js/live-status.js`
+- `site/assets/js/main.js`
+
+Jika `/api/meta` gagal, UI jatuh balik ke `Offline fallback` dan laman masih guna data statik lokal.
+
 ## Apa yang disertakan sekarang
 
 - `extract_mlbb_data.py`: collector yang menyimpan HTML asal, jadual yang berjaya diparse, indeks halaman kejohanan, fail manifest, log sumber dan hash SHA-256.

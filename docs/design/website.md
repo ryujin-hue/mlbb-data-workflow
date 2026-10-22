@@ -1,8 +1,9 @@
 # Website — MLBB Meta Center
 
-Static front-end that turns `site/dataset/*.json` into a browsable hero, counter
-and item reference. This document describes how it is built and, more
-importantly, what it refuses to invent.
+Static front-end that turns live Worker data (KV-backed) into a browsable hero,
+counter and item reference, with `site/dataset/*.json` as offline fallback.
+This document describes how it is built and, more importantly, what it refuses
+to invent.
 
 ## Design constraints
 
@@ -10,7 +11,7 @@ Everything below is fixed by [`dataset-contract.md`](./dataset-contract.md):
 
 | Constraint | How it is met |
 |---|---|
-| Website may only read `site/dataset/` via `fetch()` | `assets/js/data.js` resolves every path against `new URL('../../dataset/', import.meta.url)`; nothing is fetched from anywhere else |
+| Website reads live data from Worker first, then falls back to `site/dataset/` | `assets/js/data.js` calls `/api/dataset` first; if unavailable it reuses local `site/dataset/` files so UI still renders |
 | No hardcoded hero data | Every hero, counter edge and item comes from the JSON files |
 | No build step, no npm dependency | Plain HTML + CSS + ES modules, served as-is |
 | Missing value = `null`, never invented | Normalisers return `null`; views render an em dash |
@@ -26,7 +27,8 @@ site/
     ├── css/app.css          design tokens + every component style
     └── js/
         ├── main.js          boot, route table, chrome updates
-        ├── data.js          fetch, normalise, derive counter graph, quality gate
+        ├── data.js          fetch (API-first), normalise, derive graph, quality gate
+        ├── live-status.js   live status bar (updated ago / next update)
         ├── router.js        hash router with silent query sync
         ├── dom.js           element helper; textContent only, never innerHTML
         ├── format.js        number/date formatting with honest fallbacks
@@ -48,6 +50,8 @@ python3 -m http.server 5173
 ```
 
 Any static server works. There is nothing to install.
+
+To see live status + live dataset, run Worker locally as well (`cd worker && pnpm dev`) and point `mlbb-api-base` to that origin.
 
 ## Views
 

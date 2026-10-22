@@ -1,0 +1,5 @@
+MANUAL_REFRESH_TOKEN=replace-with-local-token
+ALLOWED_ORIGIN=http://127.0.0.1:5173
+UPSTREAM_BASE_URL=https://raw.githubusercontent.com/achedon12/mlbb/develop
+CRON_HOUR_UTC=2
+DATA_CACHE_SECONDS=300

@@ -150,6 +150,80 @@ a:hover { text-decoration: underline; }
   white-space: nowrap;
 }
 
+/* ------------------------------------------------------------ live status */
+
+.live-status-wrap {
+  max-width: 1320px;
+  margin: 14px auto 0;
+  padding: 0 20px;
+}
+
+.live-status {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.live-status__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.live-status__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--ink-3);
+  box-shadow: 0 0 0 0 rgba(110, 121, 136, 0.5);
+}
+
+.live-status__meta {
+  display: inline-flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-family: var(--mono);
+}
+
+.live-status--live .live-status__dot {
+  background: #2fd37b;
+  box-shadow: 0 0 0 0 rgba(47, 211, 123, 0.55);
+  animation: live-pulse 1.8s ease-out infinite;
+}
+
+.live-status--stale .live-status__dot {
+  background: #d8a838;
+}
+
+.live-status--error .live-status__dot {
+  background: var(--thr);
+}
+
+.live-status--loading .live-status__dot {
+  animation: live-pulse 1.8s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(47, 211, 123, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(47, 211, 123, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 211, 123, 0);
+  }
+}
+
 /* ------------------------------------------------------------------ view */
 
 .view {
@@ -1131,6 +1205,16 @@ td.num.neg { color: var(--thr); }
   .nav { overflow-x: auto; }
   .nav__link { padding: 6px 9px; font-size: 12px; }
   .topbar__meta { display: none; }
+  .live-status-wrap { padding: 0 12px; margin-top: 10px; }
+  .live-status {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .live-status__meta {
+    gap: 8px;
+    justify-content: flex-start;
+  }
   .view { padding: 16px 12px 48px; }
   .hero-head { grid-template-columns: 116px minmax(0, 1fr); gap: 14px; }
   .hero-head__name { font-size: 21px; }

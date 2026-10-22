@@ -9,6 +9,12 @@ __pycache__/
 .venv/
 venv/
 
+# Node / Cloudflare Worker
+node_modules/
+worker/node_modules/
+worker/.wrangler/
+worker/.dev.vars
+
 # Editor / OS
 .DS_Store
 *.swp
