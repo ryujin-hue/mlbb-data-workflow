@@ -8,6 +8,13 @@
       "0 2 * * *"
     ]
   },
+  "kv_namespaces": [
+    {
+      "binding": "MLBB_KV",
+      "id": "b3d0ca5b38974afc92192873b81f23c3",
+      "preview_id": "fbbe6f4c452f48cc9426cc3b6ebb5804"
+    }
+  ],
   "vars": {
     "UPSTREAM_BASE_URL": "https://raw.githubusercontent.com/achedon12/mlbb/develop",
     "CRON_HOUR_UTC": "2",
