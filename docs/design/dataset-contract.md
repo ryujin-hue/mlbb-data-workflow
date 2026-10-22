@@ -266,6 +266,26 @@ Tambahan: `heroes[].resource` bisa bernilai string `"None"` (21 hero yang nggak 
 mana/energy). Itu nilai asli dari sumber, BUKAN placeholder. Website boleh tampilkan sebagai
 "—" atau "Tanpa resource", tapi jangan dianggap data hilang.
 
+### Batas jumlah warning di `manifest.warnings` (WAJIB)
+
+`manifest.warnings` akan ditampilkan di website. Isinya harus **ringkas dan bermakna**, bukan
+dump semua anomali. Batas keras: **maksimal 100 entri**.
+
+Aturan:
+- **WAJIB masuk** (semuanya, mengurutkan prioritas):
+  - `counter-conflict: <from> vs <to> (...)` — dua sumber Measured-vs-list berbeda arah.
+  - `counter-relations-contradictory: <from> vs <to> (...)` — sumbernya sendiri bertentangan antar rank.
+  - `counter-ambiguous: <from> vs <to> (...)` — advantage seri, pasangan dibuang.
+  - `hero-no-counter-data: <id>` — hero tanpa matchup sama sekali (mis. `dori`).
+  - `source-failed: <name> (...)` — sumber yang gagal diambil.
+  - `data-incomplete: <field> (<n> heroes) (...)` — ringkasan cakupan per field.
+- **TIDAK** masuk per-pasangan: `counter-gap-relations-only` dan `counter-gap-counters-only`.
+  Itu cuma catatan cakupan, bukan masalah. Masukkan **satu baris ringkasan** per kategori:
+  `counter-gap-relations-only: 466 pairs measured-source silent (see dataset/counters.json)`.
+
+Detail lengkap per-pasangan (jika perlu) tetap boleh ada di file terpisah, misal
+`site/dataset/counter-notes.json` — bukan di `manifest.warnings`.
+
 ### Koherensi arah: ATURAN WAJIB (satu pasangan maksimal satu arah)
 
 `statistics.json` punya 6 rank per hero: `all`, `epic`, `legend`, `mythic`, `honor`, `glory`.
