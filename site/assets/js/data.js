@@ -1,8 +1,9 @@
 /**
  * Dataset loader and normalisation layer.
  *
- * Rules imposed by docs/design/dataset-contract.md:
- *  - the site may only read files under `site/dataset/` via fetch()
+ * Runtime data source rules:
+ *  - prefer `/api/dataset` from the Worker (KV-backed live snapshot)
+ *  - fall back to `site/dataset/` when API is unavailable
  *  - no hero data may be hardcoded here
  *  - unknown values are `null`, never a fabricated substitute
  *
@@ -121,6 +122,40 @@ async function fetchJson(file) {
   const bytes = Number(res.headers.get('content-length') ?? 0);
   const json = await res.json();
   return { json, bytes };
+}
+
+function configuredApiBase() {
+  const fromMeta = document.querySelector('meta[name="mlbb-api-base"]')?.content?.trim();
+  if (fromMeta) return fromMeta.replace(/\/$/, '');
+
+  if (typeof window !== 'undefined' && typeof window.MLBB_API_BASE === 'string') {
+    const fromWindow = window.MLBB_API_BASE.trim();
+    if (fromWindow) return fromWindow.replace(/\/$/, '');
+  }
+
+  return '';
+}
+
+async function fetchRemoteSnapshot() {
+  const base = configuredApiBase();
+  const url = `${base}/api/dataset`;
+  const res = await fetch(url, {
+    cache: 'no-store',
+    headers: { Accept: 'application/json' },
+  });
+
+  if (!res.ok) {
+    throw new Error(`remote dataset unavailable: HTTP ${res.status}`);
+  }
+
+  const json = await res.json();
+  return {
+    manifest: json?.manifest ?? null,
+    heroes: json?.heroes ?? null,
+    counters: json?.counters ?? null,
+    items: json?.items ?? null,
+    maps: json?.maps ?? null,
+  };
 }
 
 /* ------------------------------------------------------------ integrity log */
@@ -432,50 +467,80 @@ export async function loadDataset() {
   const missingOptionalFiles = [];
   const raw = {};
 
-  // manifest.json is fetched first: counts.maps tells us whether requesting
-  // maps.json would only produce a 404.
+  // Prefer worker-served live snapshot (/api/dataset). If unavailable, fall
+  // back to static files under site/dataset/ so the site still renders.
   let manifestHead = null;
+  let remoteReady = false;
+
   try {
-    const { json, bytes } = await fetchJson(FILES.manifest);
-    manifestHead = json;
-    raw.manifest = json;
-    fileBytes.manifest = bytes;
+    const remote = await fetchRemoteSnapshot();
+    raw.manifest = remote.manifest;
+    raw.heroes = remote.heroes;
+    raw.counters = remote.counters;
+    raw.items = remote.items;
+    raw.maps = remote.maps;
+
+    manifestHead = remote.manifest;
+    fileBytes.manifest = JSON.stringify(remote.manifest ?? {}).length;
+    fileBytes.heroes = JSON.stringify(remote.heroes ?? {}).length;
+    fileBytes.counters = JSON.stringify(remote.counters ?? {}).length;
+    fileBytes.items = JSON.stringify(remote.items ?? {}).length;
+    fileBytes.maps = JSON.stringify(remote.maps ?? {}).length;
+    remoteReady = true;
   } catch (err) {
-    log.add('source-failed', `${FILES.manifest}: ${err.message}`);
+    log.add('source-failed', `/api/dataset: ${err.message}`);
   }
 
-  const mapCount = manifestHead?.counts?.maps ?? 0;
-  if (mapCount === 0) {
-    missingOptionalFiles.push(FILES.maps);
-  }
-  const pending = Object.entries(FILES)
-    .filter(([key]) => key !== 'manifest')
-    .filter(([key]) => key !== 'maps' || mapCount > 0);
+  if (!remoteReady) {
+    // manifest.json is fetched first: counts.maps tells us whether requesting
+    // maps.json would only produce a 404.
+    try {
+      const { json, bytes } = await fetchJson(FILES.manifest);
+      manifestHead = json;
+      raw.manifest = json;
+      fileBytes.manifest = bytes;
+    } catch (err) {
+      log.add('source-failed', `${FILES.manifest}: ${err.message}`);
+    }
 
-  const results = await Promise.all(
-    pending.map(async ([key, file]) => {
-      try {
-        const { json, bytes } = await fetchJson(file);
-        return [key, { json, bytes, ok: true }];
-      } catch (err) {
-        return [key, { error: err, ok: false }];
-      }
-    })
-  );
+    const mapCount = manifestHead?.counts?.maps ?? 0;
+    if (mapCount === 0) {
+      missingOptionalFiles.push(FILES.maps);
+    }
+    const pending = Object.entries(FILES)
+      .filter(([key]) => key !== 'manifest')
+      .filter(([key]) => key !== 'maps' || mapCount > 0);
 
-  for (const [key, result] of results) {
-    if (result.ok) {
-      raw[key] = result.json;
-      fileBytes[key] = result.bytes;
-    } else {
-      raw[key] = null;
-      if (key === 'maps') {
-        missingOptionalFiles.push(FILES.maps);
-        log.add('source-failed', `${FILES[key]}: ${result.error.message}`);
+    const results = await Promise.all(
+      pending.map(async ([key, file]) => {
+        try {
+          const { json, bytes } = await fetchJson(file);
+          return [key, { json, bytes, ok: true }];
+        } catch (error) {
+          return [key, { error, ok: false }];
+        }
+      })
+    );
+
+    for (const [key, result] of results) {
+      if (result.ok) {
+        raw[key] = result.json;
+        fileBytes[key] = result.bytes;
       } else {
-        missingFiles.push(FILES[key]);
-        log.add('source-failed', `${FILES[key]}: ${result.error.message}`);
+        raw[key] = null;
+        if (key === 'maps') {
+          missingOptionalFiles.push(FILES.maps);
+          log.add('source-failed', `${FILES[key]}: ${result.error.message}`);
+        } else {
+          missingFiles.push(FILES[key]);
+          log.add('source-failed', `${FILES[key]}: ${result.error.message}`);
+        }
       }
+    }
+  } else {
+    const mapCount = manifestHead?.counts?.maps ?? 0;
+    if (mapCount === 0 || !raw.maps || !Array.isArray(raw.maps.maps)) {
+      missingOptionalFiles.push(FILES.maps);
     }
   }
 

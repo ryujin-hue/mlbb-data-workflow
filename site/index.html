@@ -6,6 +6,7 @@
 <title>MLBB Meta Center — hero, counter &amp; item reference</title>
 <meta name="description" content="Browse 134 Mobile Legends heroes, 1,166 measured counter matchups and 102 items. Data loaded from the MLBB dataset contract (CC BY-SA 4.0, Mobile Legends Wiki).">
 <meta name="color-scheme" content="dark">
+<meta name="mlbb-api-base" content="">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
 </head>
@@ -30,6 +31,19 @@
     <div class="topbar__meta" id="patch-badge" aria-live="polite"></div>
   </div>
 </header>
+
+<section class="live-status-wrap" aria-live="polite">
+  <div id="live-status" class="live-status live-status--loading">
+    <div class="live-status__left">
+      <span class="live-status__dot" aria-hidden="true"></span>
+      <strong>Syncing status…</strong>
+    </div>
+    <div class="live-status__meta">
+      <span>Updated —</span>
+      <span>Next update —</span>
+    </div>
+  </div>
+</section>
 
 <main id="view" class="view" tabindex="-1">
   <div class="boot" id="boot">

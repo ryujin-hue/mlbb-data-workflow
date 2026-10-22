@@ -14,6 +14,7 @@ import { createCountersView } from './views/counters.js';
 import { createItemsView } from './views/items.js';
 import { createSourcesView } from './views/sources.js';
 import { utcStamp, DASH } from './format.js';
+import { initLiveStatusBar } from './live-status.js';
 
 const SITE_NAME = 'MLBB Meta Center';
 
@@ -35,6 +36,8 @@ async function boot() {
   const navLinks = [...document.querySelectorAll('.nav__link')];
   const patchBadge = document.getElementById('patch-badge');
   const footerStamp = document.getElementById('footer-stamp');
+
+  initLiveStatusBar();
 
   let dataset;
   try {
