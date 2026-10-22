@@ -1,0 +1,16 @@
+# Environment scaffolding injected by the editor, never part of the project.
+.codebuddy/
+.genie/
+.templates/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/

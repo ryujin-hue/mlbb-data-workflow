@@ -1,5 +1,18 @@
 # MLBB Meta & Counter — Full Extraction V3
 
+## Website
+
+`site/` berisi laman web statik (Hero roster, Counter Lab, Items, Data & Sources)
+yang membaca JSON di `site/dataset/` terus-terusan. Tiada build step, tiada
+npm dependency — sesuai kontrak. Jalankan secara lokal:
+
+```bash
+cd site && python3 -m http.server 5173
+```
+
+Butiran seni bina, cara matchup dikira, dan senarai data rosak yang dikendalikan
+oleh laman web: [`docs/design/website.md`](docs/design/website.md).
+
 ## Apa yang disertakan sekarang
 
 - `extract_mlbb_data.py`: collector yang menyimpan HTML asal, jadual yang berjaya diparse, indeks halaman kejohanan, fail manifest, log sumber dan hash SHA-256.
