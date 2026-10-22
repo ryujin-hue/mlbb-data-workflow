@@ -214,6 +214,32 @@ dan `20` (Beatrix = 4 stance x 5 skill). Jadi:
   skill ke-4 dan seterusnya.
 - Website WAJIB merender jumlah skill yang variabel. Jangan asumsikan 4.
 
+### URL gambar (WAJIB — ada jebakan path yang bikin 100% gambar skill rusak)
+
+Base: `https://raw.githubusercontent.com/achedon12/mlbb/develop/public/`
+
+| Jenis | Path |
+|---|---|
+| Portrait hero | `visuels/heros/<slug>/portrait.webp` |
+| Ikon skill | `visuels/competences/<skill-slug>.webp` |
+
+Contoh:
+`https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alucard/portrait.webp`
+`https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/competences/tai-chi.webp`
+
+**JEBEKAN:** path-nya `public/visuels/competences/` — **BUKAN** `public/visuels/visuels/competences/`.
+Repo itu TIDAK punya folder `visuels/visuels` sama sekali, jadi URL yang salah itu **404 untuk
+semua ikon skill** (portrait tetap aman karena path-nya beda). Sudah diverifikasi: 572 URL
+ikon skill dengan path yang benar -> **572/572 HTTP 200**.
+
+`<skill-slug>` = nama skill di-slugify: lowercase, karakter non-alnum jadi hyphen, hyphen
+dobel dirapikan, hyphen di awal/akhir dibuang. Contoh: "Tai Chi" -> `tai-chi`,
+"Invisible Armor" -> `invisible-armor`.
+
+Tambahan: `heroes[].resource` bisa bernilai string `"None"` (21 hero yang nggak punya
+mana/energy). Itu nilai asli dari sumber, BUKAN placeholder. Website boleh tampilkan sebagai
+"—" atau "Tanpa resource", tapi jangan dianggap data hilang.
+
 ### Hero tanpa data counter
 
 `Dori` ada di `heroes.json` tapi **tidak ada** di `statistics.json`. Untuk hero seperti
