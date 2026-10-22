@@ -266,6 +266,40 @@ Tambahan: `heroes[].resource` bisa bernilai string `"None"` (21 hero yang nggak 
 mana/energy). Itu nilai asli dari sumber, BUKAN placeholder. Website boleh tampilkan sebagai
 "—" atau "Tanpa resource", tapi jangan dianggap data hilang.
 
+### Koherensi arah: ATURAN WAJIB (satu pasangan maksimal satu arah)
+
+`statistics.json` punya 6 rank per hero: `all`, `epic`, `legend`, `mythic`, `honor`, `glory`.
+Tiap rank punya `strong[]` (6 entri) dan `weak[]` (6 entri) — jadi **relasi bisa BERBEDA antar
+rank**. Contoh nyata: di rank `all` `lolita` kalah dari `zhuxin`, tapi di rank lain `lolita` menang.
+
+Kalau semua rank di-union-mentah, hasilnya **kontradiktif**: ada pasangan hero yang saling
+menyatakan "aku ngalahin kamu" (22 pasangan), dan 28 pasangan di mana satu sisi bilang
+"aku ngalahin X" sementara sisi lain bilang "X ngalahin aku". Data kontradiktif kayak gini
+bakal tampil di website sebagai klaim yang saling bertentangan — dan itu reputationally fatal
+buat situs yang tujuannya jadi rujukan meta.
+
+**Aturan (WAJIB, collector yang implementasikan):**
+
+1. **Bangun graf dari satu rank Canonical dulu:** `all`. Untuk hero TIDAK ada di `all`,
+   ambil dari rank berikutnya按 urutan prioritas:
+   `all` -> `epic` -> `legend` -> `mythic` -> `honor` -> `glory`.
+   (Rank yang dipakai WAJIB dicatat di `counters.json` per edge, misal
+   `"source": "MLBBDex statistics.json counters.all.strong"`.)
+2. **Enforce mutual exclusivity.** Untuk setiap pasangan tak-terurut {a, b}, maksimal SATU
+   arah yang boleh ada:
+   - Kalau hanya satu rank yang punya klaim -> pakai klaim itu.
+   - Kalau dua rank punya klaim BERLAWANAN (a menang b di rank X, b menang a di rank Y):
+     **yang menang = yang punya `|advantage|` lebih besar.**-drop yang kalah.
+   - Kalau `|advantage|` SAMA PERSIS -> **drop keduanya** (ambigu) dan catat warning:
+     `counter-ambiguous: <a> vs <b> (rank X says a wins +N, rank Y says b wins +N)`.
+3. **`weak_against[h]` TIDAK boleh diisi terpisah dari `counters`.** Define:
+   `weak_against[h] = { t : ada edge t -> h }`. Jadi sisi terbalik otomatis konsisten
+   dengan sisi depan, secara definisi.
+4. Setelah semua itu, invariant yang WAJIB berlaku (dan diuji verifier):
+   - Tidak ada pasangan {a,b} dengan `b ∈ counters[a]` DAN `a ∈ counters[b]`.
+   - Tidak ada pasangan {a,b} dengan `b ∈ counters[a]` DAN `a ∈ weak_against[b]`.
+   - `a ∈ weak_against[b]`  <=>  `b ∈ counters[a]` (setara perfect).
+
 ### Prioritas sumber counter (WAJIB, sudah diverifikasi owner)
 
 Ada DUA sumber counter di `statistics.json`, dan **keduanya tidak selalu sama**:
