@@ -171,6 +171,55 @@ yang hilang, dan jangan membalik artinya.
 Semua isi array `counters` / `weak_against` / `synergies` harus berupa `id` hero yang
 **ada di `heroes.json`**. Relasi ke hero yang tidak ada = buang + catat warning.
 
+## Pemetaan field sumber -> kontrak (WAJIB DIPAKAI, bukan diterjemahkan sendiri)
+
+Sumber: `src/data/game/heroes.json` (per hero) dan `src/data/game/skills.json` (per hero).
+
+| Field di sumber | -> Field di kontrak | Tipe | Catatan |
+|---|---|---|---|
+| `slug` | `id` | string | ambil dari sumber apa adanya, JANGAN slugify ulang. Sudah ASCII lowercase. |
+| `name` | `name` | string | |
+| `title` | `title` | string | julukan |
+| `roles` | `roles` | string[] | |
+| `lanes` | `lanes` | string[] | |
+| `specialties` | `speciality` | string[] | ejaan berubah (`specialties` -> `speciality`) |
+| `year` | `release_year` | int | sumbernya `year` = "2021" (string) -> jadi int |
+| `release` | (tidak dipakai, atau `release_date`) | string | tanggal lengkap "19 March 2021" |
+| `resource` | `resource` | string | "Mana" / "Energy" / "None" |
+| `damageType` | `damage_type` | string | |
+| `attackType` | `attack_type` | string | |
+| `region` | `region` | string | |
+| `ratings.offense` | `ratings.offense` | int | sumber sudah int |
+| `ratings.durability` | `ratings.durability` | int | |
+| `ratings.abilityEffects` | `ratings.ability_effect` | int | **nama field berubah** |
+| `ratings.difficulty` | `difficulty` | int | jadi langsung ke field top-level `difficulty` (1-10) |
+| `stats.hp1`,`stats.hp15`,`stats.mana1`,`stats.mana15`, dst. | `base_stats.*` | **number** | sumbernya **STRING** ("2550") -> WAJIB dikonversi ke number |
+| `skills[i].name` | `skills[i].name` | string | |
+| `skills[i].description` | `skills[i].description` | string | teks dari wiki, boleh ada artefak kalimat terpotong — JANGAN diperbaiki/diedit, teruskan apa adanya |
+
+### Aturan skill (WAJIB dibaca, ini yang paling sering bikin bug)
+
+Jumlah skill per hero **TIDAK selalu 4**. Distribusi real di sumber:
+`4` skill untuk 111 hero, `5` untuk 8 hero, `6` untuk 1, `8` untuk 10, lalu `10`, `12`, `15`,
+dan `20` (Beatrix = 4 stance x 5 skill). Jadi:
+
+- `skills` berisi **SELURUH** skill hero, urut sesuai sumber. Jangan dipotong ke 4.
+- `skills[i].id` = `<slug>-s<index>` dengan index mulai dari 0. Wajib **unik per hero**.
+  (Beatrix punya nama skill yang sama berulang — makanya ID berbasis index, bukan nama.)
+- `skills[i].type`: `"passive"` untuk index 0, `"active"` untuk index >= 1. Sumber tidak
+  memberi label tipe, jadi ini konvensi kita — truthfully, index 0 memang passive.
+- `skills[i].label` (opsional): `"Passive"` / `"Skill 1"` / `"Skill 2"` / `"Ultimate"`
+  **hanya kalau** hero-nya punya tepat 4 skill. Kalau lebih dari 4, `label` = `null` dan
+  website harus menampilkan label generik ("Skill N") — bukan mengarang "Ultimate" untuk
+  skill ke-4 dan seterusnya.
+- Website WAJIB merender jumlah skill yang variabel. Jangan asumsikan 4.
+
+### Hero tanpa data counter
+
+`Dori` ada di `heroes.json` tapi **tidak ada** di `statistics.json`. Untuk hero seperti
+ini: `counters` = `[]`, `weak_against` = `[]`, `synergies` = `[]`, dan **WAJIB** catat di
+`manifest.warnings` (nama hero-nya). Jangan isi dengan tebakan, jangan skip hero-nya.
+
 ## File 3 — `dataset/maps.json`
 
 ```json
