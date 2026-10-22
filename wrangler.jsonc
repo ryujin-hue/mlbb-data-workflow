@@ -1,3 +1,23 @@
 {
-  "previews": {}
+  "name": "mlbb-meta-worker",
+  "main": "worker/src/index.ts",
+  "compatibility_date": "2026-10-22",
+  "previews": {},
+  "triggers": {
+    "crons": [
+      "0 2 * * *"
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "MLBB_KV",
+      "id": "00000000000000000000000000000000",
+      "preview_id": "00000000000000000000000000000000"
+    }
+  ],
+  "vars": {
+    "UPSTREAM_BASE_URL": "https://raw.githubusercontent.com/achedon12/mlbb/develop",
+    "CRON_HOUR_UTC": "2",
+    "DATA_CACHE_SECONDS": "300"
+  }
 }
