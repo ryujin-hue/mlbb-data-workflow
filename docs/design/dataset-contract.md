@@ -29,8 +29,10 @@ untuk dataset inti. Sumber primer (semua JSON, di `raw.githubusercontent.com`):
 | Counter + synergy | `src/data/game/statistics.json` | `counters` (133 hero, per rank: `strong`/`weak` + `advantage` + `winRate`), `teammates`, `relations` (`strongAgainst`/`weakAgainst`/`synergies`), `rankings.measuredAt` |
 | Map | `src/lib/game-map.ts` | `MAP_POINTS`: koordinat x/y (0-100) tiap objek + `source` ke halaman wiki |
 | Objective/timer | `src/lib/objectives.ts` | durasi spawn tiap objective, tiap nilai disitat ke halaman wiki |
-| Item | `src/app/api/v1/items/route.ts` + data | |
-| Gambar | `public/visuels/heros/<slug>/portrait.webp` | |
+| Item | `src/data/game/items.json` | 102 item: slug, name, summary, category, price, bonus, unique, passive, active, recipe[], bestFor |
+| Skin | `src/data/game/skins.json` + `src/data/game/visuals.json` | 133 hero, 1056 skin: id, name, release, availability, rarity, label, price{bp,ticket,dm} |
+| Visual | `src/data/game/visuals.json` | `heroes{slug}.{portrait,icon,skins}`, `illustrations{hero}{skinName}`, `skills{hero}{skillName}`, `items`, `emblems`, `talents`, `spells` |
+| Freshness | `src/data/game/sync.json` | `{date, source, heroes, skins, items, patches, rankings, counters, builds, sources[]}` |
 
 Base URL: `https://raw.githubusercontent.com/achedon12/mlbb/develop/<path>`
 
@@ -101,6 +103,13 @@ dari GitHub-hosted JSON saja, supaya bisa diuji di mana saja.
       "release_year": 2020,
       "price": 0,
       "portrait_url": "https://.../alucard.png",
+      "icon_url": "https://.../alucard/icone.webp",
+      "illustration_url": "https://.../alucard/illustrations/duke-of-shards.webp",
+      "skins": [
+        { "id": "1091", "name": "Duke of Shards", "url": "https://.../skins/1091-duke-of-shards.webp",
+          "illustration_url": "https://.../illustrations/duke-of-shards.webp",
+          "release": "2021", "rarity": "Epic", "price": { "bp": 1200, "dm": null } }
+      ],
       "title": "Chosen of the Raven",
       "damage_type": "Physical",
       "attack_type": "Melee",
@@ -148,6 +157,16 @@ Aturan field:
 | `release_year` | int | ya | |
 | `price` | int | ya | diamond |
 | `portrait_url` | string\|null | ya | URL absolut |
+| `icon_url` | string\|null | tidak | ikon kotak kecil, dari `visuals.json` `heroes[].icon` |
+| `illustration_url` | string\|null | tidak | splash art, dari `visuals.json` `illustrations[hero]` |
+| `skins` | object\|null | tidak | array skin; **boleh null** kalau sumber tidak menyediakan |
+| `skins[].id` | string | ya (kalau `skins` ada) | id skin dari sumber |
+| `skins[].name` | string | ya | |
+| `skins[].url` | string\|null | ya | URL absolut |
+| `skins[].illustration_url` | string\|null | ya | |
+| `skins[].release` | string\|null | ya | tahun rilis |
+| `skins[].rarity` | string\|null | ya | `null` kalau-common/unknown |
+| `skins[].price` | object\|null | ya | `{bp, dm, ticket}` — nilai boleh null |
 | `title` | string\|null | tidak | julukan hero |
 | `damage_type` | string\|null | tidak | `Physical` / `Magic` / `True` |
 | `attack_type` | string\|null | tidak | `Melee` / `Ranged` |
@@ -386,9 +405,18 @@ simpan angka aslinya per edge di `counters.json` sebagai `advantage_points`, dan
 ## File 5 — `site/dataset/items.json` (opsional, boleh kosong/null)
 
 ```json
-{ "items": [ { "id": "blade-of-despise", "name": "Blade of Despise",
-    "price": 2120, "type": "Physical Attack", "icon_url": "https://..." } ] }
+{ "items": [
+  { "id": "antique-cuirass", "name": "Antique Cuirass",
+    "summary": "Physical Attack Reduction", "category": "Defense",
+    "price": 2170, "bonus": "+920 HP, +40 Physical Defense, +4 HP Regen",
+    "unique": null, "passive": "Deter: ...", "active": null,
+    "recipe": ["Dreadnaught Armor", "Ares Belt"],
+    "best_for": "All heroes", "icon_url": "https://..." }
+] }
 ```
+
+Sumber: `src/data/game/items.json` (102 item, sudah terverifikasi 200 + isinya nyata).
+Mapping: `slug`->`id`, `bestFor`->`best_for`, sisanya nama field sama.
 
 Kalau sumber item tidak bisa diakses, `{"items": []}` **plus** entry di `manifest.warnings`.
 Jangan pernah isi item palsu.
