@@ -247,6 +247,32 @@ Tambahan: `heroes[].resource` bisa bernilai string `"None"` (21 hero yang nggak 
 mana/energy). Itu nilai asli dari sumber, BUKAN placeholder. Website boleh tampilkan sebagai
 "—" atau "Tanpa resource", tapi jangan dianggap data hilang.
 
+### Prioritas sumber counter (WAJIB, sudah diverifikasi owner)
+
+Ada DUA sumber counter di `statistics.json`, dan **keduanya tidak selalu sama**:
+
+| Sumber | Sifat | Dipakai untuk |
+|---|---|---|
+| `counters[hero][rank].strong[] / .weak[]` | **Terukur** dari win rate game, ada `advantage` per rank, ada `winRate` | **PRIMARY** |
+| `relations[hero].strongAgainst / .weakAgainst` | List flat, **tanpa angka, tanpa rank, tanpa tanggal** | **FALLBACK** saja |
+
+Owner sudah mengukur konsistensinya: dari 63 pasangan yang bisa dibandingkan,
+**52 cocok (82,5%)** dan **11 berlawanan arah** (contoh: `lukas` vs `fanny`,
+`floryn` vs `lolita`, `gloo` vs `lesley`).
+
+**Aturan:**
+1. `heroes[].counters` dan `heroes[].weak_against` **WAJIB** dibangun dari `counters[]`
+   (source primer) — dengan advantage dari rank `all` kalau ada, atau rank terdekat.
+2. `relations[]` hanya dipakai untuk **mengisi hero/sisi yang `counters[]` tidak punya**,
+   DAN hanya kalau sisi itu **tidak ada** di `counters[]` untuk hero tersebut sama sekali.
+3. Kalau `relations` dan `counters` **berlawanan** untuk satu pasangan: `counters` yang
+   menang, dan perbedaan itu **WAJIB dicatat** di `manifest.warnings` dengan format
+   `counter-conflict: <from> vs <to> (relations says X, counters says Y)`.
+4. Edge di `counters.json` yang berasal dari `relations` (tanpa angka) **wajib** punya
+   `source` yang menyebut asal Specifically, contoh:
+   `"source": "MLBBDex statistics.json relations.strongAgainst"`.
+  _label sumber harus **akurat** — field ini ditampilkan di website.
+
 ### Hero tanpa data counter
 
 `Dori` ada di `heroes.json` tapi **tidak ada** di `statistics.json`. Untuk hero seperti
