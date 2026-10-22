@@ -1,0 +1,11 @@
+{
+  "package": "MLBB Full Extraction V3 Collector Kit",
+  "built_utc_date": "2026-10-22",
+  "live_extraction_completed": false,
+  "environment_external_network_access": false,
+  "minimum_requested_mib_for_live_run": 100,
+  "current_package_is_the_100_mib_extracted_dataset": false,
+  "reason": "The build environment could not resolve external internet hosts; external source files could not be downloaded here.",
+  "next_step": "Run the included GitHub Actions workflow or extract_mlbb_data.py in a network-enabled environment.",
+  "integrity": "No filler bytes, duplicate rows, fabricated match records, or synthetic statistics were added."
+}

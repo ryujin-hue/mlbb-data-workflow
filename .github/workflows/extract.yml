@@ -1,0 +1,85 @@
+name: MLBB Full Public Data Extraction
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_tournament_pages:
+        description: 'Maximum tournament pages to request (deduplicated)'
+        required: true
+        default: '400'
+      minimum_mib:
+        description: 'Required output size in MiB; collector will not add filler data'
+        required: true
+        default: '100'
+      skip_assets:
+        description: 'Skip public GitHub JSON/image reference archives'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out collector
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Collect public source data
+        id: collector
+        continue-on-error: true
+        shell: bash
+        run: |
+          ARGS=(--out MLBB_DATASET_OUTPUT --max-tournament-pages "${{ inputs.max_tournament_pages }}" --min-output-mb "${{ inputs.minimum_mib }}")
+          if [ "${{ inputs.skip_assets }}" = "true" ]; then ARGS+=(--skip-github-assets); fi
+          python extract_mlbb_data.py "${ARGS[@]}"
+      - name: Package actual collected data
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile
+          root=Path('MLBB_DATASET_OUTPUT')
+          if not root.exists():
+              root.mkdir(parents=True, exist_ok=True)
+              (root/'COLLECTION_FAILED.txt').write_text('Collector did not create an output directory. Review the workflow log.\n')
+          target=Path('MLBB_FULL_DATASET_V3.zip')
+          with zipfile.ZipFile(target,'w',compression=zipfile.ZIP_STORED,allowZip64=True) as z:
+              for p in root.rglob('*'):
+                  if p.is_file(): z.write(p,p.relative_to(root.parent))
+          print(f'ZIP bytes: {target.stat().st_size}')
+          PY
+      - name: Upload dataset artifact (even when source access is partial)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: MLBB_FULL_DATASET_V3
+          path: MLBB_FULL_DATASET_V3.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 30
+      - name: Summarize output size and completeness
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('MLBB_DATASET_OUTPUT/extraction_report.json')
+          if p.exists():
+              d=json.loads(p.read_text())
+              print(f"Output directory: {d.get('output_directory_mib')} MiB")
+              print(f"Minimum target met: {d.get('minimum_met')}")
+              print(f"Tournament pages attempted: {d.get('tournament_pages_attempted')}")
+          else:
+              print('No extraction_report.json was produced; inspect logs and artifact.')
+          PY
