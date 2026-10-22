@@ -347,7 +347,7 @@ Jangan pernah isi item palsu.
 8. Tidak ada file > 25 MB (biar repo & Pages tetap ringan).
 9. Kalau satu sumber gagal: `manifest.sources[].status` = `"failed"` + pesan, dan
    `manifest.warnings` menjelaskan dampaknya. **Data yang ada tetap dipakai** — jangan
-  丢弃 semuanya gara-gara satu sumber mati.
+  buang semuanya gara-gara satu sumber mati.
 
 ## Cara website consuming kontrak ini
 
