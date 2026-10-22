@@ -281,7 +281,7 @@ buat situs yang tujuannya jadi rujukan meta.
 **Aturan (WAJIB, collector yang implementasikan):**
 
 1. **Bangun graf dari satu rank Canonical dulu:** `all`. Untuk hero TIDAK ada di `all`,
-   ambil dari rank berikutnya按 urutan prioritas:
+   ambil dari rank berikutnya, dengan urutan prioritas:
    `all` -> `epic` -> `legend` -> `mythic` -> `honor` -> `glory`.
    (Rank yang dipakai WAJIB dicatat di `counters.json` per edge, misal
    `"source": "MLBBDex statistics.json counters.all.strong"`.)
@@ -289,7 +289,7 @@ buat situs yang tujuannya jadi rujukan meta.
    arah yang boleh ada:
    - Kalau hanya satu rank yang punya klaim -> pakai klaim itu.
    - Kalau dua rank punya klaim BERLAWANAN (a menang b di rank X, b menang a di rank Y):
-     **yang menang = yang punya `|advantage|` lebih besar.**-drop yang kalah.
+     **yang menang = yang punya `|advantage|` lebih besar.** Drop yang kalah.
    - Kalau `|advantage|` SAMA PERSIS -> **drop keduanya** (ambigu) dan catat warning:
      `counter-ambiguous: <a> vs <b> (rank X says a wins +N, rank Y says b wins +N)`.
 3. **`weak_against[h]` TIDAK boleh diisi terpisah dari `counters`.** Define:
