@@ -11,7 +11,7 @@ Kalau ada yang perlu berubah, usulkan lewat owner (bukan diedit sepihak oleh wor
 ## Kenapa kontrak ini ada
 
 Dua track bekerja paralel tanpa boleh saling menunggu:
-- Track **collector** mengisi file JSON di `dataset/`.
+- Track **collector** mengisi file JSON di `site/dataset/`.
 - Track **website** consuming file JSON itu sebagai data runtime.
 
 Kalau bentuk datanya beda, situsnya bakal kosong atau crash. Jadi bentuknya dikunci di sini.
@@ -45,7 +45,14 @@ dari GitHub-hosted JSON saja, supaya bisa diuji di mana saja.
 
 ## Konvensi
 
-- Direktori dataset: `dataset/` (di root repo).
+- Direktori dataset: **`site/dataset/`** (di dalam folder `site/` — ikut ter-deploy ke
+  Cloudflare Pages tanpa build step). TIDAK ada duplikat di root repo.
+
+  **Kenapa di dalam `site/`, bukan di root?** Cloudflare Pages hanya meng-upload isi
+  build output directory; isi root repo lain tidak ikut serve. Opsi lain yang ditolak:
+  symlink (Cloudflare asset walker melompati symlink -> 404 diam-diam di produksi),
+  build step `cp` (dilarang: build command harus kosong), dan duplikasi + CI sync gate
+  (dua sumber kebenaran -> bisa drift). Satu direktori = satu sumber kebenaran.
 - Format: JSON UTF-8, `ensure_ascii=false`, indent 2.
 - Semua path gambar itu **URL absolut** (https://...), bukan path lokal. Situsnya bakal jalan
   di browser user, jadi file lokal ga bisa dipakai.
@@ -55,7 +62,7 @@ dari GitHub-hosted JSON saja, supaya bisa diuji di mana saja.
 - Nilai yang tidak diketahui = `null`, bukan string kosong dan bukan `[]` menipu.
   Array kosong artinya "sumbernya memang bilang tidak ada".
 
-## File 1 — `dataset/manifest.json`
+## File 1 — `site/dataset/manifest.json`
 
 ```json
 {
@@ -79,7 +86,7 @@ dari GitHub-hosted JSON saja, supaya bisa diuji di mana saja.
 
 `counts.heroes` WAJIB = jumlah entri di `heroes.json`. Selisih apa pun = bug.
 
-## File 2 — `dataset/heroes.json`
+## File 2 — `site/dataset/heroes.json`
 
 ```json
 {
@@ -246,7 +253,7 @@ mana/energy). Itu nilai asli dari sumber, BUKAN placeholder. Website boleh tampi
 ini: `counters` = `[]`, `weak_against` = `[]`, `synergies` = `[]`, dan **WAJIB** catat di
 `manifest.warnings` (nama hero-nya). Jangan isi dengan tebakan, jangan skip hero-nya.
 
-## File 3 — `dataset/maps.json`
+## File 3 — `site/dataset/maps.json`
 
 ```json
 {
@@ -289,7 +296,7 @@ Aturan:
   `source` = URL halaman wiki yang jadi dasar koordinat (wajib, biar data bisa
   diaudit). Sumber: `src/lib/game-map.ts` di repo `achedon12/mlbb`.
 
-## File 4 — `dataset/counters.json`
+## File 4 — `site/dataset/counters.json`
 
 ```json
 {
@@ -350,7 +357,7 @@ Tambahan: kalau sumber menyediakan "advantage" dalam poin (misal +4.1 / -4.5),
 simpan angka aslinya per edge di `counters.json` sebagai `advantage_points`, dan
 `strength` dinormalisasi ke 0..1 dengan cara yang bisa dibalik.
 
-## File 5 — `dataset/items.json` (opsional, boleh kosong/null)
+## File 5 — `site/dataset/items.json` (opsional, boleh kosong/null)
 
 ```json
 { "items": [ { "id": "blade-of-despise", "name": "Blade of Despise",
@@ -377,9 +384,9 @@ Jangan pernah isi item palsu.
 
 ## Cara website consuming kontrak ini
 
-Website **hanya** baca file di `dataset/` lewat `fetch()`. Website tidak boleh scraping
+Website **hanya** baca file di `site/dataset/` lewat `fetch()`. Website tidak boleh scraping
 sendiri, tidak boleh punya data hero hardcoded, dan tidak boleh bergantung pada file
-di luar `dataset/`. Kalau website butuh field baru, field itu harus masuk kontrak dulu.
+di luar `site/dataset/`. Kalau website butuh field baru, field itu harus masuk kontrak dulu.
 
 ## Cloudflare Pages
 
