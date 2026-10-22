@@ -1,15 +1,47 @@
 # Kontrak Dataset — MLBB Meta Center
 
-Status: **FROZEN**. Track collector DAN track website wajib mengikuti file ini persis.
+Status: **FROZEN** (v1.1). Track collector DAN track website wajib mengikuti file ini persis.
 Kalau ada yang perlu berubah, usulkan lewat owner (bukan diedit sepihak oleh worker).
+
+> **v1.1 (2026-10-22)** — tambahan field opsional (`title`, `damage_type`, `attack_type`,
+> `resource`, `region`, `ratings`, `base_stats`, `skills[].id`) + `maps[].points` berisi
+> koordinat. Semua **opsional/nullable**, jadi sample yang sudah dibuat sebelum v1.1
+> tetap valid.
 
 ## Kenapa kontrak ini ada
 
 Dua track bekerja paralel tanpa boleh saling menunggu:
 - Track **collector** mengisi file JSON di `dataset/`.
-- Track **website**WOR consuming file JSON itu sebagai data runtime.
+- Track **website** consuming file JSON itu sebagai data runtime.
 
 Kalau bentuk datanya beda, situsnya bakal kosong atau crash. Jadi bentuknya dikunci di sini.
+
+## Sumber data primer (TEMUAN PENTING — pakai ini)
+
+Repo `achedon12/mlbb` (branch `develop`) adalah **source code website MLBBDex**, dan
+file datanya di-commit ke GitHub. Artinya kita **tidak perlu** bergantung ke API live
+untuk dataset inti. Sumber primer (semua JSON, di `raw.githubusercontent.com`):
+
+| Data | File | Isi |
+|---|---|---|
+| Roster hero | `src/data/game/heroes.json` | slug, name, title, roles, lanes, specialties, release, resource, damageType, attackType, region, ratings, stats |
+| Skill | `src/data/game/skills.json` | 134 hero × 4 skill: `name` + `description` penuh |
+| Counter + synergy | `src/data/game/statistics.json` | `counters` (133 hero, per rank: `strong`/`weak` + `advantage` + `winRate`), `teammates`, `relations` (`strongAgainst`/`weakAgainst`/`synergies`), `rankings.measuredAt` |
+| Map | `src/lib/game-map.ts` | `MAP_POINTS`: koordinat x/y (0-100) tiap objek + `source` ke halaman wiki |
+| Objective/timer | `src/lib/objectives.ts` | durasi spawn tiap objective, tiap nilai disitat ke halaman wiki |
+| Item | `src/app/api/v1/items/route.ts` + data | |
+| Gambar | `public/visuels/heros/<slug>/portrait.webp` | |
+
+Base URL: `https://raw.githubusercontent.com/achedon12/mlbb/develop/<path>`
+
+**API live `https://mlbbdex.com/api/v1/heroes/{slug}`** = convenience layer di atas
+data yang sama. Bentuk response-nya sudah diketahui persis dari route handler-nya
+(`src/app/api/v1/heroes/[slug]/route.ts`): `slug, name, title, roles, lanes,
+specialties, release, resource, damageType, attackType, region, ratings, stats,
+skills[], skins[], images, illustrations, analysis`. Pakai live API hanya sebagai
+**refresh opsional di CI**, bukan sumber wajib. Semua yang inti HARUS bisa dibangun
+dari GitHub-hosted JSON saja, supaya bisa diuji di mana saja.
+
 
 ## Konvensi
 
@@ -62,14 +94,21 @@ Kalau bentuk datanya beda, situsnya bakal kosong atau crash. Jadi bentuknya diku
       "release_year": 2020,
       "price": 0,
       "portrait_url": "https://.../alucard.png",
+      "title": "Chosen of the Raven",
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "region": "Moniyan Empire",
+      "ratings": { "offense": 7, "durability": 3, "ability_effect": 1, "difficulty": 6 },
+      "base_stats": { "hp1": 2614, "hp15": 4742, "mana1": 500, "mana15": 1900 },
       "skills": [
         {
           "id": "alucard-s1",
           "name": "Spear of Death",
           "type": "active",
           "description": "Alucard throws his spear forward...",
-          "cooldown": "8s",
-          "mana_cost": "40",
+          "cooldown": null,
+          "mana_cost": null,
           "icon_url": "https://.../alucard-s1.png"
         }
       ],
@@ -102,8 +141,17 @@ Aturan field:
 | `release_year` | int | ya | |
 | `price` | int | ya | diamond |
 | `portrait_url` | string\|null | ya | URL absolut |
+| `title` | string\|null | tidak | julukan hero |
+| `damage_type` | string\|null | tidak | `Physical` / `Magic` / `True` |
+| `attack_type` | string\|null | tidak | `Melee` / `Ranged` |
+| `resource` | string\|null | tidak | `Mana` / `Energy` |
+| `region` | string\|null | tidak | asal/region hero |
+| `ratings` | object\|null | tidak | `{offense, durability, ability_effect, difficulty}` int |
+| `base_stats` | object\|null | tidak | `{hp1, hp15, mana1, mana15, ...}` |
 | `skills` | object[] | ya | **minimal 1** (passive pun dihitung). Urutan: passive, skill1, skill2, ultimate |
 | `skills[].type` | string | ya | `passive` \| `active` |
+| `skills[].cooldown` | string\|null | ya (boleh null) | sumber utama **tidak** menyediakan angka cooldown terpisah → `null` |
+| `skills[].mana_cost` | string\|null | ya (boleh null) | idem → `null` |
 | `counters` | string[] | ya | hero yang **meng countered** hero ini (hero ini kalah)?. PENTING: lihat catatan di bawah |
 | `weak_against` | string[] | ya | hero yang **mengalahkan** hero ini |
 | `synergies` | string[] | ya | hero yang ber-synergy |
@@ -142,6 +190,12 @@ Semua isi array `counters` / `weak_against` / `synergies` harus berupa `id` hero
       "zones": [
         { "id": "red-base", "name": "Red Base", "type": "base",
           "description": "Markas tim merah" }
+      ],
+      "points": [
+        { "key": "turtle", "group": "objective", "x": 29, "y": 29,
+          "side": "shared", "source": "https://mobilelegends.fandom.com/wiki/Turtle" },
+        { "key": "purple-buff", "group": "buff", "x": 20, "y": 56,
+          "side": "ours", "source": "https://mobilelegends.fandom.com/wiki/Thunder_Fenrir" }
       ]
     }
   ]
@@ -153,6 +207,12 @@ Aturan:
 - `lanes` subset dari `Gold, Mid, Exp, Jungle, Roam`.
 - `objectives[].id` dan `zones[].id` slug unik **per map**.
 - Minimal harus ada map mode `Classic` (Land of Dawn) dan deskripsi zona/tujuan utama.
+- `points` (opsional tapi sangat berguna untuk peta interaktif): koordinat pada
+  **bujur sangkar 100×100, y ke bawah**, basis tim sendiri di kiri bawah.
+  `group` ∈ `objective` | `buff` | `camp` | `terrain` | `lane`.
+  `side` ∈ `ours` | `theirs` | `shared`.
+  `source` = URL halaman wiki yang jadi dasar koordinat (wajib, biar data bisa
+  diaudit). Sumber: `src/lib/game-map.ts` di repo `achedon12/mlbb`.
 
 ## File 4 — `dataset/counters.json`
 
@@ -172,6 +232,48 @@ Aturan:
 - `from` = hero yang menang, `to` = hero yang kalah.
 - Wajib konsisten dengan `heroes.json`: kalau edge `(from,to)` ada, maka `to` harus ada di
   `heroes[from].counters` DAN `from` harus ada di `heroes[to].weak_against`.
+
+### Sumber counter yang sudah diverifikasi (JAWABAN ORIENTASI)
+
+Sumber utama: `src/data/game/statistics.json` di repo `achedon12/mlbb`:
+
+```json
+"counters": {
+  "aamon": {
+    "all": {
+      "strong": [ { "slug": "cici", "advantage": 4.1 } ],
+      "weak":   [ { "slug": "gloo", "advantage": -4.5 } ],
+      "winRate": 50
+    },
+    "epic": { ... }
+  }
+}
+```
+
+**Orientasi sudah pasti, bukan tebakan** — dibuktikan dari kode sumbernya
+(`src/lib/data.ts`: "Measured counters, taken from the game's win rates" dan
+`src/lib/counters.ts`: "average gap, in points, over those ranks (from the page
+hero's point of view)"):
+
+| Nilai sumber | Arti | Masuk ke |
+|---|---|---|
+| `strong[].advantage` POSITIF | hero ini MENANG lawan slug itu | `heroes[hero].counters` + edge `from=hero, to=slug` |
+| `weak[].advantage` NEGATIF | hero ini KALAH dari slug itu | `heroes[hero].weak_against` |
+
+Tidak boleh dibalik. Kalau sebuah sumber cuma nyediain satu sisi, isi sisi itu saja
+dan catat di `manifest.warnings`.
+
+`statistics.json` juga punya `relations` dengan key persis
+`strongAgainst` / `weakAgainst` / `synergies` (satu array slug per hero) — ini yang
+dipakai untuk isi `counters` / `weak_against` / `synergies` di `heroes.json`.
+`statistics.json` -> `teammates` memberi synergy DENGAN angka advantage per rank,
+lebih baik daripada `relations.synergies` yang cuma daftar slug.
+`statistics.json` -> `rankings.measuredAt` = kapan data diukur — pakai buat
+`manifest.generated_at_utc` dan `heroes[].stats.updated_at_utc`.
+
+Tambahan: kalau sumber menyediakan "advantage" dalam poin (misal +4.1 / -4.5),
+simpan angka aslinya per edge di `counters.json` sebagai `advantage_points`, dan
+`strength` dinormalisasi ke 0..1 dengan cara yang bisa dibalik.
 
 ## File 5 — `dataset/items.json` (opsional, boleh kosong/null)
 
