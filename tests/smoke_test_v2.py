@@ -24,9 +24,28 @@ from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parent.parent
 PORT = int(__import__("os").environ.get("QA_PORT", "5178"))
 BASE = f"http://127.0.0.1:{PORT}"
-CHROME = "/root/.cache/ms-playwright/chromium-1243/chrome-linux/chrome"
 
 checks: list[tuple[str, bool, str]] = []
+
+
+def chrome_executable() -> str | None:
+    """Chrome yang perlu dipakai, atau None untuk guna default Playwright.
+
+    Path lama (`/root/.cache/...`) causes `PermissionError` pada GitHub
+    runner - `Path.exists()` melontar exception, bukan sekadar False.
+    sebab itu setiap semakan dibalut try/except.
+    """
+    candidates = [
+        "/root/.cache/ms-playwright/chromium-1243/chrome-linux/chrome",
+        str(Path.home() / ".cache/ms-playwright/chromium-1243/chrome-linux/chrome"),
+    ]
+    for candidate in candidates:
+        try:
+            if Path(candidate).exists():
+                return candidate
+        except OSError:
+            continue
+    return None
 
 
 def ck(name: str, ok: bool, detail: str = "") -> None:
@@ -66,8 +85,9 @@ def main() -> int:
     try:
         with sync_playwright() as pw:
             launch_kwargs = {"args": ["--no-sandbox", "--disable-dev-shm-usage"]}
-            if Path(CHROME).exists():
-                launch_kwargs["executable_path"] = CHROME
+            chrome = chrome_executable()
+            if chrome:
+                launch_kwargs["executable_path"] = chrome
             browser = pw.chromium.launch(**launch_kwargs)
             ctx = browser.new_context(
                 viewport={"width": 390, "height": 844},

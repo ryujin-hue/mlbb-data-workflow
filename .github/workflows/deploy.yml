@@ -45,7 +45,18 @@ jobs:
           npm ci --no-audit --no-fund
           npm run build
 
+      - name: Semak secret Cloudflare
+        id: secret
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+            echo "::warning::Secret CLOUDFLARE_API_TOKEN belum ditetapkan - deploy dilangkau. Set secret itu di Settings > Secrets > Actions."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Deploy ke Cloudflare Workers
+        if: steps.secret.outputs.skip != 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
