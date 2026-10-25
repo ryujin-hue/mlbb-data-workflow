@@ -1,0 +1,86 @@
+name: QA Production
+
+# Cek langsung ke situs yang sudah dideploy. Menangkap regresi yang tidak
+# ketahuan oleh smoke test lokal - misalnya worker yang gagal deploy, data
+# rate yang kembali null, atau history snapshot yang tidak bertambah.
+on:
+  schedule:
+    # Setiap hari, 3 jam setelah refresh cron 02:00 UTC (09:00 WIB).
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qa-production
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Playwright
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install playwright
+          python3 -m playwright install --with-deps chromium
+
+      - name: Cek situs produksi
+        env:
+          QA_BASE: https://mlbb-data-workflow.mlvv.workers.dev
+        run: python3 tests/production_check.py
+
+      - name: Cek status API meta
+        run: |
+          set -euo pipefail
+          BASE="https://mlbb-data-workflow.mlvv.workers.dev"
+          echo "--- /api/meta ---"
+          curl -sS --compressed "$BASE/api/meta" | tee /tmp/meta.json
+          echo
+          echo "--- /api/snapshots ---"
+          curl -sS --compressed "$BASE/api/snapshots" | tee /tmp/snaps.json
+          echo
+          python3 - <<'PY'
+          import json, sys, datetime
+
+          meta = json.load(open('/tmp/meta.json'))
+          snaps = json.load(open('/tmp/snaps.json'))
+
+          problems = []
+          if meta.get('status') != 'live':
+              problems.append(f"status worker = {meta.get('status')} ({meta.get('lastError')})")
+
+          entries = snaps.get('entries') or []
+          if len(entries) < 2:
+              problems.append(f"hanya {len(entries)} versi snapshot (history belum terbentuk)")
+
+          versions = [e.get('version') for e in entries]
+          if len(set(versions)) != len(versions):
+              problems.append("versi snapshot tidak unik")
+
+          print(f"\nstatus   : {meta.get('status')}")
+          print(f"heroes   : {meta.get('totalHeroes')}")
+          print(f"refresh  : {meta.get('lastUpdated')} (jadwal {meta.get('scheduleUtc')})")
+          print(f"snapshot : {len(entries)} versi")
+
+          if problems:
+              print("\nMASALAH:")
+              for p in problems:
+                  print(f"  - {p}")
+              sys.exit(1)
+          print("\nSemua pemeriksaan produksi lolos.")
+          PY
