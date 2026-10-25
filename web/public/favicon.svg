@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MLBB Meta Center">
+  <rect width="64" height="64" rx="12" fill="#0b0e13"/>
+  <path d="M14 46 L32 14 L50 46 Z" fill="none" stroke="#d8a838" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="32" cy="38" r="5" fill="#3fb8a0"/>
+</svg>

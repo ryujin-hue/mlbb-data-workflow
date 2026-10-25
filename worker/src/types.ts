@@ -16,6 +16,8 @@ export interface SourceEntry {
   status: 'ok' | 'failed';
 }
 
+import type { RatesSummary } from '../../shared/types';
+
 export interface Manifest {
   schema_version: '1.0.0';
   generated_at_utc: string;
@@ -37,23 +39,7 @@ export interface Manifest {
   warnings: string[];
 }
 
-export interface RateHighlight {
-  id: string;
-  name: string;
-  value: number;
-  win_rate: number | null;
-}
-
-export interface RatesSummary {
-  measured_at_utc: string | null;
-  rated_heroes: number;
-  avg_win_rate: number | null;
-  avg_win_rate_by_role: Record<string, number>;
-  most_banned: RateHighlight | null;
-  most_picked: RateHighlight | null;
-  highest_win_rate: RateHighlight | null;
-  lowest_win_rate: RateHighlight | null;
-}
+export type { RateHighlight, RatesSummary } from '../../shared/types';
 
 export interface HeroSkill {
   id: string;

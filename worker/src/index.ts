@@ -1,7 +1,16 @@
 import { fetchUpstreamBundle } from './lib/fetch-upstream';
 import { normalizeBundleToDataset } from './lib/normalize';
 import { nextDailyUtcIso, toIsoNow } from './lib/time';
-import { readDataset, readMeta, writeDataset, writeMeta } from './lib/store';
+import {
+  findSnapshotForDaysAgo,
+  readDataset,
+  readIndex,
+  readMeta,
+  readSnapshot,
+  writeDataset,
+  writeMeta,
+} from './lib/store';
+import { buildMetaMovers, computeDeltas, toSlimHeroes } from './lib/deltas';
 import type { Env, RuntimeMeta } from './types';
 
 const SOURCE_NAME = 'MLBBDex GitHub mirror';
@@ -170,7 +179,240 @@ async function handleGetDataset(request: Request, env: Env): Promise<Response> {
     request,
     env,
     {
-      'Cache-Control': `public, max-age=${cacheSeconds}, s-maxage=${cacheSeconds}`,
+      // stale-while-revalidate: client boleh pakai data lama sebentar sambil
+      // mengambil versi baru di belakang layar.
+      'Cache-Control': `public, max-age=${cacheSeconds}, s-maxage=${cacheSeconds}, stale-while-revalidate=3600`,
+    }
+  );
+}
+
+/**
+ * Daftar versi snapshot yang tersedia. Client memakainya untuk menampilkan
+ * "versi data" dan untuk memilih dua snapshot yang dibandingkan.
+ */
+async function handleGetSnapshots(request: Request, env: Env): Promise<Response> {
+  const index = await readIndex(env.MLBB_KV);
+  return jsonResponse(index, 200, request, env, {
+    'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600',
+  });
+}
+
+/**
+ * Delta / Meta Movers antara snapshot terkini dan snapshot ~N hari lalu.
+ *
+ *   GET /api/deltas?window=7d&threshold=0.5
+ *
+ * `window` bisa 1d / 7d / 30d. Perhitungan di edge supaya client tidak
+ * perlu menarik dua dataset penuh untuk dibandingkan sendiri.
+ */
+async function handleGetDeltas(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+  const windowParam = (url.searchParams.get('window') ?? '7d').toLowerCase();
+  const days = windowParam === '1d' ? 1 : windowParam === '30d' ? 30 : 7;
+  const thresholdParam = Number(url.searchParams.get('threshold'));
+  const threshold = Number.isFinite(thresholdParam) ? thresholdParam : undefined;
+
+  const current = await readDataset(env.MLBB_KV);
+  if (!current) {
+    return jsonResponse(
+      { error: 'dataset_unavailable', message: 'Belum ada snapshot di KV.' },
+      503,
+      request,
+      env,
+      { 'Cache-Control': 'no-store' }
+    );
+  }
+
+  const entry = await findSnapshotForDaysAgo(env.MLBB_KV, days);
+  if (!entry) {
+    // Bukan 404: "tidak ada riwayat" itu kondisi normal pada hari-hari
+    // pertama. Client membaca flag-nya, bukan menebak dari status code.
+    return jsonResponse(
+      {
+        available: false,
+        reason: 'no_history',
+        message: `Belum ada snapshot cukup lama untuk window ${windowParam}. Butuh minimal 2 versi.`,
+        window: windowParam,
+        threshold: threshold ?? 0.5,
+        from: { version: 'none', measured_at_utc: null },
+        to: { version: 'current', measured_at_utc: current.payload.manifest?.rates_summary?.measured_at_utc ?? null },
+        rising: [],
+        falling: [],
+        steady: 0,
+        new_heroes: [],
+        deltas: [],
+      },
+      200,
+      request,
+      env,
+      { 'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600' }
+    );
+  }
+
+  const previous = await readSnapshot(env.MLBB_KV, entry.version);
+  if (!previous) {
+    return jsonResponse(
+      {
+        available: false,
+        reason: 'snapshot_expired',
+        message: `Snapshot ${entry.version} sudah tidak ada.`,
+        window: windowParam,
+        threshold: threshold ?? 0.5,
+        from: { version: 'none', measured_at_utc: null },
+        to: { version: 'current', measured_at_utc: current.payload.manifest?.rates_summary?.measured_at_utc ?? null },
+        rising: [],
+        falling: [],
+        steady: 0,
+        new_heroes: [],
+        deltas: [],
+      },
+      200,
+      request,
+      env,
+      { 'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600' }
+    );
+  }
+
+  const currentLike = {
+    version: entry.version,
+    measured_at_utc: current.payload.manifest?.rates_summary?.measured_at_utc ?? null,
+    heroes: current.payload.heroes.heroes,
+  };
+  const previousLike = {
+    version: entry.version,
+    measured_at_utc: entry.measured_at_utc,
+    heroes: previous.payload.heroes.heroes,
+  };
+
+  const movers = buildMetaMovers(currentLike, previousLike, {
+    window: windowParam,
+    ...(threshold === undefined ? {} : { threshold }),
+  });
+
+  return jsonResponse(
+    {
+      available: true,
+      ...movers,
+      deltas: computeDeltas(currentLike, previousLike),
+    },
+    200,
+    request,
+    env,
+    {
+      'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600',
+    }
+  );
+}
+
+/**
+ * Indeks hero ramping.
+ *
+ * Grid daftar hero cuma butuh identitas, role/lane, dan rate. Membawa
+ * skills + counters + skins di payload daftar bikin respons ~1 MB; versi ini
+ * memangkas ke puluhan KB. Detail hero diambil terpisah per-hero.
+ *
+ *   GET /api/heroes?rank=all|epic|legend|mythic|honor|glory
+ */
+async function handleGetHeroIndex(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+  const rank = url.searchParams.get('rank') ?? 'all';
+
+  const stored = await readDataset(env.MLBB_KV);
+  if (!stored) {
+    return jsonResponse(
+      { error: 'dataset_unavailable', message: 'Belum ada snapshot di KV.' },
+      503,
+      request,
+      env,
+      { 'Cache-Control': 'no-store' }
+    );
+  }
+
+  const heroes = toSlimHeroes(stored.payload.heroes.heroes as never, rank);
+  const manifest = stored.payload.manifest;
+
+  return jsonResponse(
+    {
+      heroes,
+      manifest: {
+        schema_version: manifest.schema_version,
+        generated_at_utc: manifest.generated_at_utc,
+        game_patch: manifest.game_patch,
+        counts: manifest.counts,
+        rates_summary: manifest.rates_summary ?? null,
+        sources: manifest.sources,
+        warnings: manifest.warnings,
+      },
+      runtime: { storedAt: stored.storedAt },
+    },
+    200,
+    request,
+    env,
+    {
+      'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600',
+    }
+  );
+}
+
+/**
+ * Detail satu hero: skill, rating, base stats, matchup, dan item yang cocok.
+ *
+ *   GET /api/hero?id=alucard
+ */
+async function handleGetHeroDetail(request: Request, env: Env): Promise<Response> {
+  const url = new URL(request.url);
+  const id = url.searchParams.get('id');
+
+  const stored = await readDataset(env.MLBB_KV);
+  if (!stored) {
+    return jsonResponse(
+      { error: 'dataset_unavailable', message: 'Belum ada snapshot di KV.' },
+      503,
+      request,
+      env,
+      { 'Cache-Control': 'no-store' }
+    );
+  }
+
+  if (!id) {
+    return jsonResponse(
+      { error: 'missing_id', message: 'Parameter id wajib diisi.' },
+      400,
+      request,
+      env,
+      { 'Cache-Control': 'no-store' }
+    );
+  }
+
+  const hero = stored.payload.heroes.heroes.find((h) => h.id === id);
+  if (!hero) {
+    return jsonResponse(
+      { error: 'hero_not_found', message: `Hero "${id}" tidak ada di dataset.` },
+      404,
+      request,
+      env,
+      { 'Cache-Control': 'no-store' }
+    );
+  }
+
+  const edges = stored.payload.counters.edges.filter((e) => e.from === id || e.to === id);
+  const items = stored.payload.items.items.filter((item) => {
+    const best = (item.best_for ?? '').toLowerCase();
+    return best.includes(hero.name.toLowerCase()) || best.includes('all heroes');
+  });
+
+  return jsonResponse(
+    {
+      hero,
+      counters: { edges },
+      items: { items },
+      runtime: { storedAt: stored.storedAt },
+    },
+    200,
+    request,
+    env,
+    {
+      'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600',
     }
   );
 }
@@ -238,6 +480,22 @@ export default {
       return handleGetDataset(request, env);
     }
 
+    if (request.method === 'GET' && url.pathname === '/api/heroes') {
+      return handleGetHeroIndex(request, env);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/api/hero') {
+      return handleGetHeroDetail(request, env);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/api/snapshots') {
+      return handleGetSnapshots(request, env);
+    }
+
+    if (request.method === 'GET' && url.pathname === '/api/deltas') {
+      return handleGetDeltas(request, env);
+    }
+
     if (request.method === 'POST' && url.pathname === '/api/refresh') {
       return handleManualRefresh(request, env);
     }
@@ -245,7 +503,15 @@ export default {
     return jsonResponse(
       {
         service: 'mlbb-meta-worker',
-        endpoints: ['/api/meta', '/api/dataset', '/api/refresh'],
+        endpoints: [
+          '/api/meta',
+          '/api/dataset',
+          '/api/heroes',
+          '/api/hero',
+          '/api/snapshots',
+          '/api/deltas',
+          '/api/refresh',
+        ],
       },
       200,
       request,

@@ -1,3 +1,10 @@
+<!-- meta-center-v2 -->
+
+> **Catatan (2026-10-23):** dokumen ini menjelaskan situs **v1**
+> (vanilla JS SPA). Situs **v2** (React + TypeScript + Vite) ada di
+> `docs/design/meta-center-v2.md` - assessment, arsitektur data, dan rencana
+> fase. Struktur file `site/` juga berubah; rujuk `web/README.md`.
+
 # Website — MLBB Meta Center
 
 Static front-end that turns live Worker data (KV-backed) into a browsable hero,

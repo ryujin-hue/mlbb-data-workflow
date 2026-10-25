@@ -1,0 +1,4758 @@
+{
+  "heroes": [
+    {
+      "id": "aamon",
+      "name": "Aamon",
+      "title": "Duke of Shards",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aamon/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aamon/icone.webp",
+      "release_year": 2021,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 50.22,
+      "pick_rate": 0.65,
+      "ban_rate": 2.36,
+      "tier": "A",
+      "tier_score": 0.81,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "akai",
+      "name": "Akai",
+      "title": "Panda Warrior",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/akai/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/akai/icone.webp",
+      "release_year": 2016,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 50.53,
+      "pick_rate": 0.35,
+      "ban_rate": 1.22,
+      "tier": "A",
+      "tier_score": 0.84,
+      "rank_scope": "all",
+      "speciality": [
+        "Guard",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 9,
+        "ability_effect": 9,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "aldous",
+      "name": "Aldous",
+      "title": "Soul Contractor",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aldous/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aldous/icone.webp",
+      "release_year": 2018,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 50.96,
+      "pick_rate": 0.41,
+      "ban_rate": 0.54,
+      "tier": "A",
+      "tier_score": 1.1,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Support"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 7,
+        "ability_effect": 5,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "alice",
+      "name": "Alice",
+      "title": "Queen of Blood",
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "lanes": [
+        "Exp",
+        "Jungle"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alice/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alice/icone.webp",
+      "release_year": 2016,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 50.94,
+      "pick_rate": 0.92,
+      "ban_rate": 9.39,
+      "tier": "S",
+      "tier_score": 3.29,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 5,
+        "ability_effect": 7,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "alpha",
+      "name": "Alpha",
+      "title": "Blade of Enmity",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alpha/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alpha/icone.webp",
+      "release_year": 2017,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 48.85,
+      "pick_rate": 1.36,
+      "ban_rate": 0.68,
+      "tier": "B",
+      "tier_score": -0.98,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 6,
+        "ability_effect": 7,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "alucard",
+      "name": "Alucard",
+      "title": "Demon Hunter",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alucard/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/alucard/icone.webp",
+      "release_year": 2016,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 48.5,
+      "pick_rate": 0.75,
+      "ban_rate": 0.47,
+      "tier": "B",
+      "tier_score": -1.38,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 5,
+        "ability_effect": 1,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "angela",
+      "name": "Angela",
+      "title": "Bunnylove",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/angela/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/angela/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 49.43,
+      "pick_rate": 1.69,
+      "ban_rate": 10.97,
+      "tier": "A",
+      "tier_score": 2.17,
+      "rank_scope": "all",
+      "speciality": [
+        "Guard",
+        "Support"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 3,
+        "ability_effect": 5,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "argus",
+      "name": "Argus",
+      "title": "Dark Angel",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/argus/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/argus/icone.webp",
+      "release_year": 2017,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 56.51,
+      "pick_rate": 0.48,
+      "ban_rate": 0.97,
+      "tier": "S+",
+      "tier_score": 6.75,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 8,
+        "ability_effect": 6,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "arlott",
+      "name": "Arlott",
+      "title": "Lone Lancer",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/arlott/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/arlott/icone.webp",
+      "release_year": 2023,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 47.67,
+      "pick_rate": 0.47,
+      "ban_rate": 0.39,
+      "tier": "C",
+      "tier_score": -2.23,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 6,
+        "ability_effect": 5,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "title": "Ocean Gladiator",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/atlas/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/atlas/icone.webp",
+      "release_year": 2020,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 52.51,
+      "pick_rate": 0.94,
+      "ban_rate": 9.91,
+      "tier": "S",
+      "tier_score": 4.99,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Initiator"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 8,
+        "ability_effect": 9,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "aulus",
+      "name": "Aulus",
+      "title": "Warrior of Ferocity",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aulus/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aulus/icone.webp",
+      "release_year": 2021,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 53.55,
+      "pick_rate": 0.85,
+      "ban_rate": 43.74,
+      "tier": "S+",
+      "tier_score": 14.48,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Charge"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 6,
+        "ability_effect": 1,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "title": "Maiden of the Glacier",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aurora/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/aurora/icone.webp",
+      "release_year": 2017,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 48.79,
+      "pick_rate": 0.63,
+      "ban_rate": 0.39,
+      "tier": "B",
+      "tier_score": -1.11,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 4,
+        "ability_effect": 10,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "badang",
+      "name": "Badang",
+      "title": "Tribal Warrior",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Roam",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/badang/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/badang/icone.webp",
+      "release_year": 2019,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 50.44,
+      "pick_rate": 1.38,
+      "ban_rate": 4.27,
+      "tier": "A",
+      "tier_score": 1.51,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 4,
+        "ability_effect": 5,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "balmond",
+      "name": "Balmond",
+      "title": "Bloody Beast",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/balmond/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/balmond/icone.webp",
+      "release_year": 2016,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 46.96,
+      "pick_rate": 0.68,
+      "ban_rate": 0.4,
+      "tier": "C",
+      "tier_score": -2.94,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 8,
+        "ability_effect": 2,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "bane",
+      "name": "Bane",
+      "title": "Frozen King",
+      "roles": [
+        "Fighter",
+        "Mage"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/bane/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/bane/icone.webp",
+      "release_year": 2016,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 51.73,
+      "pick_rate": 0.33,
+      "ban_rate": 0.19,
+      "tier": "A",
+      "tier_score": 1.78,
+      "rank_scope": "all",
+      "speciality": [
+        "Push",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 5,
+        "ability_effect": 4,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "barats",
+      "name": "Barats",
+      "title": "Dino Rider",
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/barats/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/barats/icone.webp",
+      "release_year": 2020,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 51.68,
+      "pick_rate": 0.64,
+      "ban_rate": 3.69,
+      "tier": "A",
+      "tier_score": 2.6,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 10,
+        "ability_effect": 9,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "baxia",
+      "name": "Baxia",
+      "title": "Mystic Tortoise",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Jungle",
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/baxia/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/baxia/icone.webp",
+      "release_year": 2019,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 47.02,
+      "pick_rate": 0.05,
+      "ban_rate": 0.09,
+      "tier": "C",
+      "tier_score": -2.96,
+      "rank_scope": "all",
+      "speciality": [
+        "Support",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 10,
+        "ability_effect": 6,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "beatrix",
+      "name": "Beatrix",
+      "title": "Dawnbreak Soldier",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/beatrix/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/beatrix/icone.webp",
+      "release_year": 2021,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 50.86,
+      "pick_rate": 0.64,
+      "ban_rate": 0.4,
+      "tier": "A",
+      "tier_score": 0.96,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "belerick",
+      "name": "Belerick",
+      "title": "Guard of Nature",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/belerick/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/belerick/icone.webp",
+      "release_year": 2018,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 52.03,
+      "pick_rate": 1.75,
+      "ban_rate": 56.01,
+      "tier": "S+",
+      "tier_score": 16.03,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 9,
+        "ability_effect": 10,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "benedetta",
+      "name": "Benedetta",
+      "title": "Shadow Ranger",
+      "roles": [
+        "Assassin",
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/benedetta/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/benedetta/icone.webp",
+      "release_year": 2020,
+      "difficulty": 8,
+      "price": null,
+      "win_rate": 52.6,
+      "pick_rate": 0.37,
+      "ban_rate": 0.31,
+      "tier": "A",
+      "tier_score": 2.68,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 6,
+        "ability_effect": 2,
+        "difficulty": 8
+      }
+    },
+    {
+      "id": "brody",
+      "name": "Brody",
+      "title": "The Lone Star",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/brody/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/brody/icone.webp",
+      "release_year": 2020,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 50.21,
+      "pick_rate": 0.91,
+      "ban_rate": 1.89,
+      "tier": "A",
+      "tier_score": 0.68,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 4,
+        "ability_effect": 5,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "bruno",
+      "name": "Bruno",
+      "title": "The Protector",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/bruno/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/bruno/icone.webp",
+      "release_year": 2016,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 53.2,
+      "pick_rate": 0.35,
+      "ban_rate": 0.17,
+      "tier": "S",
+      "tier_score": 3.24,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 2,
+        "ability_effect": 2,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "carmilla",
+      "name": "Carmilla",
+      "title": "Shadow of Twilight",
+      "roles": [
+        "Support",
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/carmilla/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/carmilla/icone.webp",
+      "release_year": 2020,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 53.83,
+      "pick_rate": 1.18,
+      "ban_rate": 17.18,
+      "tier": "S+",
+      "tier_score": 8.12,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 9,
+        "ability_effect": 8,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "cecilion",
+      "name": "Cecilion",
+      "title": "Embrace of Night",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/cecilion/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/cecilion/icone.webp",
+      "release_year": 2020,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 51.2,
+      "pick_rate": 0.68,
+      "ban_rate": 0.16,
+      "tier": "A",
+      "tier_score": 1.24,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 4,
+        "ability_effect": 5,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "chang-e",
+      "name": "Chang'e",
+      "title": "Moon Palace Immortal",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/chang-e/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/chang-e/icone.webp",
+      "release_year": 2018,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 47.99,
+      "pick_rate": 0.7,
+      "ban_rate": 0.36,
+      "tier": "B",
+      "tier_score": -1.92,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 4,
+        "ability_effect": 2,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "chip",
+      "name": "Chip",
+      "title": "Phase Technician",
+      "roles": [
+        "Support",
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Hybrid",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/chip/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/chip/icone.webp",
+      "release_year": 2024,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 47.23,
+      "pick_rate": 0.04,
+      "ban_rate": 0.22,
+      "tier": "C",
+      "tier_score": -2.72,
+      "rank_scope": "all",
+      "speciality": [
+        "Support",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 8,
+        "ability_effect": 6,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "chou",
+      "name": "Chou",
+      "title": "Kung Fu Boy",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/chou/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/chou/icone.webp",
+      "release_year": 2016,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 45.08,
+      "pick_rate": 1.08,
+      "ban_rate": 3.31,
+      "tier": "C",
+      "tier_score": -4.09,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 5,
+        "ability_effect": 8,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "cici",
+      "name": "Cici",
+      "title": "Buoyant Performer",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/cici/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/cici/icone.webp",
+      "release_year": 2023,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 49.44,
+      "pick_rate": 0.58,
+      "ban_rate": 0.99,
+      "tier": "B",
+      "tier_score": -0.31,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 5,
+        "ability_effect": 3,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "title": "Master Thief",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/claude/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/claude/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.94,
+      "pick_rate": 0.71,
+      "ban_rate": 0.21,
+      "tier": "B",
+      "tier_score": -1.01,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Chase"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "clint",
+      "name": "Clint",
+      "title": "West Justice",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/clint/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/clint/icone.webp",
+      "release_year": 2016,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 50.18,
+      "pick_rate": 0.65,
+      "ban_rate": 0.61,
+      "tier": "B",
+      "tier_score": 0.33,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 3,
+        "ability_effect": 4,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "cyclops",
+      "name": "Cyclops",
+      "title": "Starsoul Magician",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/cyclops/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/cyclops/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 51.62,
+      "pick_rate": 0.7,
+      "ban_rate": 0.3,
+      "tier": "A",
+      "tier_score": 1.69,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 3,
+        "ability_effect": 7,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "diggie",
+      "name": "Diggie",
+      "title": "Timekeeper",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/diggie/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/diggie/icone.webp",
+      "release_year": 2017,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 53.67,
+      "pick_rate": 0.18,
+      "ban_rate": 3.24,
+      "tier": "S",
+      "tier_score": 4.48,
+      "rank_scope": "all",
+      "speciality": [
+        "Guard",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 4,
+        "ability_effect": 2,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "dori",
+      "name": "Dori",
+      "title": "Shepherd of Smiles",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/dori/portrait.webp",
+      "icon_url": null,
+      "release_year": 2026,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": null,
+      "pick_rate": null,
+      "ban_rate": null,
+      "tier": null,
+      "tier_score": null,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 1,
+        "ability_effect": 1,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "dyrroth",
+      "name": "Dyrroth",
+      "title": "Prince of the Abyss",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/dyrroth/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/dyrroth/icone.webp",
+      "release_year": 2019,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 49.03,
+      "pick_rate": 1.77,
+      "ban_rate": 1.56,
+      "tier": "B",
+      "tier_score": -0.58,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 5,
+        "ability_effect": 2,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "edith",
+      "name": "Edith",
+      "title": "Ancient Guard",
+      "roles": [
+        "Tank",
+        "Marksman"
+      ],
+      "lanes": [
+        "Exp",
+        "Roam"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Hybrid",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/edith/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/edith/icone.webp",
+      "release_year": 2021,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 52.53,
+      "pick_rate": 0.3,
+      "ban_rate": 0.15,
+      "tier": "A",
+      "tier_score": 2.57,
+      "rank_scope": "all",
+      "speciality": [
+        "Control",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 7,
+        "ability_effect": 10,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "esmeralda",
+      "name": "Esmeralda",
+      "title": "Astrologer",
+      "roles": [
+        "Tank",
+        "Mage"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/esmeralda/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/esmeralda/icone.webp",
+      "release_year": 2019,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 47.18,
+      "pick_rate": 0.87,
+      "ban_rate": 2.19,
+      "tier": "C",
+      "tier_score": -2.27,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Mixed Damage"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 9,
+        "ability_effect": 6,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "estes",
+      "name": "Estes",
+      "title": "Moon Elf King",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/estes/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/estes/icone.webp",
+      "release_year": 2017,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 52.72,
+      "pick_rate": 0.68,
+      "ban_rate": 45.78,
+      "tier": "S+",
+      "tier_score": 14.17,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Guard"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 7,
+        "ability_effect": 2,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "eudora",
+      "name": "Eudora",
+      "title": "Lightning Weaver",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/eudora/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/eudora/icone.webp",
+      "release_year": 2016,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 50.52,
+      "pick_rate": 1.91,
+      "ban_rate": 56.55,
+      "tier": "S+",
+      "tier_score": 14.66,
+      "rank_scope": "all",
+      "speciality": [
+        "Control",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 1,
+        "ability_effect": 8,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "fanny",
+      "name": "Fanny",
+      "title": "Blade Dancer",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/fanny/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/fanny/icone.webp",
+      "release_year": 2016,
+      "difficulty": 10,
+      "price": null,
+      "win_rate": 42.45,
+      "pick_rate": 0.66,
+      "ban_rate": 1.99,
+      "tier": "C",
+      "tier_score": -7.05,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 6,
+        "ability_effect": 0,
+        "difficulty": 10
+      }
+    },
+    {
+      "id": "faramis",
+      "name": "Faramis",
+      "title": "Soul Binder",
+      "roles": [
+        "Support",
+        "Mage"
+      ],
+      "lanes": [
+        "Mid",
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/faramis/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/faramis/icone.webp",
+      "release_year": 2018,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 50.9,
+      "pick_rate": 0.09,
+      "ban_rate": 0.31,
+      "tier": "A",
+      "tier_score": 0.98,
+      "rank_scope": "all",
+      "speciality": [
+        "Guard",
+        "Charge"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 4,
+        "ability_effect": 1,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "floryn",
+      "name": "Floryn",
+      "title": "The Budding Hope",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/floryn/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/floryn/icone.webp",
+      "release_year": 2021,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 53.92,
+      "pick_rate": 0.91,
+      "ban_rate": 13.38,
+      "tier": "S+",
+      "tier_score": 7.27,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Guard"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 6,
+        "ability_effect": 7,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "franco",
+      "name": "Franco",
+      "title": "Frozen Warrior",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/franco/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/franco/icone.webp",
+      "release_year": 2016,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 41.66,
+      "pick_rate": 1.01,
+      "ban_rate": 3.41,
+      "tier": "C",
+      "tier_score": -7.49,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 8,
+        "ability_effect": 10,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "fredrinn",
+      "name": "Fredrinn",
+      "title": "Rogue Appraiser",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/fredrinn/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/fredrinn/icone.webp",
+      "release_year": 2022,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 50.95,
+      "pick_rate": 0.44,
+      "ban_rate": 1.55,
+      "tier": "A",
+      "tier_score": 1.34,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Chase"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 8,
+        "ability_effect": 6,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "freya",
+      "name": "Freya",
+      "title": "Valkyrie",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/freya/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/freya/icone.webp",
+      "release_year": 2016,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 48.07,
+      "pick_rate": 0.69,
+      "ban_rate": 2.04,
+      "tier": "B",
+      "tier_score": -1.42,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 6,
+        "ability_effect": 5,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "gatotkaca",
+      "name": "Gatotkaca",
+      "title": "Mighty Legend",
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "lanes": [
+        "Roam",
+        "Exp"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gatotkaca/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gatotkaca/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 45.33,
+      "pick_rate": 0.58,
+      "ban_rate": 0.3,
+      "tier": "C",
+      "tier_score": -4.6,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 9,
+        "ability_effect": 9,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "gloo",
+      "name": "Gloo",
+      "title": "Swamp Spirits",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam",
+        "Exp"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gloo/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gloo/icone.webp",
+      "release_year": 2021,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 54.57,
+      "pick_rate": 0.74,
+      "ban_rate": 39.76,
+      "tier": "S+",
+      "tier_score": 14.51,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 10,
+        "ability_effect": 10,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "gord",
+      "name": "Gord",
+      "title": "Professor of the Mystics",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gord/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gord/icone.webp",
+      "release_year": 2016,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 53,
+      "pick_rate": 0.62,
+      "ban_rate": 0.58,
+      "tier": "S",
+      "tier_score": 3.15,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 1,
+        "ability_effect": 8,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "granger",
+      "name": "Granger",
+      "title": "Death Chanter",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/granger/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/granger/icone.webp",
+      "release_year": 2019,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 42.81,
+      "pick_rate": 1.38,
+      "ban_rate": 1.67,
+      "tier": "C",
+      "tier_score": -6.77,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "grock",
+      "name": "Grock",
+      "title": "Fortress Titan",
+      "roles": [
+        "Tank",
+        "Fighter"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/grock/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/grock/icone.webp",
+      "release_year": 2017,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 46.77,
+      "pick_rate": 0.37,
+      "ban_rate": 0.72,
+      "tier": "C",
+      "tier_score": -3.05,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Initiator"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 9,
+        "ability_effect": 8,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "guinevere",
+      "name": "Guinevere",
+      "title": "Ms. Violet",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/guinevere/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/guinevere/icone.webp",
+      "release_year": 2019,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 51.21,
+      "pick_rate": 0.81,
+      "ban_rate": 2.08,
+      "tier": "A",
+      "tier_score": 1.73,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 4,
+        "ability_effect": 8,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "gusion",
+      "name": "Gusion",
+      "title": "Holy Blade",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle",
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gusion/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/gusion/icone.webp",
+      "release_year": 2018,
+      "difficulty": 8,
+      "price": null,
+      "win_rate": 48.59,
+      "pick_rate": 1.33,
+      "ban_rate": 4.09,
+      "tier": "B",
+      "tier_score": -0.39,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 8
+      }
+    },
+    {
+      "id": "hanabi",
+      "name": "Hanabi",
+      "title": "Scarlet Flower",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hanabi/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hanabi/icone.webp",
+      "release_year": 2018,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 52.61,
+      "pick_rate": 2.62,
+      "ban_rate": 4.9,
+      "tier": "S",
+      "tier_score": 3.83,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 2,
+        "ability_effect": 8,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "hanzo",
+      "name": "Hanzo",
+      "title": "Akuma Ninja",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hanzo/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hanzo/icone.webp",
+      "release_year": 2018,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 49.84,
+      "pick_rate": 0.39,
+      "ban_rate": 8.73,
+      "tier": "A",
+      "tier_score": 2.02,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 7,
+        "ability_effect": 2,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "harith",
+      "name": "Harith",
+      "title": "Time Traveler",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/harith/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/harith/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 45.81,
+      "pick_rate": 0.13,
+      "ban_rate": 0.05,
+      "tier": "C",
+      "tier_score": -4.18,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 4,
+        "ability_effect": 1,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "harley",
+      "name": "Harley",
+      "title": "Mage Genius",
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "lanes": [
+        "Jungle",
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/harley/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/harley/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 47.75,
+      "pick_rate": 0.84,
+      "ban_rate": 3.3,
+      "tier": "B",
+      "tier_score": -1.42,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "hayabusa",
+      "name": "Hayabusa",
+      "title": "Crimson Shadow",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hayabusa/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hayabusa/icone.webp",
+      "release_year": 2016,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.21,
+      "pick_rate": 0.86,
+      "ban_rate": 1.95,
+      "tier": "B",
+      "tier_score": -1.3,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 4,
+        "ability_effect": 1,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "helcurt",
+      "name": "Helcurt",
+      "title": "Shadowbringer",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle",
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/helcurt/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/helcurt/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 47.48,
+      "pick_rate": 0.6,
+      "ban_rate": 4.92,
+      "tier": "B",
+      "tier_score": -1.29,
+      "rank_scope": "all",
+      "speciality": [
+        "Push",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 3,
+        "ability_effect": 5,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "hilda",
+      "name": "Hilda",
+      "title": "Power of Megalith",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "lanes": [
+        "Roam",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hilda/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hilda/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 51.07,
+      "pick_rate": 0.59,
+      "ban_rate": 10.83,
+      "tier": "S",
+      "tier_score": 3.78,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 9,
+        "ability_effect": 4,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "hirara",
+      "name": "Hirara",
+      "title": "Fallen Scarlet",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hirara/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hirara/icone.webp",
+      "release_year": 2026,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 50.05,
+      "pick_rate": 0.53,
+      "ban_rate": 68.11,
+      "tier": "S+",
+      "tier_score": 17.08,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 4,
+        "ability_effect": 4,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "hylos",
+      "name": "Hylos",
+      "title": "Grand Warden",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hylos/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/hylos/icone.webp",
+      "release_year": 2017,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 48.98,
+      "pick_rate": 0.31,
+      "ban_rate": 0.27,
+      "tier": "B",
+      "tier_score": -0.95,
+      "rank_scope": "all",
+      "speciality": [
+        "Guard",
+        "Initiator"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 10,
+        "ability_effect": 8,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "irithel",
+      "name": "Irithel",
+      "title": "Jungle Heart",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/irithel/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/irithel/icone.webp",
+      "release_year": 2017,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 52.4,
+      "pick_rate": 0.42,
+      "ban_rate": 0.26,
+      "tier": "A",
+      "tier_score": 2.46,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 1,
+        "ability_effect": 1,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "ixia",
+      "name": "Ixia",
+      "title": "Arclight Outlaw",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/ixia/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/ixia/icone.webp",
+      "release_year": 2023,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 49.86,
+      "pick_rate": 0.77,
+      "ban_rate": 0.75,
+      "tier": "B",
+      "tier_score": 0.05,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 3,
+        "ability_effect": 5,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "jawhead",
+      "name": "Jawhead",
+      "title": "Steel Sweetheart",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Roam",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/jawhead/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/jawhead/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.02,
+      "pick_rate": 0.35,
+      "ban_rate": 0.3,
+      "tier": "B",
+      "tier_score": -1.9,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 6,
+        "ability_effect": 6,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "johnson",
+      "name": "Johnson",
+      "title": "Wild Engine",
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/johnson/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/johnson/icone.webp",
+      "release_year": 2017,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.98,
+      "pick_rate": 0.75,
+      "ban_rate": 2.18,
+      "tier": "B",
+      "tier_score": -0.48,
+      "rank_scope": "all",
+      "speciality": [
+        "Support",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 8,
+        "ability_effect": 9,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "joy",
+      "name": "Joy",
+      "title": "Flash of Miracle",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/joy/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/joy/icone.webp",
+      "release_year": 2022,
+      "difficulty": 9,
+      "price": null,
+      "win_rate": 48.54,
+      "pick_rate": 0.14,
+      "ban_rate": 0.2,
+      "tier": "B",
+      "tier_score": -1.41,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 9
+      }
+    },
+    {
+      "id": "julian",
+      "name": "Julian",
+      "title": "Scarlet Raven",
+      "roles": [
+        "Assassin",
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/julian/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/julian/icone.webp",
+      "release_year": 2022,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 50.19,
+      "pick_rate": 0.68,
+      "ban_rate": 0.83,
+      "tier": "B",
+      "tier_score": 0.4,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 6,
+        "ability_effect": 7,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "kadita",
+      "name": "Kadita",
+      "title": "Ocean Goddess",
+      "roles": [
+        "Mage",
+        "Assassin"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kadita/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kadita/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 51.56,
+      "pick_rate": 0.78,
+      "ban_rate": 3.31,
+      "tier": "A",
+      "tier_score": 2.39,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Charge"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 4,
+        "ability_effect": 8,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "kagura",
+      "name": "Kagura",
+      "title": "Onmyouji Master",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kagura/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kagura/icone.webp",
+      "release_year": 2016,
+      "difficulty": 9,
+      "price": null,
+      "win_rate": 51.59,
+      "pick_rate": 0.6,
+      "ban_rate": 0.99,
+      "tier": "A",
+      "tier_score": 1.84,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 4,
+        "ability_effect": 5,
+        "difficulty": 9
+      }
+    },
+    {
+      "id": "kaja",
+      "name": "Kaja",
+      "title": "Nazar King",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kaja/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kaja/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 49.84,
+      "pick_rate": 0.54,
+      "ban_rate": 14.56,
+      "tier": "S",
+      "tier_score": 3.48,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Charge"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 8,
+        "ability_effect": 7,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "kalea",
+      "name": "Kalea",
+      "title": "Surging Wave",
+      "roles": [
+        "Support",
+        "Fighter"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kalea/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kalea/icone.webp",
+      "release_year": 2025,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 49.36,
+      "pick_rate": 0.38,
+      "ban_rate": 1,
+      "tier": "B",
+      "tier_score": -0.39,
+      "rank_scope": "all",
+      "speciality": [
+        "Control",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 6,
+        "ability_effect": 9,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "karina",
+      "name": "Karina",
+      "title": "Shadow Blade",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/karina/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/karina/icone.webp",
+      "release_year": 2016,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 47.92,
+      "pick_rate": 0.81,
+      "ban_rate": 3.16,
+      "tier": "B",
+      "tier_score": -1.29,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 5,
+        "ability_effect": 1,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "karrie",
+      "name": "Karrie",
+      "title": "Lost Star",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/karrie/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/karrie/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 48.8,
+      "pick_rate": 0.57,
+      "ban_rate": 0.83,
+      "tier": "B",
+      "tier_score": -0.99,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 3,
+        "ability_effect": 1,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "khaleed",
+      "name": "Khaleed",
+      "title": "Desert Scimitar",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Roam",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/khaleed/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/khaleed/icone.webp",
+      "release_year": 2020,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 50.9,
+      "pick_rate": 0.12,
+      "ban_rate": 0.08,
+      "tier": "A",
+      "tier_score": 0.92,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 8,
+        "ability_effect": 5,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "khufra",
+      "name": "Khufra",
+      "title": "Desert Tyrant",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Hybrid",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/khufra/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/khufra/icone.webp",
+      "release_year": 2019,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 54.71,
+      "pick_rate": 0.34,
+      "ban_rate": 1.92,
+      "tier": "S",
+      "tier_score": 5.19,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 9,
+        "ability_effect": 10,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "kimmy",
+      "name": "Kimmy",
+      "title": "Hoverjet Outrider",
+      "roles": [
+        "Marksman",
+        "Mage"
+      ],
+      "lanes": [
+        "Mid",
+        "Gold"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kimmy/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/kimmy/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.88,
+      "pick_rate": 0.79,
+      "ban_rate": 0.52,
+      "tier": "B",
+      "tier_score": -0.99,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 3,
+        "ability_effect": 5,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "lancelot",
+      "name": "Lancelot",
+      "title": "Blade of Roses",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lancelot/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lancelot/icone.webp",
+      "release_year": 2017,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 43.07,
+      "pick_rate": 0.54,
+      "ban_rate": 0.45,
+      "tier": "C",
+      "tier_score": -6.82,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 4,
+        "ability_effect": 1,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "lapu-lapu",
+      "name": "Lapu-Lapu",
+      "title": "Courageous Blade",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lapu-lapu/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lapu-lapu/icone.webp",
+      "release_year": 2017,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 48.52,
+      "pick_rate": 0.34,
+      "ban_rate": 0.27,
+      "tier": "B",
+      "tier_score": -1.41,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 8,
+        "ability_effect": 4,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "layla",
+      "name": "Layla",
+      "title": "Energy Gunner",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/layla/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/layla/icone.webp",
+      "release_year": 2016,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 49.55,
+      "pick_rate": 1.57,
+      "ban_rate": 1.39,
+      "tier": "B",
+      "tier_score": -0.1,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 1,
+        "ability_effect": 1,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "leomord",
+      "name": "Leomord",
+      "title": "Sworn Sword",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/leomord/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/leomord/icone.webp",
+      "release_year": 2018,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 50.47,
+      "pick_rate": 0.3,
+      "ban_rate": 0.52,
+      "tier": "A",
+      "tier_score": 0.6,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 7,
+        "ability_effect": 3,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "lesley",
+      "name": "Lesley",
+      "title": "Deadly Sniper",
+      "roles": [
+        "Marksman",
+        "Assassin"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lesley/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lesley/icone.webp",
+      "release_year": 2018,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 48.15,
+      "pick_rate": 1.8,
+      "ban_rate": 8.11,
+      "tier": "B",
+      "tier_score": 0.18,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 1,
+        "ability_effect": 2,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "ling",
+      "name": "Ling",
+      "title": "Cyan Finch",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/ling/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/ling/icone.webp",
+      "release_year": 2019,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 52.85,
+      "pick_rate": 0.7,
+      "ban_rate": 0.68,
+      "tier": "S",
+      "tier_score": 3.02,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 4,
+        "ability_effect": 3,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "lolita",
+      "name": "Lolita",
+      "title": "Steel Elf",
+      "roles": [
+        "Support",
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lolita/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lolita/icone.webp",
+      "release_year": 2016,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 54.02,
+      "pick_rate": 0.08,
+      "ban_rate": 0.19,
+      "tier": "S",
+      "tier_score": 4.07,
+      "rank_scope": "all",
+      "speciality": [
+        "Guard",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 10,
+        "ability_effect": 9,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "lukas",
+      "name": "Lukas",
+      "title": "Beast of Light",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lukas/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lukas/icone.webp",
+      "release_year": 2024,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 52.6,
+      "pick_rate": 0.87,
+      "ban_rate": 37.77,
+      "tier": "S+",
+      "tier_score": 12.04,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 8,
+        "ability_effect": 6,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "lunox",
+      "name": "Lunox",
+      "title": "Twilight Goddess",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lunox/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lunox/icone.webp",
+      "release_year": 2018,
+      "difficulty": 9,
+      "price": null,
+      "win_rate": 48.73,
+      "pick_rate": 0.25,
+      "ban_rate": 0.21,
+      "tier": "B",
+      "tier_score": -1.22,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 4,
+        "ability_effect": 3,
+        "difficulty": 9
+      }
+    },
+    {
+      "id": "luo-yi",
+      "name": "Luo Yi",
+      "title": "Yin-yang Geomancer",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/luo-yi/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/luo-yi/icone.webp",
+      "release_year": 2020,
+      "difficulty": 8,
+      "price": null,
+      "win_rate": 47.95,
+      "pick_rate": 0.16,
+      "ban_rate": 0.07,
+      "tier": "C",
+      "tier_score": -2.03,
+      "rank_scope": "all",
+      "speciality": [
+        "Support",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 2,
+        "ability_effect": 4,
+        "difficulty": 8
+      }
+    },
+    {
+      "id": "lylia",
+      "name": "Lylia",
+      "title": "Little Witch",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lylia/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/lylia/icone.webp",
+      "release_year": 2019,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 49.5,
+      "pick_rate": 0.46,
+      "ban_rate": 0.37,
+      "tier": "B",
+      "tier_score": -0.41,
+      "rank_scope": "all",
+      "speciality": [
+        "Push",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 5,
+        "ability_effect": 2,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "marcel",
+      "name": "Marcel",
+      "title": "Soul Photographer",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/marcel/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/marcel/icone.webp",
+      "release_year": 2026,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 57.78,
+      "pick_rate": 0.29,
+      "ban_rate": 35.19,
+      "tier": "S+",
+      "tier_score": 16.58,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Support"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 7,
+        "ability_effect": 10,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "martis",
+      "name": "Martis",
+      "title": "Ashura King",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/martis/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/martis/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 47.45,
+      "pick_rate": 0.62,
+      "ban_rate": 0.45,
+      "tier": "C",
+      "tier_score": -2.44,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Charge"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 6,
+        "ability_effect": 5,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "masha",
+      "name": "Masha",
+      "title": "Wild-oats Fist",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/masha/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/masha/icone.webp",
+      "release_year": 2019,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 61.03,
+      "pick_rate": 0.55,
+      "ban_rate": 35.05,
+      "tier": "S+",
+      "tier_score": 19.79,
+      "rank_scope": "all",
+      "speciality": [
+        "Push",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 5,
+        "ability_effect": 3,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "mathilda",
+      "name": "Mathilda",
+      "title": "Swift Plume",
+      "roles": [
+        "Support",
+        "Assassin"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/mathilda/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/mathilda/icone.webp",
+      "release_year": 2020,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 44.51,
+      "pick_rate": 0.14,
+      "ban_rate": 0.18,
+      "tier": "C",
+      "tier_score": -5.45,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Guard"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 8,
+        "ability_effect": 4,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "melissa",
+      "name": "Melissa",
+      "title": "Cursed Needle",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/melissa/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/melissa/icone.webp",
+      "release_year": 2022,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 48.52,
+      "pick_rate": 0.36,
+      "ban_rate": 0.96,
+      "tier": "B",
+      "tier_score": -1.24,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 2,
+        "ability_effect": 4,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "minotaur",
+      "name": "Minotaur",
+      "title": "Son of Minos",
+      "roles": [
+        "Tank",
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/minotaur/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/minotaur/icone.webp",
+      "release_year": 2016,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 54.36,
+      "pick_rate": 1.04,
+      "ban_rate": 8.73,
+      "tier": "S+",
+      "tier_score": 6.54,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 10,
+        "ability_effect": 8,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "minsitthar",
+      "name": "Minsitthar",
+      "title": "Courageous Warrior",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/minsitthar/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/minsitthar/icone.webp",
+      "release_year": 2018,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 51.68,
+      "pick_rate": 0.65,
+      "ban_rate": 4.81,
+      "tier": "A",
+      "tier_score": 2.88,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 6,
+        "ability_effect": 8,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "miya",
+      "name": "Miya",
+      "title": "Moonlight Archer",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/miya/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/miya/icone.webp",
+      "release_year": 2016,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 49.6,
+      "pick_rate": 2.51,
+      "ban_rate": 5.94,
+      "tier": "A",
+      "tier_score": 1.09,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 1,
+        "ability_effect": 4,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "moskov",
+      "name": "Moskov",
+      "title": "Spear of Quiescence",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/moskov/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/moskov/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 50.41,
+      "pick_rate": 0.97,
+      "ban_rate": 0.31,
+      "tier": "B",
+      "tier_score": 0.49,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Chase"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 2,
+        "ability_effect": 6,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "nana",
+      "name": "Nana",
+      "title": "Sweet Leonin",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/nana/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/nana/icone.webp",
+      "release_year": 2016,
+      "difficulty": null,
+      "price": null,
+      "win_rate": 47.55,
+      "pick_rate": 2,
+      "ban_rate": 4.26,
+      "tier": "B",
+      "tier_score": -1.39,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 5,
+        "ability_effect": 10,
+        "difficulty": null
+      }
+    },
+    {
+      "id": "natalia",
+      "name": "Natalia",
+      "title": "Bright Claw",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle",
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/natalia/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/natalia/icone.webp",
+      "release_year": 2016,
+      "difficulty": 9,
+      "price": null,
+      "win_rate": 51.04,
+      "pick_rate": 0.3,
+      "ban_rate": 1.93,
+      "tier": "A",
+      "tier_score": 1.52,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 1,
+        "ability_effect": 6,
+        "difficulty": 9
+      }
+    },
+    {
+      "id": "natan",
+      "name": "Natan",
+      "title": "Spacetime Walker",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/natan/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/natan/icone.webp",
+      "release_year": 2021,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 50.82,
+      "pick_rate": 0.28,
+      "ban_rate": 0.13,
+      "tier": "A",
+      "tier_score": 0.85,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 2,
+        "ability_effect": 2,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "nolan",
+      "name": "Nolan",
+      "title": "Cosmic Wayfinder",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/nolan/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/nolan/icone.webp",
+      "release_year": 2023,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 49.43,
+      "pick_rate": 1.45,
+      "ban_rate": 7.75,
+      "tier": "A",
+      "tier_score": 1.37,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 3,
+        "ability_effect": 2,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "novaria",
+      "name": "Novaria",
+      "title": "Star Rebel",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/novaria/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/novaria/icone.webp",
+      "release_year": 2023,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 49.72,
+      "pick_rate": 1.3,
+      "ban_rate": 4.09,
+      "tier": "A",
+      "tier_score": 0.74,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 3,
+        "ability_effect": 3,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "obsidia",
+      "name": "Obsidia",
+      "title": "Sovereign of Dark's End",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/obsidia/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/obsidia/icone.webp",
+      "release_year": 2025,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 53.35,
+      "pick_rate": 2.41,
+      "ban_rate": 30.68,
+      "tier": "S+",
+      "tier_score": 11.02,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 2,
+        "ability_effect": 1,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "odette",
+      "name": "Odette",
+      "title": "Swan Princess",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/odette/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/odette/icone.webp",
+      "release_year": 2017,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 49.5,
+      "pick_rate": 0.58,
+      "ban_rate": 0.3,
+      "tier": "B",
+      "tier_score": -0.42,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 4,
+        "ability_effect": 5,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "paquito",
+      "name": "Paquito",
+      "title": "The Heavenly Fist",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/paquito/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/paquito/icone.webp",
+      "release_year": 2021,
+      "difficulty": 9,
+      "price": null,
+      "win_rate": 50.22,
+      "pick_rate": 1.46,
+      "ban_rate": 29.1,
+      "tier": "S+",
+      "tier_score": 7.49,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 6,
+        "ability_effect": 4,
+        "difficulty": 9
+      }
+    },
+    {
+      "id": "pharsa",
+      "name": "Pharsa",
+      "title": "Wings of Vengeance",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/pharsa/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/pharsa/icone.webp",
+      "release_year": 2017,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 47.65,
+      "pick_rate": 0.35,
+      "ban_rate": 0.19,
+      "tier": "C",
+      "tier_score": -2.3,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 2,
+        "ability_effect": 5,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "phoveus",
+      "name": "Phoveus",
+      "title": "Chains of Sin",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/phoveus/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/phoveus/icone.webp",
+      "release_year": 2021,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 48.39,
+      "pick_rate": 0.28,
+      "ban_rate": 0.63,
+      "tier": "B",
+      "tier_score": -1.45,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 7,
+        "ability_effect": 5,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "popol-and-kupa",
+      "name": "Popol and Kupa",
+      "title": "Icefield Companions",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Jungle",
+        "Gold"
+      ],
+      "damage_type": "Mixed",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/popol-and-kupa/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/popol-and-kupa/icone.webp",
+      "release_year": 2020,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 54.69,
+      "pick_rate": 0.45,
+      "ban_rate": 0.31,
+      "tier": "S",
+      "tier_score": 4.77,
+      "rank_scope": "all",
+      "speciality": [
+        "Push",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 3,
+        "ability_effect": 7,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "rafaela",
+      "name": "Rafaela",
+      "title": "Wings of Holiness",
+      "roles": [
+        "Support"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/rafaela/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/rafaela/icone.webp",
+      "release_year": 2016,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 55.18,
+      "pick_rate": 1.04,
+      "ban_rate": 18.04,
+      "tier": "S+",
+      "tier_score": 9.69,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Guard"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 6,
+        "ability_effect": 7,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "roger",
+      "name": "Roger",
+      "title": "Dire Wolf Hunter",
+      "roles": [
+        "Fighter",
+        "Marksman"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Hybrid",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/roger/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/roger/icone.webp",
+      "release_year": 2017,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.88,
+      "pick_rate": 0.28,
+      "ban_rate": 0.1,
+      "tier": "B",
+      "tier_score": -1.09,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 6,
+        "ability_effect": 1,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "title": "Little Red Hood",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/ruby/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/ruby/icone.webp",
+      "release_year": 2017,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 49.41,
+      "pick_rate": 0.32,
+      "ban_rate": 0.29,
+      "tier": "B",
+      "tier_score": -0.52,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control",
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 9,
+        "ability_effect": 9,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "saber",
+      "name": "Saber",
+      "title": "Wandering Sword",
+      "roles": [
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle",
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/saber/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/saber/icone.webp",
+      "release_year": 2016,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 50.88,
+      "pick_rate": 1.06,
+      "ban_rate": 24.1,
+      "tier": "S+",
+      "tier_score": 6.91,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 2,
+        "ability_effect": 6,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "selena",
+      "name": "Selena",
+      "title": "Abyssal Witch",
+      "roles": [
+        "Assassin",
+        "Mage"
+      ],
+      "lanes": [
+        "Mid",
+        "Roam"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Hybrid",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/selena/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/selena/icone.webp",
+      "release_year": 2018,
+      "difficulty": 8,
+      "price": null,
+      "win_rate": 48.47,
+      "pick_rate": 1.63,
+      "ban_rate": 5.91,
+      "tier": "B",
+      "tier_score": -0.05,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 4,
+        "ability_effect": 10,
+        "difficulty": 8
+      }
+    },
+    {
+      "id": "silvanna",
+      "name": "Silvanna",
+      "title": "Imperial Knightess",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/silvanna/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/silvanna/icone.webp",
+      "release_year": 2019,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 51.57,
+      "pick_rate": 1.05,
+      "ban_rate": 1.89,
+      "tier": "A",
+      "tier_score": 2.04,
+      "rank_scope": "all",
+      "speciality": [
+        "Initiator",
+        "Magic Damage"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 5,
+        "ability_effect": 7,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "sora",
+      "name": "Sora",
+      "title": "Shifting Cloud",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/sora/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/sora/icone.webp",
+      "release_year": 2025,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 49.24,
+      "pick_rate": 0.59,
+      "ban_rate": 3.58,
+      "tier": "B",
+      "tier_score": 0.14,
+      "rank_scope": "all",
+      "speciality": [
+        "Charge",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 6,
+        "ability_effect": 5,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "sun",
+      "name": "Sun",
+      "title": "Monkey King",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp",
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/sun/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/sun/icone.webp",
+      "release_year": 2016,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 53.02,
+      "pick_rate": 1.68,
+      "ban_rate": 22.56,
+      "tier": "S+",
+      "tier_score": 8.66,
+      "rank_scope": "all",
+      "speciality": [
+        "Push",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 5,
+        "ability_effect": 1,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "suyou",
+      "name": "Suyou",
+      "title": "Mask of the Immortal",
+      "roles": [
+        "Assassin",
+        "Fighter"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/suyou/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/suyou/icone.webp",
+      "release_year": 2024,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 49.51,
+      "pick_rate": 0.79,
+      "ban_rate": 1.01,
+      "tier": "B",
+      "tier_score": -0.24,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 6,
+        "ability_effect": 5,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "terizla",
+      "name": "Terizla",
+      "title": "Executioner",
+      "roles": [
+        "Fighter",
+        "Tank"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/terizla/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/terizla/icone.webp",
+      "release_year": 2019,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 50.86,
+      "pick_rate": 0.35,
+      "ban_rate": 0.18,
+      "tier": "A",
+      "tier_score": 0.9,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 9,
+        "ability_effect": 7,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "thamuz",
+      "name": "Thamuz",
+      "title": "Lord Lava",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Rage",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/thamuz/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/thamuz/icone.webp",
+      "release_year": 2018,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 48.87,
+      "pick_rate": 0.83,
+      "ban_rate": 1.62,
+      "tier": "B",
+      "tier_score": -0.73,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 7,
+        "ability_effect": 2,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "tigreal",
+      "name": "Tigreal",
+      "title": "Warrior of Dawn",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Roam"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/tigreal/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/tigreal/icone.webp",
+      "release_year": 2016,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 44.95,
+      "pick_rate": 2.04,
+      "ban_rate": 6.85,
+      "tier": "C",
+      "tier_score": -3.34,
+      "rank_scope": "all",
+      "speciality": [
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 1,
+        "durability": 8,
+        "ability_effect": 10,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "uranus",
+      "name": "Uranus",
+      "title": "Aesthereal Defender",
+      "roles": [
+        "Tank"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/uranus/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/uranus/icone.webp",
+      "release_year": 2018,
+      "difficulty": 3,
+      "price": null,
+      "win_rate": 49.45,
+      "pick_rate": 0.34,
+      "ban_rate": 0.35,
+      "tier": "B",
+      "tier_score": -0.46,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen"
+      ],
+      "ratings": {
+        "offense": 2,
+        "durability": 10,
+        "ability_effect": 2,
+        "difficulty": 3
+      }
+    },
+    {
+      "id": "vale",
+      "name": "Vale",
+      "title": "Windtalker",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/vale/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/vale/icone.webp",
+      "release_year": 2019,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 50.32,
+      "pick_rate": 0.55,
+      "ban_rate": 0.2,
+      "tier": "B",
+      "tier_score": 0.37,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 2,
+        "ability_effect": 6,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "valentina",
+      "name": "Valentina",
+      "title": "Prophetess of the Night",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/valentina/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/valentina/icone.webp",
+      "release_year": 2021,
+      "difficulty": 8,
+      "price": null,
+      "win_rate": 44.95,
+      "pick_rate": 0.19,
+      "ban_rate": 0.18,
+      "tier": "C",
+      "tier_score": -5,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Finisher"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 5,
+        "ability_effect": 4,
+        "difficulty": 8
+      }
+    },
+    {
+      "id": "valir",
+      "name": "Valir",
+      "title": "Son of Flames",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/valir/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/valir/icone.webp",
+      "release_year": 2018,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 54.4,
+      "pick_rate": 1.14,
+      "ban_rate": 2.74,
+      "tier": "S",
+      "tier_score": 5.08,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Guard"
+      ],
+      "ratings": {
+        "offense": 7,
+        "durability": 2,
+        "ability_effect": 7,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "vexana",
+      "name": "Vexana",
+      "title": "Shimmer of Hope",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/vexana/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/vexana/icone.webp",
+      "release_year": 2017,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 49.63,
+      "pick_rate": 1.55,
+      "ban_rate": 1.18,
+      "tier": "B",
+      "tier_score": -0.07,
+      "rank_scope": "all",
+      "speciality": [
+        "Poke",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 2,
+        "ability_effect": 5,
+        "difficulty": 1
+      }
+    },
+    {
+      "id": "wanwan",
+      "name": "Wanwan",
+      "title": "Agile Tiger",
+      "roles": [
+        "Marksman"
+      ],
+      "lanes": [
+        "Gold"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/wanwan/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/wanwan/icone.webp",
+      "release_year": 2019,
+      "difficulty": 8,
+      "price": null,
+      "win_rate": 47.77,
+      "pick_rate": 0.14,
+      "ban_rate": 0.13,
+      "tier": "C",
+      "tier_score": -2.2,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 2,
+        "ability_effect": 3,
+        "difficulty": 8
+      }
+    },
+    {
+      "id": "x-borg",
+      "name": "X.Borg",
+      "title": "Firaga Armor",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Hybrid",
+      "resource": "Energy",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/x-borg/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/x-borg/icone.webp",
+      "release_year": 2019,
+      "difficulty": 6,
+      "price": null,
+      "win_rate": 50.13,
+      "pick_rate": 0.61,
+      "ban_rate": 1.9,
+      "tier": "A",
+      "tier_score": 0.61,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Burst"
+      ],
+      "ratings": {
+        "offense": 3,
+        "durability": 8,
+        "ability_effect": 1,
+        "difficulty": 6
+      }
+    },
+    {
+      "id": "xavier",
+      "name": "Xavier",
+      "title": "Defier of Light",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/xavier/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/xavier/icone.webp",
+      "release_year": 2022,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 49.42,
+      "pick_rate": 0.49,
+      "ban_rate": 0.12,
+      "tier": "B",
+      "tier_score": -0.55,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Guard"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 3,
+        "ability_effect": 8,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "yi-sun-shin",
+      "name": "Yi Sun-shin",
+      "title": "Paenlong Legend",
+      "roles": [
+        "Assassin",
+        "Marksman"
+      ],
+      "lanes": [
+        "Jungle"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Hybrid",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yi-sun-shin/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yi-sun-shin/icone.webp",
+      "release_year": 2017,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 49.66,
+      "pick_rate": 1.06,
+      "ban_rate": 3.95,
+      "tier": "A",
+      "tier_score": 0.65,
+      "rank_scope": "all",
+      "speciality": [
+        "Finisher",
+        "Chase"
+      ],
+      "ratings": {
+        "offense": 9,
+        "durability": 4,
+        "ability_effect": 2,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "yin",
+      "name": "Yin",
+      "title": "Martial Genius",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "Jungle",
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yin/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yin/icone.webp",
+      "release_year": 2022,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 49.18,
+      "pick_rate": 0.5,
+      "ban_rate": 1.69,
+      "tier": "B",
+      "tier_score": -0.4,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Control"
+      ],
+      "ratings": {
+        "offense": 6,
+        "durability": 5,
+        "ability_effect": 8,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "yu-zhong",
+      "name": "Yu Zhong",
+      "title": "Black Dragon",
+      "roles": [
+        "Fighter"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": null,
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yu-zhong/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yu-zhong/icone.webp",
+      "release_year": 2020,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 48.9,
+      "pick_rate": 0.55,
+      "ban_rate": 0.72,
+      "tier": "B",
+      "tier_score": -0.92,
+      "rank_scope": "all",
+      "speciality": [
+        "Regen",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 4,
+        "durability": 7,
+        "ability_effect": 7,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "yve",
+      "name": "Yve",
+      "title": "Astrowarden",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yve/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/yve/icone.webp",
+      "release_year": 2021,
+      "difficulty": 5,
+      "price": null,
+      "win_rate": 52.4,
+      "pick_rate": 0.05,
+      "ban_rate": 0.04,
+      "tier": "A",
+      "tier_score": 2.41,
+      "rank_scope": "all",
+      "speciality": [
+        "Burst",
+        "Poke"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 4,
+        "ability_effect": 4,
+        "difficulty": 5
+      }
+    },
+    {
+      "id": "zetian",
+      "name": "Zetian",
+      "title": "Celestial Empress",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zetian/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zetian/icone.webp",
+      "release_year": 2025,
+      "difficulty": 2,
+      "price": null,
+      "win_rate": 51.08,
+      "pick_rate": 1.62,
+      "ban_rate": 4.22,
+      "tier": "A",
+      "tier_score": 2.13,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 3,
+        "ability_effect": 5,
+        "difficulty": 2
+      }
+    },
+    {
+      "id": "zhask",
+      "name": "Zhask",
+      "title": "The King of Swarms",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zhask/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zhask/icone.webp",
+      "release_year": 2017,
+      "difficulty": 7,
+      "price": null,
+      "win_rate": 52.76,
+      "pick_rate": 0.36,
+      "ban_rate": 0.4,
+      "tier": "A",
+      "tier_score": 2.86,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 10,
+        "durability": 1,
+        "ability_effect": 4,
+        "difficulty": 7
+      }
+    },
+    {
+      "id": "zhuxin",
+      "name": "Zhuxin",
+      "title": "Beacon of Spirits",
+      "roles": [
+        "Mage"
+      ],
+      "lanes": [
+        "Mid"
+      ],
+      "damage_type": "Magic",
+      "attack_type": "Ranged",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zhuxin/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zhuxin/icone.webp",
+      "release_year": 2024,
+      "difficulty": 4,
+      "price": null,
+      "win_rate": 50.13,
+      "pick_rate": 0.18,
+      "ban_rate": 0.33,
+      "tier": "B",
+      "tier_score": 0.21,
+      "rank_scope": "all",
+      "speciality": [
+        "Damage",
+        "Crowd Control"
+      ],
+      "ratings": {
+        "offense": 8,
+        "durability": 4,
+        "ability_effect": 8,
+        "difficulty": 4
+      }
+    },
+    {
+      "id": "zilong",
+      "name": "Zilong",
+      "title": "Spear of Dragon",
+      "roles": [
+        "Fighter",
+        "Assassin"
+      ],
+      "lanes": [
+        "Exp"
+      ],
+      "damage_type": "Physical",
+      "attack_type": "Melee",
+      "resource": "Mana",
+      "portrait_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zilong/portrait.webp",
+      "icon_url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/public/visuels/heros/zilong/icone.webp",
+      "release_year": 2016,
+      "difficulty": 1,
+      "price": null,
+      "win_rate": 46.27,
+      "pick_rate": 0.79,
+      "ban_rate": 0.5,
+      "tier": "C",
+      "tier_score": -3.6,
+      "rank_scope": "all",
+      "speciality": [
+        "Chase",
+        "Damage"
+      ],
+      "ratings": {
+        "offense": 5,
+        "durability": 2,
+        "ability_effect": 6,
+        "difficulty": 1
+      }
+    }
+  ]
+}

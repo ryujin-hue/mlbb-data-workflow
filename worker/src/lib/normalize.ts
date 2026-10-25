@@ -1,4 +1,5 @@
 import { clamp, toIsoNow } from './time';
+import { tierFromScore, tierScore } from '../../../shared/tier';
 import type {
   CounterEdge,
   DatasetPayload,
@@ -17,46 +18,6 @@ import type { UpstreamBundle } from './fetch-upstream';
 const ASSET_BASE = 'https://raw.githubusercontent.com/achedon12/mlbb/develop/public/';
 const RANK_PRIORITY = ['all', 'epic', 'legend', 'mythic', 'honor', 'glory'] as const;
 
-/**
- * Tier score.
- *
- * Formula (configurable, see WEIGHTS below):
- *   tierScore = (winRate - 50) + pickRate * weightP + banRate * weightB
- *
- * `winRate`/`pickRate`/`banRate` arrive as PERCENTAGES (e.g. 61.03 means 61.03%).
- * The brief's `(winRate - 0.5) * 100` is the same thing expressed on a 0..1
- * fraction, so the two forms are equivalent once the unit is normalised.
- *
- * Defaults reproduce MLBBDex's own published tier list
- * (src/lib/tier-list.ts upstream): score = winRate + banRate * 0.25 with
- * thresholds 56 / 53 / 50.5 / 48, which is the same formula shifted by the
- * constant 50. Verified to match 133/133 rated heroes.
- *
- * `weightP` defaults to 0 on purpose: pick rate measures popularity, not
- * power - upstream makes the same argument. Raise it to weight meta presence.
- */
-export const WEIGHTS = {
-  /** Weight of pick rate. 0 = popularity ignored. */
-  weightP: 0,
-  /** Weight of ban rate. 0.25 = upstream MLBBDex value. */
-  weightB: 0.25,
-} as const;
-
-/** Tier bounds on `tierScore` (already shifted so 0 == 50% win rate). */
-export const TIER_BOUNDS: readonly (readonly [string, number])[] = [
-  ['S+', 6],
-  ['S', 3],
-  ['A', 0.5],
-  ['B', -2],
-  ['C', Number.NEGATIVE_INFINITY],
-];
-
-export function tierFromScore(score: number): string {
-  for (const [tier, bound] of TIER_BOUNDS) {
-    if (score >= bound) return tier;
-  }
-  return 'C';
-}
 
 function asRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
@@ -341,13 +302,11 @@ function collectByRankRows(
 }
 
 function tierScoreOf(row: RateRow): number | null {
-  if (row.win_rate === null) return null;
-  return (
-    row.win_rate -
-    50 +
-    (row.pick_rate ?? 0) * WEIGHTS.weightP +
-    (row.ban_rate ?? 0) * WEIGHTS.weightB
-  );
+  return tierScore({
+    win_rate: row.win_rate,
+    pick_rate: row.pick_rate,
+    ban_rate: row.ban_rate,
+  });
 }
 
 function normalizeHeroStats(

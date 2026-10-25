@@ -1,0 +1,88 @@
+name: QA Site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "shared/**"
+      - "worker/**"
+      - "tools/**"
+      - "tests/**"
+      - ".github/workflows/qa-site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qa-site
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # --- worker ---
+      - name: Worker unit test (jalankan normalizer sungguhan vs upstream)
+        working-directory: worker
+        run: npm install --no-audit --no-fund && npm test
+
+      - name: Worker typecheck
+        working-directory: worker
+        run: npm run typecheck
+
+      # --- web ---
+      - name: Install web dependencies
+        working-directory: web
+        run: npm install --no-audit --no-fund
+
+      - name: Web typecheck + build
+        working-directory: web
+        run: npm run build
+
+      - name: Cek ukuran bundle
+        run: |
+          total=$(du -sk site | cut -f1)
+          echo "site/: ${total} KB"
+          test "$total" -lt 1200 || { echo "Bundle kegedean (>1.2 MB)"; exit 1; }
+
+      # --- smoke test browser ---
+      - name: Install Playwright
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install playwright
+          python3 -m playwright install --with-deps chromium
+
+      - name: Smoke test Meta Center v2
+        run: python3 tests/smoke_test_v2.py
+
+      # --- keamanan ---
+      - name: Scan kebocoran secret
+        run: |
+          if grep -rIn --exclude-dir=.git --exclude-dir=node_modules \
+            -E "ghp_[A-Za-z0-9]{20,}|github_pat_|-----BEGIN [A-Z ]*PRIVATE KEY-----" .; then
+            echo "Secret terdeteksi di repository!"
+            exit 1
+          fi
+          echo "Tidak ada secret yang terdeteksi."
+
+      - name: Cek header keamanan
+        run: |
+          test -f site/_headers || { echo "site/_headers hilang"; exit 1; }
+          grep -q "Content-Security-Policy" site/_headers || { echo "CSP tidak ada"; exit 1; }
+          grep -q "script-src 'self'" site/_headers || { echo "script-src harus 'self'"; exit 1; }
+          echo "Header keamanan OK."

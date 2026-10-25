@@ -1,8 +1,19 @@
 # Kontrak Dataset — MLBB Meta Center
 
-Status: **FROZEN** (v1.1). Track collector DAN track website wajib mengikuti file ini persis.
+Status: **FROZEN** (v1.9). Track collector DAN track website wajib mengikuti file ini persis.
 Kalau ada yang perlu berubah, usulkan lewat owner (bukan diedit sepihak oleh worker).
 
+> **v1.9 (2026-10-23)** — `heroes[].stats` **wajib terisi** untuk hero yang punya
+> ranking: `win_rate`, `pick_rate`, `ban_rate`, `rank_scope`, `updated_at_utc`,
+> `tier`, dan `rates_by_rank` (6 bracket rank). `tier` dihitung dari `tierScore`
+> (lihat "Aturan tier"). Tambah `manifest.rates_summary` dan `manifest.counts.rated_heroes`.
+>
+> **Kenapa v1.9:** di versi sebelumnya `stats` dibiarkan kosong sehingga situs
+> menampilkan "-" untuk win rate, pick rate, dan ban rate. Datanya sebenarnya
+> ADA di sumber (`statistics.json` -> `rankings.rates[hero]`), cuma tidak pernah
+> dibaca. Field `stats` pada roster upstream berisi BASE stats (hp1, hp15, ...),
+> bukan rate - membaca `heroes[].stats` untuk rate selalu menghasilkan null.
+>
 > **v1.1 (2026-10-22)** — tambahan field opsional (`title`, `damage_type`, `attack_type`,
 > `resource`, `region`, `ratings`, `base_stats`, `skills[].id`) + `maps[].points` berisi
 > koordinat. Semua **opsional/nullable**, jadi sample yang sudah dibuat sebelum v1.1
@@ -181,7 +192,14 @@ Aturan field:
 | `counters` | string[] | ya | hero yang **meng countered** hero ini (hero ini kalah)?. PENTING: lihat catatan di bawah |
 | `weak_against` | string[] | ya | hero yang **mengalahkan** hero ini |
 | `synergies` | string[] | ya | hero yang ber-synergy |
-| `stats` | object\|null | ya | boleh `null` kalau sumber tidak menyediakan |
+| `stats` | object\|null | ya | **wajib terisi** untuk hero yang punya ranking; `null` hanya kalau sumber memang tidak punya (harus dilaporkan di `manifest.warnings`) |
+| `stats.win_rate` | float\|null | ya (kalau `stats` ada) | persen, dari `rankings.rates[hero].winRate` |
+| `stats.pick_rate` | float\|null | ya (kalau `stats` ada) | persen, dari `rankings.rates[hero].pickRate` |
+| `stats.ban_rate` | float\|null | ya (kalau `stats` ada) | persen, dari `rankings.rates[hero].banRate` |
+| `stats.tier` | string\|null | ya (kalau `stats` ada) | hasil hitung `tierScore` (lihat "Aturan tier") |
+| `stats.rank_scope` | string | ya (kalau `stats` ada) | `all` untuk bracket utama |
+| `stats.updated_at_utc` | string | ya (kalau `stats` ada) | `rankings.measuredAt` |
+| `stats.rates_by_rank` | object\|null | ya (kalau `stats` ada) | rate + tier untuk 6 bracket rank |
 
 **Catatan semantik `counters` vs `weak_against` (WAJIB dipatuhi, ini sumber miskonsepsi paling sering):**
 
@@ -265,6 +283,55 @@ dobel dirapikan, hyphen di awal/akhir dibuang. Contoh: "Tai Chi" -> `tai-chi`,
 Tambahan: `heroes[].resource` bisa bernilai string `"None"` (21 hero yang nggak punya
 mana/energy). Itu nilai asli dari sumber, BUKAN placeholder. Website boleh tampilkan sebagai
 "—" atau "Tanpa resource", tapi jangan dianggap data hilang.
+
+### Aturan tier (WAJIB, v1.9)
+
+Sumber **tidak menyediakan tier**. Tier dihitung dari `tierScore`:
+
+```
+tierScore = (winRate - 50) + pickRate * weightP + banRate * weightB
+```
+
+`winRate`/`pickRate`/`banRate` dalam **persen** (61.03 = 61.03%). Bentuk
+`(winRate - 0.5) * 100` pada brief adalah hal yang sama dengan winRate
+dinar-normalisasi ke fraksi 0..1, jadi keduanya setara setelah satuan diseragamkan.
+
+Default `weightP = 0`, `weightB = 0.25` -> `tierScore = winRate + banRate * 0.25 - 50`.
+Ambang tier:
+
+| Tier | tierScore minimum | (padanan aturan MLBBDex) |
+|---|---|---|
+| `S+` | 6 | 56 |
+| `S` | 3 | 53 |
+| `A` | 0.5 | 50.5 |
+| `B` | -2 | 48 |
+| `C` | -Infinity | -Infinity |
+
+Nilai default + ambang ini **persis** aturan tier list MLBBDex sendiri
+(`src/lib/tier-list.ts` di repo upstream), yang diuji cocok untuk 133/133 hero
+yang punya rate. `weightP = 0` karena pick rate mengukur popularitas, bukan
+kekuatan - argumen yang sama dipakai upstream.
+
+Fungsi ini tinggal di satu file yang dipakai worker dan web:
+`shared/tier.ts` (`tierScore`, `tierFromScore`, `WEIGHTS`).
+
+### `heroes[].stats.rates_by_rank` (WAJIB, v1.9)
+
+Rate per bracket rank, untuk filter rank di situs:
+
+```json
+"rates_by_rank": {
+  "all":    { "win_rate": 48.5,  "pick_rate": 0.75, "ban_rate": 0.47, "tier": "B" },
+  "epic":   { "win_rate": 48.93, "pick_rate": 0.91, "ban_rate": 1.2,  "tier": "B" },
+  "legend": { "win_rate": 48.79, "pick_rate": 0.96, "ban_rate": 0.67, "tier": "B" },
+  "mythic": { "win_rate": 48.46, "pick_rate": 0.88, "ban_rate": 0.49, "tier": "B" },
+  "honor":  { "win_rate": 47.93, "pick_rate": 0.62, "ban_rate": 0.23, "tier": "C" },
+  "glory":  { "win_rate": 48.26, "pick_rate": 0.45, "ban_rate": 0.12, "tier": "B" }
+}
+```
+
+Tier di dalam `rates_by_rank` dihitung dari rate bracket itu, bukan disalin
+dari bracket `all` - seorang hero bisa S di Mythic dan cuma A di semua rank.
 
 ### Batas jumlah warning di `manifest.warnings` (WAJIB)
 
@@ -489,6 +556,16 @@ Jangan pernah isi item palsu.
 9. Kalau satu sumber gagal: `manifest.sources[].status` = `"failed"` + pesan, dan
    `manifest.warnings` menjelaskan dampaknya. **Data yang ada tetap dipakai** — jangan
   buang semuanya gara-gara satu sumber mati.
+10. **Rate wajib ada (v1.9):** hero yang punya ranking harus punya `stats.win_rate`,
+    `stats.pick_rate`, dan `stats.ban_rate` ketiganya non-null. Hero yang tidak punya
+    harus dilaporkan di `manifest.warnings` (kategori `data-incomplete`).
+11. **`manifest.rates_summary` wajib ada**, `avg_win_rate` tidak null kalau ada hero
+    ber-rate, dan `most_banned`/`most_picked` harus menunjuk hero yang benar-benar
+    ada di `heroes.json`.
+12. **`manifest.warnings` <= 100 entri**, kategori yang diizinkan saja.
+13. **Koherensi arah (v1.7):** tidak boleh ada pasangan `{a, b}` dengan `b` di
+    `counters[a]` **dan** `a` di `counters[b]`; dan untuk semua a, b:
+    `a` ada di `weak_against[b]` **iff** `b` ada di `counters[a]`.
 
 ## Cara website consuming kontrak ini
 

@@ -13,7 +13,8 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { normalizeBundleToDataset, tierFromScore, WEIGHTS } from '../src/lib/normalize.ts';
+import { normalizeBundleToDataset } from '../src/lib/normalize.ts';
+import { tierFromScore, WEIGHTS } from '../../shared/tier.ts';
 
 const UPSTREAM = 'https://raw.githubusercontent.com/achedon12/mlbb/develop';
 

@@ -1,22 +1,9 @@
-# Environment scaffolding injected by the editor, never part of the project.
-.codebuddy/
-.genie/
-.templates/
-
-# Python
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-
-# Node / Cloudflare Worker
+.pytest_cache/
 node_modules/
-worker/node_modules/
-worker/.wrangler/
-worker/.dev.vars
-
-# Editor / OS
 .DS_Store
-*.swp
-.idea/
-.vscode/
+
+# Hasil build web (dibuat ulang oleh `npm run build` di web/).
+# Dataset fallback yang di-commit ada di web/public/dataset/.
+/site/
