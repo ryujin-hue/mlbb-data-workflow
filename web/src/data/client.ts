@@ -10,7 +10,15 @@
  * perbarui di belakang layar. UI tidak pernah menunggu jaringan untuk data
  * yang sudah pernah dilihat.
  */
-import type { HeroDelta, MetaMovers, RatesSummary, SnapshotMeta, Trend } from '@shared/types';
+import { tierOf } from '@shared/tier';
+import type {
+  HeroDelta,
+  MetaMovers,
+  RateRow,
+  RatesSummary,
+  SnapshotMeta,
+  Trend,
+} from '@shared/types';
 
 export interface SlimHero {
   id: string;
@@ -32,6 +40,12 @@ export interface SlimHero {
   tier: string | null;
   tier_score: number | null;
   rank_scope: string;
+  /**
+   * Rate mentah per bracket rank. Client memakainya untuk menghitung ulang
+   * angka bracket secara lokal, jadi ganti rank instan dan tetap jalan saat
+   * offline - tanpa request ulang ke server.
+   */
+  rates_by_rank: Record<string, RateRow> | null;
   speciality: string[];
   ratings: {
     offense: number | null;
@@ -39,6 +53,35 @@ export interface SlimHero {
     ability_effect: number | null;
     difficulty: number | null;
   } | null;
+}
+
+/**
+ * Hitung ulang angka hero untuk satu bracket rank.
+ *
+ * Rumus dan ambangnya sama persis dengan yang dipakai Worker
+ * (`shared/tier.ts`), jadi hasil di client == hasil di edge.
+ */
+export function applyRankScope(hero: SlimHero, rank: string): SlimHero {
+  if (rank === 'all' || !hero.rates_by_rank) return hero;
+
+  const bracket = hero.rates_by_rank[rank];
+  if (!bracket) return hero;
+
+  const { score, tier } = tierOf({
+    win_rate: bracket.win_rate,
+    pick_rate: bracket.pick_rate,
+    ban_rate: bracket.ban_rate,
+  });
+
+  return {
+    ...hero,
+    win_rate: bracket.win_rate,
+    pick_rate: bracket.pick_rate,
+    ban_rate: bracket.ban_rate,
+    tier: tier ?? hero.tier,
+    tier_score: score === null ? null : Math.round(score * 100) / 100,
+    rank_scope: rank,
+  };
 }
 
 export interface HeroIndexResponse {

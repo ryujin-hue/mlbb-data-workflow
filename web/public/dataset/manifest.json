@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-10-25T02:11:45.048Z",
+  "generated_at_utc": "2026-10-25T02:37:37.939Z",
   "game_patch": null,
   "counts": {
     "heroes": 134,
@@ -51,7 +51,7 @@
       "name": "MLBBDex mirror — heroes",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/heroes.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:11:45.048Z",
+      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
       "records": 134,
       "status": "ok"
     },
@@ -59,7 +59,7 @@
       "name": "MLBBDex mirror — skills",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/skills.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:11:45.048Z",
+      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
       "records": 627,
       "status": "ok"
     },
@@ -67,7 +67,7 @@
       "name": "MLBBDex mirror — statistics",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/statistics.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:11:45.048Z",
+      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
       "records": 1047,
       "status": "ok"
     },
@@ -75,7 +75,7 @@
       "name": "MLBBDex mirror — items",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/items.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:11:45.048Z",
+      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
       "records": 102,
       "status": "ok"
     }

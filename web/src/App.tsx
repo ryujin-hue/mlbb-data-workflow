@@ -72,9 +72,12 @@ export default function App() {
     setError(null);
 
     Promise.allSettled([
-      fetchOfflineFirst<HeroIndexResponse>(API.heroIndex(meta.rank), {
+      // Selalu ambil matrix lengkap (rank=all). Bracket rank dihitung ulang
+      // di client, jadi ganti rank tidak memicu request ulang dan grid tidak
+      // flicker.
+      fetchOfflineFirst<HeroIndexResponse>(API.heroIndex('all'), {
         signal: controller.signal,
-        cacheKey: `rank:${meta.rank}`,
+        cacheKey: 'rank:all',
       }),
       fetchOfflineFirst<DeltaResponse>(API.deltas(meta.window), {
         signal: controller.signal,
@@ -111,7 +114,7 @@ export default function App() {
       cancelled = true;
       controller.abort();
     };
-  }, [meta.rank, meta.window]);
+  }, [meta.window]);
 
   const deltaMap = useMemo(() => {
     const map = new Map<string, DeltaResponse['deltas'][number]>();
@@ -126,6 +129,7 @@ export default function App() {
       selectHeroes({
         heroes,
         deltas: deltaMap,
+        rank: meta.rank,
         query: meta.query,
         roles: meta.roles,
         lanes: meta.lanes,
@@ -137,10 +141,10 @@ export default function App() {
     [heroes, deltaMap, meta]
   );
 
-  const stats = useMemo(() => summarize(heroes, index?.manifest?.rates_summary ?? null), [
-    heroes,
-    index?.manifest?.rates_summary,
-  ]);
+  const stats = useMemo(
+    () => summarize(heroes, index?.manifest?.rates_summary ?? null, meta.rank),
+    [heroes, index?.manifest?.rates_summary, meta.rank]
+  );
 
   const latestSnapshot = snapshots[0] ?? null;
 

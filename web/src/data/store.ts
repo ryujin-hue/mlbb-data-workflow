@@ -9,6 +9,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
+import { applyRankScope } from './client';
 import type { HeroDelta, RatesSummary, SlimHero } from './client';
 
 export const RANK_OPTIONS = [
@@ -173,6 +174,8 @@ export interface FilteredHero extends SlimHero {
 export interface FilterInput {
   heroes: SlimHero[];
   deltas: Map<string, HeroDelta>;
+  /** Bracket rank aktif; angka rate/tier dihitung ulang sesuai bracket ini. */
+  rank: string;
   query: string;
   roles: string[];
   lanes: string[];
@@ -222,7 +225,10 @@ function valueFor(hero: SlimHero, key: SortKey): number | string {
 export function selectHeroes(input: FilterInput): FilteredHero[] {
   const out: FilteredHero[] = [];
 
-  for (const hero of input.heroes) {
+  for (const raw of input.heroes) {
+    // Angka rate/tier mengikuti bracket rank yang dipilih. Dihitung ulang di
+    // client supaya ganti rank tidak perlu request ulang.
+    const hero = applyRankScope(raw, input.rank);
     if (!matches(hero, input)) continue;
     const delta = input.deltas.get(hero.id) ?? null;
     const trend = delta ? delta.trend : null;
@@ -244,33 +250,54 @@ export function selectHeroes(input: FilterInput): FilteredHero[] {
 }
 
 /** Ringkasan untuk strip statistik di kepala halaman. */
-export function summarize(heroes: SlimHero[], summary: RatesSummary | null) {
-  const rated = heroes.filter((h) => h.win_rate !== null);
+export function summarize(heroes: SlimHero[], summary: RatesSummary | null, rank = 'all') {
+  // Ringkasan DIHITUNG ULANG di client untuk bracket yang dipilih. Kalau
+  // summary dari server (yang selalu scope "all") dipakai untuk bracket
+  // Mythic, labelnya jadi bohong: angkanya scope "all" tapi ditulis
+  // "Mythic".
+  const scoped = rank === 'all' ? heroes : heroes.map((h) => applyRankScope(h, rank));
+  const rated = scoped.filter((h) => h.win_rate !== null);
+
   const avgWinRate =
     rated.length > 0 ? rated.reduce((sum, h) => sum + (h.win_rate ?? 0), 0) / rated.length : null;
 
-  const mostBanned = heroes
+  // Rata-rata win rate per role. Satu hero bisa punya lebih dari satu role,
+  // jadi nilainya ikut dihitung di setiap role-nya.
+  const roleBuckets = new Map<string, number[]>();
+  for (const hero of rated) {
+    const value = hero.win_rate ?? 0;
+    const roles = hero.roles.length > 0 ? hero.roles : ['Unknown'];
+    for (const role of roles) {
+      const bucket = roleBuckets.get(role);
+      if (bucket) bucket.push(value);
+      else roleBuckets.set(role, [value]);
+    }
+  }
+  const avgWinRateByRole: Record<string, number> = {};
+  for (const [role, values] of roleBuckets) {
+    avgWinRateByRole[role] = values.reduce((a, b) => a + b, 0) / values.length;
+  }
+
+  const mostBanned = scoped
     .filter((h) => h.ban_rate !== null)
     .sort((a, b) => (b.ban_rate ?? 0) - (a.ban_rate ?? 0))[0];
 
-  const mostPicked = heroes
+  const mostPicked = scoped
     .filter((h) => h.pick_rate !== null)
     .sort((a, b) => (b.pick_rate ?? 0) - (a.pick_rate ?? 0))[0];
 
   return {
-    avgWinRate: summary?.avg_win_rate ?? avgWinRate,
-    avgWinRateByRole: summary?.avg_win_rate_by_role ?? {},
-    mostBanned: summary?.most_banned
-      ? { id: summary.most_banned.id, name: summary.most_banned.name, value: summary.most_banned.value }
-      : mostBanned
-        ? { id: mostBanned.id, name: mostBanned.name, value: mostBanned.ban_rate ?? 0 }
-        : null,
-    mostPicked: summary?.most_picked
-      ? { id: summary.most_picked.id, name: summary.most_picked.name, value: summary.most_picked.value }
-      : mostPicked
-        ? { id: mostPicked.id, name: mostPicked.name, value: mostPicked.pick_rate ?? 0 }
-        : null,
+    avgWinRate,
+    avgWinRateByRole,
+    mostBanned: mostBanned
+      ? { id: mostBanned.id, name: mostBanned.name, value: mostBanned.ban_rate ?? 0 }
+      : null,
+    mostPicked: mostPicked
+      ? { id: mostPicked.id, name: mostPicked.name, value: mostPicked.pick_rate ?? 0 }
+      : null,
     rated: rated.length,
     total: heroes.length,
+    // Nilai dari server disimpan untuk pembanding, dipakai panel transparansi.
+    serverAvgWinRate: summary?.avg_win_rate ?? null,
   };
 }

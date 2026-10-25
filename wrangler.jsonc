@@ -18,6 +18,10 @@
   "assets": {
     "directory": "./site"
   },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
   "vars": {
     "UPSTREAM_BASE_URL": "https://raw.githubusercontent.com/achedon12/mlbb/develop",
     "CRON_HOUR_UTC": "2",

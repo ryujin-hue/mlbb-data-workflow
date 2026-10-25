@@ -116,14 +116,26 @@ Retensi 45 versi cukup untuk window 30d + buffer, dan menjaga KV tetap kecil.
 
 | Endpoint | Isi | Ukuran | Cache |
 |---|---|---|---|
-| `GET /api/heroes?rank=all` | daftar hero ramping + manifest | ~85 KB | SWR 5 menit |
+| `GET /api/heroes?rank=all` | daftar hero ramping + matrix `rates_by_rank` + manifest | 127 KB raw / **10 KB gzip** | SWR 5 menit |
 | `GET /api/hero?id=<id>` | detail 1 hero (skill, matchup, item) | ~10 KB | SWR 5 menit |
-| `GET /api/deltas?window=7d` | Meta Movers + delta per hero | ~30 KB | SWR 5 menit |
+| `GET /api/deltas?window=7d` | Meta Movers + delta per hero | 83 KB raw / ~9 KB gzip | SWR 5 menit |
 | `GET /api/snapshots` | daftar versi | <1 KB | SWR 5 menit |
 | `GET /api/meta` | status runtime | <1 KB | no-store |
-| `GET /api/dataset` | dataset penuh (kompatibilitas) | ~1 MB | SWR 5 menit |
+| `GET /api/dataset` | dataset penuh (kompatibilitas) | 1.14 MB raw / 137 KB gzip | SWR 5 menit |
 
 Cache-Control: `public, max-age=300, s-maxage=300, stale-while-revalidate=3600`.
+
+### 2.4.1 Kenapa bracket rank dihitung ulang di client
+
+`/api/heroes` mengirim **matrix `rates_by_rank`** untuk keenam bracket, bukan
+cuma rate bracket aktif. Alasannya:
+
+- Ganti rank jadi **instan** - tanpa request baru, tanpa grid flicker.
+- Tetap jalan saat **offline** (data tersimpan di IndexedDB).
+- Angka identik dengan edge, karena sama-sama memakai `shared/tier.ts`.
+
+Server tetap menerima `?rank=epic|legend|mythic|honor|glory` untuk konsumen API
+yang butuh langsung. Endpoint `?rank=all` yang dipakai web app.
 
 ### 2.5 Strategi delta
 
@@ -136,6 +148,21 @@ Worker menyimpan tiap versi. Saat `/api/deltas?window=Nd` dipanggil:
 4. Klasifikasi `rising` / `falling` / `steady` / `new` dengan ambang
    (default 0.5 poin, bisa diubah dari UI).
 5. Balas `available: false` kalau belum ada 2 versi.
+
+**Aturanmain yang tidak boleh dilanggar:**
+
+- **Versi snapshot = kapan kita menyimpan**, bukan kapan sumber mengukur.
+  Kalau versinya ikut `measured_at_utc` upstream, semua refresh menimpa versi
+  yang sama selama upstream tidak berubah - history tinggal satu, dan delta
+  membandingkan snapshot dengan dirinya sendiri.
+- **Snapshot terbaru tidak boleh jadi pembanding.** `from === to` menghasilkan
+  delta nol yang palsu.
+- **Lantai umur.** Kandidat untuk window 7d harus minimal 3.5 hari lama,
+  supaya label "7d" tidak diam-dim menampilkan perubahan 1 hari. Kalau tidak
+  ada yang cukup, jawab `available: false` + `oldest_available_days`.
+- **`actual_days` + `approximate`** selalu ikut di jawaban, supaya UI bisa
+  jujur menampilkan "vs 4 hari lalu" kalau snapshot yang dipakai bukan tepat
+  7 hari.
 
 Perhitungan di edge, bukan client: client menerima angka jadi, bukan dua
 dataset penuh untuk dibandingkan sendiri.
@@ -192,6 +219,28 @@ semua angka matchup, jadi harus lewat satu siklus review terpisah — bukan
 disisipkan ke dalam fix P0.
 
 ---
+
+## 3.5 Bug yang ditemukan saat verifikasi produksi (2026-10-25)
+
+Deploy pertama di produksi memunculkan 4 bug yang lolos dari smoke test
+lokal. Semuanya "diam-diam tidak jalan" - tidak ada error, cuma angka yang
+salah. Nilainya penting buat dicatat:
+
+| # | Bug | Gejala | Akar masalah |
+|---|---|---|---|
+| B1 | **Delta selalu nol** | `/api/deltas` menjawab `available: true` tapi semua delta 0 dan `from.version == to.version` | Versi snapshot diturunkan dari `measured_at_utc` **upstream**. Selama upstream tidak mengubah data, semua refresh menulis versi yang sama -> hanya 1 snapshot -> tidak ada yang bisa dibandingkan. |
+| B2 | **Ambang default jadi 0** | Semua noise dianggap "rising" | `Number(url.searchParams.get('threshold'))` -> `Number(null)` = 0, dan `0` lolos `isFinite`. |
+| B3 | **Snapshot terbaru jadi pembanding** | `findSnapshotForDaysAgo` mengembalikan `index.entries[0]` kalau itu satu-satunya | Tidak ada guard "butuh minimal 2 versi". |
+| B4 | **Ringkasan salah label** | Strip "Ringkasan Patch" ditulis "Mythic" padahal angkanya scope "all" | `manifest.rates_summary` selalu scope "all", tapi UI men-label-nya dengan bracket yang dipilih. |
+
+Perbaikan: versi snapshot jadi unik per penyimpanan, guard "minimal 2 versi",
+parse threshold eksplisit, dan ringkasan dihitung ulang di client per bracket.
+
+Yang bikin bug B1 lolos: smoke test lokal memakai `tools/dev-server.mjs` yang
+selalu menjawab `available: false` - jadi jalur "history ada" sama sekali
+nggak pernah dieksekusi. Sekarang ada `worker/tests/store.test.ts` yang
+menguji logika snapshot pakai KV in-memory, plus smoke test yang memeriksa
+bahwa `/api/heroes` benar-benar menyertakan `rates_by_rank`.
 
 ## 4. Cara menjalankan & deploy
 

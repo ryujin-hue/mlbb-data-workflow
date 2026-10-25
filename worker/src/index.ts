@@ -3,6 +3,7 @@ import { normalizeBundleToDataset } from './lib/normalize';
 import { nextDailyUtcIso, toIsoNow } from './lib/time';
 import {
   findSnapshotForDaysAgo,
+  oldestSnapshotAgeDays,
   readDataset,
   readIndex,
   readMeta,
@@ -209,8 +210,19 @@ async function handleGetDeltas(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
   const windowParam = (url.searchParams.get('window') ?? '7d').toLowerCase();
   const days = windowParam === '1d' ? 1 : windowParam === '30d' ? 30 : 7;
-  const thresholdParam = Number(url.searchParams.get('threshold'));
-  const threshold = Number.isFinite(thresholdParam) ? thresholdParam : undefined;
+
+  // Ambang default 0.5. `Number(null)` menghasilkan 0 yang lolos
+  // isFinite, jadi sebelumnya `?window=7d` tanpa threshold berakhir dengan
+  // threshold 0 -> semua noise dianggap "rising". Parse eksplisit.
+  const rawThreshold = url.searchParams.get('threshold');
+  const parsedThreshold =
+    rawThreshold === null || rawThreshold.trim() === '' ? Number.NaN : Number(rawThreshold);
+  const threshold = Number.isFinite(parsedThreshold) ? parsedThreshold : undefined;
+  const effectiveThreshold = threshold ?? 0.5;
+
+  const CACHE = {
+    'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600',
+  };
 
   const current = await readDataset(env.MLBB_KV);
   if (!current) {
@@ -223,19 +235,27 @@ async function handleGetDeltas(request: Request, env: Env): Promise<Response> {
     );
   }
 
-  const entry = await findSnapshotForDaysAgo(env.MLBB_KV, days);
-  if (!entry) {
-    // Bukan 404: "tidak ada riwayat" itu kondisi normal pada hari-hari
-    // pertama. Client membaca flag-nya, bukan menebak dari status code.
-    return jsonResponse(
+  const index = await readIndex(env.MLBB_KV);
+  const latestEntry = index.entries[0] ?? null;
+  const currentVersion = latestEntry?.version ?? 'current';
+  const currentMeasuredAt = current.payload.manifest?.rates_summary?.measured_at_utc ?? null;
+
+  const emptyResponse = async (
+    reason: string,
+    message: string
+  ): Promise<Response> =>
+    jsonResponse(
       {
         available: false,
-        reason: 'no_history',
-        message: `Belum ada snapshot cukup lama untuk window ${windowParam}. Butuh minimal 2 versi.`,
+        reason,
+        message,
         window: windowParam,
-        threshold: threshold ?? 0.5,
-        from: { version: 'none', measured_at_utc: null },
-        to: { version: 'current', measured_at_utc: current.payload.manifest?.rates_summary?.measured_at_utc ?? null },
+        threshold: effectiveThreshold,
+        from: { version: 'none', measured_at_utc: null, stored_at: null },
+        to: { version: currentVersion, measured_at_utc: currentMeasuredAt },
+        actual_days: null,
+        approximate: false,
+        oldest_available_days: await oldestSnapshotAgeDays(env.MLBB_KV),
         rising: [],
         falling: [],
         steady: 0,
@@ -245,37 +265,39 @@ async function handleGetDeltas(request: Request, env: Env): Promise<Response> {
       200,
       request,
       env,
-      { 'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600' }
+      CACHE
+    );
+
+  const entry = await findSnapshotForDaysAgo(env.MLBB_KV, days);
+  if (!entry) {
+    // Bukan 404: "tidak ada riwayat" itu kondisi normal pada hari-hari
+    // pertama. Client membaca flag-nya, bukan menebak dari status code.
+    const oldest = await oldestSnapshotAgeDays(env.MLBB_KV);
+    return emptyResponse(
+      'no_history',
+      oldest === null
+        ? `Belum ada snapshot lama untuk window ${windowParam}. Butuh minimal 2 versi (satu per hari).`
+        : `Snapshot tertua yang tersedia berumur ${oldest} hari, belum cukup untuk window ${windowParam}.`
     );
   }
 
   const previous = await readSnapshot(env.MLBB_KV, entry.version);
   if (!previous) {
-    return jsonResponse(
-      {
-        available: false,
-        reason: 'snapshot_expired',
-        message: `Snapshot ${entry.version} sudah tidak ada.`,
-        window: windowParam,
-        threshold: threshold ?? 0.5,
-        from: { version: 'none', measured_at_utc: null },
-        to: { version: 'current', measured_at_utc: current.payload.manifest?.rates_summary?.measured_at_utc ?? null },
-        rising: [],
-        falling: [],
-        steady: 0,
-        new_heroes: [],
-        deltas: [],
-      },
-      200,
-      request,
-      env,
-      { 'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600' }
-    );
+    return emptyResponse('snapshot_expired', `Snapshot ${entry.version} sudah tidak ada.`);
   }
 
+  // Berapa umur sebenarnya dari snapshot pembanding. Kalau jauh dari window
+  // yang diminta, tandai `approximate` supaya UI bisa jujur mengatakannya.
+  const latestAt = Date.parse(latestEntry?.stored_at ?? '');
+  const entryAt = Date.parse(entry.stored_at);
+  const actualDays =
+    Number.isFinite(latestAt) && Number.isFinite(entryAt)
+      ? Math.round(((latestAt - entryAt) / (24 * 60 * 60 * 1000)) * 10) / 10
+      : null;
+
   const currentLike = {
-    version: entry.version,
-    measured_at_utc: current.payload.manifest?.rates_summary?.measured_at_utc ?? null,
+    version: currentVersion,
+    measured_at_utc: currentMeasuredAt,
     heroes: current.payload.heroes.heroes,
   };
   const previousLike = {
@@ -293,14 +315,14 @@ async function handleGetDeltas(request: Request, env: Env): Promise<Response> {
     {
       available: true,
       ...movers,
+      actual_days: actualDays,
+      approximate: actualDays !== null && Math.abs(actualDays - days) > 0.5,
       deltas: computeDeltas(currentLike, previousLike),
     },
     200,
     request,
     env,
-    {
-      'Cache-Control': 'public, max-age=300, s-maxage=300, stale-while-revalidate=3600',
-    }
+    CACHE
   );
 }
 

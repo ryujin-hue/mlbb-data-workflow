@@ -85,7 +85,7 @@ export async function writeDataset(
   memoryDataset = wrapped;
 
   const measuredAt = payload.manifest?.rates_summary?.measured_at_utc ?? null;
-  const version = versionFrom(storedAt, measuredAt);
+  const version = versionFrom(storedAt);
 
   const entry: SnapshotEntry = {
     version,
@@ -135,6 +135,20 @@ export async function writeDataset(
   return entry;
 }
 
+/**
+ * Reset state in-memory. Cuma untuk test - di produksi tidak pernah dipanggil.
+ *
+ * `memoryIndex` itu cache write-through: dipakai kalau KV belum punya kunci
+ * index (mis. setelah eviction), supaya history lokal isolate tidak hilang.
+ * Karena livedi module scope, test yang memakai KV sendiri perlu membersihkannya
+ * supaya tidak ada history dari test sebelumnya yang bocor.
+ */
+export function __resetMemoryState(): void {
+  memoryMeta = null;
+  memoryDataset = null;
+  memoryIndex = { entries: [] };
+}
+
 export async function readIndex(kv?: KVNamespace): Promise<SnapshotIndex> {
   if (!kv) return memoryIndex;
 
@@ -161,35 +175,57 @@ export async function findSnapshotForDaysAgo(
   days: number
 ): Promise<SnapshotEntry | null> {
   const index = await readIndex(kv);
-  if (index.entries.length === 0) return null;
+  if (index.entries.length < 2) return null;
 
   const latest = index.entries[0];
   if (!latest) return null;
-  const target = Date.parse(latest.stored_at) - days * 24 * 60 * 60 * 1000;
-  if (!Number.isFinite(target)) return null;
+
+  const latestAt = Date.parse(latest.stored_at);
+  if (!Number.isFinite(latestAt)) return null;
+
+  // Snapshot terbaru TIDAK boleh jadi pembanding: membandingkan snapshot
+  // dengan dirinya sendiri menghasilkan delta nol yang palsu ("naik 0%") dan
+  // membuat UI Movers terlihat hidup padahal tidak ada history.
+  const candidates = index.entries.slice(1);
+  if (candidates.length === 0) return null;
+
+  const windowMs = days * 24 * 60 * 60 * 1000;
+  const targetAge = windowMs;
+  // Lantai umur: kandidat harus minimal_setengah_window lama, supaya label
+  // "7d" tidak diam-dim menampilkan perubahan 1 hari.
+  const minAgeMs = Math.max(windowMs / 2, 12 * 60 * 60 * 1000);
 
   let best: SnapshotEntry | null = null;
   let bestDistance = Number.POSITIVE_INFINITY;
 
-  for (const entry of index.entries) {
+  for (const entry of candidates) {
     const at = Date.parse(entry.stored_at);
     if (!Number.isFinite(at)) continue;
-    const distance = Math.abs(at - target);
+    const age = latestAt - at;
+    if (age < minAgeMs) continue;
+    const distance = Math.abs(age - targetAge);
     if (distance < bestDistance) {
       bestDistance = distance;
       best = entry;
     }
   }
 
-  // Snapshot yang dipakai harus beda versi dari yang terbaru, kalau tidak
-  // tidak ada yang bisa dibandingkan.
-  if (best && best.version === latest.version && index.entries.length > 1) {
-    return index.entries[1] ?? null;
-  }
   return best;
 }
 
-function versionFrom(storedAt: string, measuredAt: string | null): string {
-  const base = measuredAt ?? storedAt;
-  return base.replace(/[:]/g, '-').replace(/\.\d+Z$/, 'Z');
+/** Umur snapshot tertua yang tersedia, dalam hari (untuk pesan error). */
+export async function oldestSnapshotAgeDays(kv: KVNamespace | undefined): Promise<number | null> {
+  const index = await readIndex(kv);
+  if (index.entries.length < 2) return null;
+  const latest = index.entries[0];
+  const oldest = index.entries[index.entries.length - 1];
+  if (!latest || !oldest) return null;
+  const latestAt = Date.parse(latest.stored_at);
+  const oldestAt = Date.parse(oldest.stored_at);
+  if (!Number.isFinite(latestAt) || !Number.isFinite(oldestAt)) return null;
+  return Math.round(((latestAt - oldestAt) / (24 * 60 * 60 * 1000)) * 10) / 10;
+}
+
+function versionFrom(storedAt: string): string {
+  return storedAt.replace(/[:]/g, '-').replace(/\.\d+Z$/, 'Z');
 }

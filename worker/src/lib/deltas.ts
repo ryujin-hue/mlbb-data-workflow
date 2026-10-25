@@ -193,6 +193,13 @@ export interface SlimHero {
   tier_score: number | null;
   /** Rank bracket tempat angka di atas berasal. */
   rank_scope: string;
+  /**
+   * Rate mentah per bracket rank. Matrix ini ikut dikirim supaya client bisa
+   * mengganti bracket secara INSTAN (tanpa request ulang) dan tetap bisa
+   * grieving saat offline - rumus tier-nya dihitung ulang di client dari
+   * `shared/tier.ts`, jadi hasilnya identik dengan yang dihitung di edge.
+   */
+  rates_by_rank: Record<string, { win_rate: number | null; pick_rate: number | null; ban_rate: number | null }> | null;
   /** Spesialisasi hero (Crowd Control, Guard, Initiator, ...). */
   speciality: string[];
   /** Rating sumber: offense, durability, ability_effect, difficulty. */
@@ -246,6 +253,7 @@ export function toSlimHeroes(
       tier: score === null ? (hero.stats?.tier ?? null) : tierFromScore(score),
       tier_score: score === null ? null : Math.round(score * 100) / 100,
       rank_scope: rank,
+      rates_by_rank: byRank,
       speciality: hero.speciality ?? [],
       ratings: hero.ratings ?? null,
     };

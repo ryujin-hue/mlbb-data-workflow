@@ -123,15 +123,60 @@ def main() -> int:
             def grid_text() -> str:
                 return " ".join(c.inner_text() for c in page.query_selector_all(".hcard"))
 
-            before = grid_text()
+            def first_card_numbers() -> list[str]:
+                card = page.query_selector(".hcard")
+                if not card:
+                    return []
+                return [x for x in card.inner_text().split("\n") if "%" in x]
+
+            def stat_avg() -> str:
+                panel = page.query_selector(".statgrid")
+                text = panel.inner_text() if panel else ""
+                for line in text.split("\n"):
+                    if "%" in line:
+                        return line.strip()
+                return ""
+
             # Re-query tiap kali: React membuat ulang node <select> saat re-render.
+            rank_select = page.query_selector_all("select")[0]
+            rank_select.select_option("all")
+            page.wait_for_timeout(1200)
+            all_numbers = first_card_numbers()
+            all_avg = stat_avg()
+
+            # Hitung request ke /api/heroes supaya kita bisa membuktikan ganti
+            # rank TIDAK memaksa fetch baru (perhitungan bracket di client).
+            hero_requests = []
+            page.on(
+                "request",
+                lambda req: hero_requests.append(req.url)
+                if "/api/heroes" in req.url
+                else None,
+            )
+
             page.query_selector_all("select")[0].select_option("mythic")
-            page.wait_for_timeout(1800)
-            after = grid_text()
-            ck("filter rank mengubah isi data", before != after, f"before={before[:60]} after={after[:60]}")
+            page.wait_for_timeout(1200)
+
+            myth_numbers = first_card_numbers()
+            myth_avg = stat_avg()
+            ck(
+                "filter rank mengubah angka rate (bukan cuma label)",
+                bool(all_numbers) and bool(myth_numbers) and all_numbers != myth_numbers,
+                f"all={all_numbers} mythic={myth_numbers}",
+            )
+            ck(
+                "ringkasan ikut mengikuti bracket rank",
+                bool(all_avg) and bool(myth_avg) and all_avg != myth_avg,
+                f"all={all_avg!r} mythic={myth_avg!r}",
+            )
+            ck(
+                "ganti rank tidak memicu request /api/heroes baru",
+                len(hero_requests) == 0,
+                f"{len(hero_requests)} request",
+            )
 
             page.query_selector_all("select")[0].select_option("all")
-            page.wait_for_timeout(1200)
+            page.wait_for_timeout(900)
 
             # ------------------------------------------------ sorting
             # Urutan select: [0] rank, [1] periode, [2] urutkan.
@@ -199,6 +244,15 @@ def main() -> int:
 
             # ------------------------------------------------ API langsung
             api = page.request.get(BASE + "/api/heroes?rank=all")
+            api_heroes = (api.json() or {}).get("heroes") or []
+            with_bracket = [
+                h for h in api_heroes if (h.get("rates_by_rank") or {}).get("mythic")
+            ]
+            ck(
+                "payload /api/heroes menyertakan rates_by_rank",
+                len(with_bracket) > 100,
+                f"{len(with_bracket)} hero punya bracket mythic",
+            )
             ck("API /api/heroes 200", api.status == 200)
             if api.status == 200:
                 payload = api.json()

@@ -24,6 +24,44 @@
       "tier": "A",
       "tier_score": 0.81,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.22,
+          "pick_rate": 0.65,
+          "ban_rate": 2.36,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 49.95,
+          "pick_rate": 0.77,
+          "ban_rate": 5.36,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.06,
+          "pick_rate": 0.79,
+          "ban_rate": 4.07,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.49,
+          "pick_rate": 0.67,
+          "ban_rate": 2.02,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.91,
+          "pick_rate": 0.57,
+          "ban_rate": 1.1,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 50.91,
+          "pick_rate": 0.46,
+          "ban_rate": 0.42,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Magic Damage"
@@ -59,6 +97,44 @@
       "tier": "A",
       "tier_score": 0.84,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.53,
+          "pick_rate": 0.35,
+          "ban_rate": 1.22,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.75,
+          "pick_rate": 0.27,
+          "ban_rate": 0.95,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.54,
+          "pick_rate": 0.37,
+          "ban_rate": 1.5,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.31,
+          "pick_rate": 0.38,
+          "ban_rate": 1.77,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.98,
+          "pick_rate": 0.38,
+          "ban_rate": 1.17,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.4,
+          "pick_rate": 0.32,
+          "ban_rate": 0.54,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Guard",
         "Crowd Control"
@@ -94,6 +170,44 @@
       "tier": "A",
       "tier_score": 1.1,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.96,
+          "pick_rate": 0.41,
+          "ban_rate": 0.54,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.63,
+          "pick_rate": 0.54,
+          "ban_rate": 1.37,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.33,
+          "pick_rate": 0.55,
+          "ban_rate": 0.81,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.5,
+          "pick_rate": 0.45,
+          "ban_rate": 0.51,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.11,
+          "pick_rate": 0.32,
+          "ban_rate": 0.27,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.44,
+          "pick_rate": 0.22,
+          "ban_rate": 0.13,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Support"
@@ -131,6 +245,44 @@
       "tier": "S",
       "tier_score": 3.29,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.94,
+          "pick_rate": 0.92,
+          "ban_rate": 9.39,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 50.49,
+          "pick_rate": 0.39,
+          "ban_rate": 7.97,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.95,
+          "pick_rate": 0.68,
+          "ban_rate": 11.24,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 50.93,
+          "pick_rate": 0.91,
+          "ban_rate": 11.97,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 50.8,
+          "pick_rate": 1.1,
+          "ban_rate": 8.96,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 51.16,
+          "pick_rate": 1.29,
+          "ban_rate": 5.69,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Charge",
         "Regen"
@@ -167,6 +319,44 @@
       "tier": "B",
       "tier_score": -0.98,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.85,
+          "pick_rate": 1.36,
+          "ban_rate": 0.68,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.87,
+          "pick_rate": 2.62,
+          "ban_rate": 2.32,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.68,
+          "pick_rate": 1.69,
+          "ban_rate": 0.93,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.14,
+          "pick_rate": 1.17,
+          "ban_rate": 0.44,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.19,
+          "pick_rate": 1.1,
+          "ban_rate": 0.37,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.09,
+          "pick_rate": 0.79,
+          "ban_rate": 0.17,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Charge",
         "Damage"
@@ -203,6 +393,44 @@
       "tier": "B",
       "tier_score": -1.38,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.5,
+          "pick_rate": 0.75,
+          "ban_rate": 0.47,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.93,
+          "pick_rate": 0.91,
+          "ban_rate": 1.2,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.79,
+          "pick_rate": 0.96,
+          "ban_rate": 0.67,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.46,
+          "pick_rate": 0.88,
+          "ban_rate": 0.49,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.93,
+          "pick_rate": 0.62,
+          "ban_rate": 0.23,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 48.26,
+          "pick_rate": 0.45,
+          "ban_rate": 0.12,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -238,6 +466,44 @@
       "tier": "A",
       "tier_score": 2.17,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.43,
+          "pick_rate": 1.69,
+          "ban_rate": 10.97,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.27,
+          "pick_rate": 1.21,
+          "ban_rate": 10.83,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 50.21,
+          "pick_rate": 1.59,
+          "ban_rate": 13.63,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 49.24,
+          "pick_rate": 1.73,
+          "ban_rate": 13.1,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 48.94,
+          "pick_rate": 1.83,
+          "ban_rate": 9.72,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 48.68,
+          "pick_rate": 1.87,
+          "ban_rate": 7,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Guard",
         "Support"
@@ -273,6 +539,44 @@
       "tier": "S+",
       "tier_score": 6.75,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 56.51,
+          "pick_rate": 0.48,
+          "ban_rate": 0.97,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 55.76,
+          "pick_rate": 0.62,
+          "ban_rate": 2.49,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 56.91,
+          "pick_rate": 0.5,
+          "ban_rate": 1.3,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 56.95,
+          "pick_rate": 0.44,
+          "ban_rate": 0.87,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 56.55,
+          "pick_rate": 0.44,
+          "ban_rate": 0.59,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 55.94,
+          "pick_rate": 0.47,
+          "ban_rate": 0.36,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Charge",
         "Burst"
@@ -309,6 +613,44 @@
       "tier": "C",
       "tier_score": -2.23,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.67,
+          "pick_rate": 0.47,
+          "ban_rate": 0.39,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 46.54,
+          "pick_rate": 0.23,
+          "ban_rate": 0.37,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 46.75,
+          "pick_rate": 0.35,
+          "ban_rate": 0.39,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 47.55,
+          "pick_rate": 0.49,
+          "ban_rate": 0.52,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 47.81,
+          "pick_rate": 0.54,
+          "ban_rate": 0.4,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 48.49,
+          "pick_rate": 0.65,
+          "ban_rate": 0.28,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Charge",
         "Burst"
@@ -344,6 +686,44 @@
       "tier": "S",
       "tier_score": 4.99,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.51,
+          "pick_rate": 0.94,
+          "ban_rate": 9.91,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 55.96,
+          "pick_rate": 0.29,
+          "ban_rate": 3.08,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 54.8,
+          "pick_rate": 0.67,
+          "ban_rate": 7.17,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 53.38,
+          "pick_rate": 1.04,
+          "ban_rate": 11.84,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 51.63,
+          "pick_rate": 1.19,
+          "ban_rate": 12.41,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 50.79,
+          "pick_rate": 1.25,
+          "ban_rate": 12.13,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Initiator"
@@ -380,6 +760,44 @@
       "tier": "S+",
       "tier_score": 14.48,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.55,
+          "pick_rate": 0.85,
+          "ban_rate": 43.74,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 51.5,
+          "pick_rate": 0.39,
+          "ban_rate": 3.79,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 53.04,
+          "pick_rate": 0.62,
+          "ban_rate": 16.08,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 53.75,
+          "pick_rate": 0.88,
+          "ban_rate": 44.25,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 54.01,
+          "pick_rate": 1.02,
+          "ban_rate": 63.14,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 53.6,
+          "pick_rate": 1.15,
+          "ban_rate": 76.8,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Damage",
         "Charge"
@@ -415,6 +833,44 @@
       "tier": "B",
       "tier_score": -1.11,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.79,
+          "pick_rate": 0.63,
+          "ban_rate": 0.39,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.44,
+          "pick_rate": 1.38,
+          "ban_rate": 1.28,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.65,
+          "pick_rate": 0.7,
+          "ban_rate": 0.54,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.61,
+          "pick_rate": 0.54,
+          "ban_rate": 0.33,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.03,
+          "pick_rate": 0.49,
+          "ban_rate": 0.17,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.5,
+          "pick_rate": 0.43,
+          "ban_rate": 0.07,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Poke"
@@ -451,6 +907,44 @@
       "tier": "A",
       "tier_score": 1.51,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.44,
+          "pick_rate": 1.38,
+          "ban_rate": 4.27,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 50.17,
+          "pick_rate": 1.26,
+          "ban_rate": 1.42,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.87,
+          "pick_rate": 1.25,
+          "ban_rate": 2.65,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.98,
+          "pick_rate": 1.4,
+          "ban_rate": 4.91,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.74,
+          "pick_rate": 1.46,
+          "ban_rate": 5.74,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 49.21,
+          "pick_rate": 1.47,
+          "ban_rate": 5.48,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Charge",
         "Burst"
@@ -487,6 +981,44 @@
       "tier": "C",
       "tier_score": -2.94,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 46.96,
+          "pick_rate": 0.68,
+          "ban_rate": 0.4,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 47.28,
+          "pick_rate": 1.48,
+          "ban_rate": 1.36,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 47.7,
+          "pick_rate": 0.93,
+          "ban_rate": 0.52,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 47.24,
+          "pick_rate": 0.62,
+          "ban_rate": 0.31,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 45.74,
+          "pick_rate": 0.47,
+          "ban_rate": 0.19,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 44.6,
+          "pick_rate": 0.27,
+          "ban_rate": 0.11,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Damage",
         "Regen"
@@ -524,6 +1056,44 @@
       "tier": "A",
       "tier_score": 1.78,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.73,
+          "pick_rate": 0.33,
+          "ban_rate": 0.19,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.13,
+          "pick_rate": 0.26,
+          "ban_rate": 0.55,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.57,
+          "pick_rate": 0.33,
+          "ban_rate": 0.21,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.68,
+          "pick_rate": 0.36,
+          "ban_rate": 0.17,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 52.14,
+          "pick_rate": 0.34,
+          "ban_rate": 0.12,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.31,
+          "pick_rate": 0.31,
+          "ban_rate": 0.09,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Push",
         "Burst"
@@ -561,6 +1131,44 @@
       "tier": "A",
       "tier_score": 2.6,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.68,
+          "pick_rate": 0.64,
+          "ban_rate": 3.69,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 50.77,
+          "pick_rate": 0.39,
+          "ban_rate": 0.62,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.99,
+          "pick_rate": 0.49,
+          "ban_rate": 1.95,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.93,
+          "pick_rate": 0.62,
+          "ban_rate": 4.82,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 51.67,
+          "pick_rate": 0.72,
+          "ban_rate": 5.12,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.49,
+          "pick_rate": 0.89,
+          "ban_rate": 4.8,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Damage",
         "Crowd Control"
@@ -597,6 +1205,44 @@
       "tier": "C",
       "tier_score": -2.96,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.02,
+          "pick_rate": 0.05,
+          "ban_rate": 0.09,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 48.65,
+          "pick_rate": 0.04,
+          "ban_rate": 0.12,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 46.66,
+          "pick_rate": 0.04,
+          "ban_rate": 0.1,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 46.54,
+          "pick_rate": 0.04,
+          "ban_rate": 0.11,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 44.57,
+          "pick_rate": 0.05,
+          "ban_rate": 0.08,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 49.48,
+          "pick_rate": 0.06,
+          "ban_rate": 0.07,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Support",
         "Damage"
@@ -632,6 +1278,44 @@
       "tier": "A",
       "tier_score": 0.96,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.86,
+          "pick_rate": 0.64,
+          "ban_rate": 0.4,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.24,
+          "pick_rate": 0.27,
+          "ban_rate": 0.46,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.31,
+          "pick_rate": 0.43,
+          "ban_rate": 0.42,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50,
+          "pick_rate": 0.6,
+          "ban_rate": 0.36,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 50.81,
+          "pick_rate": 0.77,
+          "ban_rate": 0.26,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.64,
+          "pick_rate": 1.01,
+          "ban_rate": 0.54,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -667,6 +1351,44 @@
       "tier": "S+",
       "tier_score": 16.03,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.03,
+          "pick_rate": 1.75,
+          "ban_rate": 56.01,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 55.87,
+          "pick_rate": 1.82,
+          "ban_rate": 30.96,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 53.94,
+          "pick_rate": 1.67,
+          "ban_rate": 53.91,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 51.98,
+          "pick_rate": 1.52,
+          "ban_rate": 65.19,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 50.75,
+          "pick_rate": 1.77,
+          "ban_rate": 62.1,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 49.61,
+          "pick_rate": 2.04,
+          "ban_rate": 55.14,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Regen"
@@ -703,6 +1425,44 @@
       "tier": "A",
       "tier_score": 2.68,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.6,
+          "pick_rate": 0.37,
+          "ban_rate": 0.31,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 54.67,
+          "pick_rate": 0.14,
+          "ban_rate": 0.26,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 53.72,
+          "pick_rate": 0.29,
+          "ban_rate": 0.4,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 52.32,
+          "pick_rate": 0.39,
+          "ban_rate": 0.38,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 52.18,
+          "pick_rate": 0.45,
+          "ban_rate": 0.31,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 52.08,
+          "pick_rate": 0.49,
+          "ban_rate": 0.17,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -738,6 +1498,44 @@
       "tier": "A",
       "tier_score": 0.68,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.21,
+          "pick_rate": 0.91,
+          "ban_rate": 1.89,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 49.88,
+          "pick_rate": 0.33,
+          "ban_rate": 0.97,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 50.25,
+          "pick_rate": 0.64,
+          "ban_rate": 2.01,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.23,
+          "pick_rate": 0.97,
+          "ban_rate": 2.6,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.36,
+          "pick_rate": 1.13,
+          "ban_rate": 2.15,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.05,
+          "pick_rate": 1.24,
+          "ban_rate": 1.21,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Finisher"
@@ -773,6 +1571,44 @@
       "tier": "S",
       "tier_score": 3.24,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.2,
+          "pick_rate": 0.35,
+          "ban_rate": 0.17,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 51.7,
+          "pick_rate": 0.2,
+          "ban_rate": 0.49,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 52.07,
+          "pick_rate": 0.23,
+          "ban_rate": 0.17,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 52.66,
+          "pick_rate": 0.3,
+          "ban_rate": 0.14,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 53.5,
+          "pick_rate": 0.39,
+          "ban_rate": 0.11,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 54.04,
+          "pick_rate": 0.58,
+          "ban_rate": 0.1,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Finisher",
         "Burst"
@@ -809,6 +1645,44 @@
       "tier": "S+",
       "tier_score": 8.12,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.83,
+          "pick_rate": 1.18,
+          "ban_rate": 17.18,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 54.43,
+          "pick_rate": 0.34,
+          "ban_rate": 0.8,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 54.75,
+          "pick_rate": 0.71,
+          "ban_rate": 3.44,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 54.43,
+          "pick_rate": 1.13,
+          "ban_rate": 11.82,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 53.64,
+          "pick_rate": 1.56,
+          "ban_rate": 24.2,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 53.16,
+          "pick_rate": 1.84,
+          "ban_rate": 40.25,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Damage"
@@ -844,6 +1718,44 @@
       "tier": "A",
       "tier_score": 1.24,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.2,
+          "pick_rate": 0.68,
+          "ban_rate": 0.16,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 49.99,
+          "pick_rate": 0.61,
+          "ban_rate": 0.31,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 50.47,
+          "pick_rate": 0.58,
+          "ban_rate": 0.18,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.61,
+          "pick_rate": 0.6,
+          "ban_rate": 0.15,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 52.17,
+          "pick_rate": 0.74,
+          "ban_rate": 0.13,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.63,
+          "pick_rate": 0.85,
+          "ban_rate": 0.08,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Poke",
         "Burst"
@@ -879,6 +1791,44 @@
       "tier": "B",
       "tier_score": -1.92,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.99,
+          "pick_rate": 0.7,
+          "ban_rate": 0.36,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.48,
+          "pick_rate": 0.89,
+          "ban_rate": 0.96,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 48.96,
+          "pick_rate": 0.91,
+          "ban_rate": 0.57,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 47.87,
+          "pick_rate": 0.79,
+          "ban_rate": 0.33,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 46.56,
+          "pick_rate": 0.58,
+          "ban_rate": 0.15,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 45.07,
+          "pick_rate": 0.4,
+          "ban_rate": 0.06,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Poke",
         "Burst"
@@ -915,6 +1865,44 @@
       "tier": "C",
       "tier_score": -2.72,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.23,
+          "pick_rate": 0.04,
+          "ban_rate": 0.22,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 47.31,
+          "pick_rate": 0.02,
+          "ban_rate": 0.44,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 46.47,
+          "pick_rate": 0.03,
+          "ban_rate": 0.22,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 47.21,
+          "pick_rate": 0.04,
+          "ban_rate": 0.22,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 46.92,
+          "pick_rate": 0.05,
+          "ban_rate": 0.17,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 48.09,
+          "pick_rate": 0.06,
+          "ban_rate": 0.18,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Support",
         "Crowd Control"
@@ -951,6 +1939,44 @@
       "tier": "C",
       "tier_score": -4.09,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 45.08,
+          "pick_rate": 1.08,
+          "ban_rate": 3.31,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 45.25,
+          "pick_rate": 1.25,
+          "ban_rate": 5.59,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 45.31,
+          "pick_rate": 1.19,
+          "ban_rate": 3.76,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 45.32,
+          "pick_rate": 1.18,
+          "ban_rate": 4.74,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 44.96,
+          "pick_rate": 0.99,
+          "ban_rate": 2.49,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 44.43,
+          "pick_rate": 0.88,
+          "ban_rate": 1.3,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Control"
@@ -986,6 +2012,44 @@
       "tier": "B",
       "tier_score": -0.31,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.44,
+          "pick_rate": 0.58,
+          "ban_rate": 0.99,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50,
+          "pick_rate": 0.46,
+          "ban_rate": 1.48,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 49.64,
+          "pick_rate": 0.52,
+          "ban_rate": 1.53,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.92,
+          "pick_rate": 0.53,
+          "ban_rate": 0.97,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.27,
+          "pick_rate": 0.62,
+          "ban_rate": 0.68,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.92,
+          "pick_rate": 0.71,
+          "ban_rate": 0.39,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Damage",
         "Regen"
@@ -1021,6 +2085,44 @@
       "tier": "B",
       "tier_score": -1.01,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.94,
+          "pick_rate": 0.71,
+          "ban_rate": 0.21,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.15,
+          "pick_rate": 0.28,
+          "ban_rate": 0.31,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 49.79,
+          "pick_rate": 0.49,
+          "ban_rate": 0.28,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.19,
+          "pick_rate": 0.73,
+          "ban_rate": 0.24,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.01,
+          "pick_rate": 0.89,
+          "ban_rate": 0.16,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.95,
+          "pick_rate": 0.98,
+          "ban_rate": 0.09,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Burst",
         "Chase"
@@ -1056,6 +2158,44 @@
       "tier": "B",
       "tier_score": 0.33,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.18,
+          "pick_rate": 0.65,
+          "ban_rate": 0.61,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.42,
+          "pick_rate": 0.42,
+          "ban_rate": 1.04,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 49.68,
+          "pick_rate": 0.51,
+          "ban_rate": 0.77,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50.28,
+          "pick_rate": 0.64,
+          "ban_rate": 0.65,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 50.93,
+          "pick_rate": 0.75,
+          "ban_rate": 0.52,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.35,
+          "pick_rate": 0.84,
+          "ban_rate": 0.28,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Finisher",
         "Burst"
@@ -1091,6 +2231,44 @@
       "tier": "A",
       "tier_score": 1.69,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.62,
+          "pick_rate": 0.7,
+          "ban_rate": 0.3,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.71,
+          "pick_rate": 0.7,
+          "ban_rate": 0.84,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 52,
+          "pick_rate": 0.78,
+          "ban_rate": 0.38,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 52.35,
+          "pick_rate": 0.74,
+          "ban_rate": 0.28,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 51.45,
+          "pick_rate": 0.67,
+          "ban_rate": 0.17,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.23,
+          "pick_rate": 0.56,
+          "ban_rate": 0.1,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Poke",
         "Control"
@@ -1126,6 +2304,44 @@
       "tier": "S",
       "tier_score": 4.48,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.67,
+          "pick_rate": 0.18,
+          "ban_rate": 3.24,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 50.89,
+          "pick_rate": 0.08,
+          "ban_rate": 0.51,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 52.02,
+          "pick_rate": 0.14,
+          "ban_rate": 1.74,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 53.69,
+          "pick_rate": 0.17,
+          "ban_rate": 3.94,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 53.79,
+          "pick_rate": 0.19,
+          "ban_rate": 3.55,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 54.93,
+          "pick_rate": 0.3,
+          "ban_rate": 5.61,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Guard",
         "Poke"
@@ -1161,6 +2377,7 @@
       "tier": null,
       "tier_score": null,
       "rank_scope": "all",
+      "rates_by_rank": null,
       "speciality": [
         "Poke",
         "Control"
@@ -1197,6 +2414,44 @@
       "tier": "B",
       "tier_score": -0.58,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.03,
+          "pick_rate": 1.77,
+          "ban_rate": 1.56,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.65,
+          "pick_rate": 4.22,
+          "ban_rate": 3.7,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.22,
+          "pick_rate": 2.22,
+          "ban_rate": 2.1,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.31,
+          "pick_rate": 1.39,
+          "ban_rate": 1.23,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 51.46,
+          "pick_rate": 1.23,
+          "ban_rate": 1.13,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.57,
+          "pick_rate": 0.98,
+          "ban_rate": 0.61,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Charge",
         "Burst"
@@ -1234,6 +2489,44 @@
       "tier": "A",
       "tier_score": 2.57,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.53,
+          "pick_rate": 0.3,
+          "ban_rate": 0.15,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.66,
+          "pick_rate": 0.28,
+          "ban_rate": 0.14,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 53.02,
+          "pick_rate": 0.32,
+          "ban_rate": 0.18,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 52.91,
+          "pick_rate": 0.3,
+          "ban_rate": 0.18,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 52.36,
+          "pick_rate": 0.3,
+          "ban_rate": 0.14,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.57,
+          "pick_rate": 0.28,
+          "ban_rate": 0.09,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Control",
         "Burst"
@@ -1270,6 +2563,44 @@
       "tier": "C",
       "tier_score": -2.27,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.18,
+          "pick_rate": 0.87,
+          "ban_rate": 2.19,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 48.17,
+          "pick_rate": 0.48,
+          "ban_rate": 1.95,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 47.94,
+          "pick_rate": 0.79,
+          "ban_rate": 2.89,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 47.59,
+          "pick_rate": 0.96,
+          "ban_rate": 2.84,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 46.81,
+          "pick_rate": 1,
+          "ban_rate": 1.96,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 46.17,
+          "pick_rate": 0.93,
+          "ban_rate": 1.02,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Regen",
         "Mixed Damage"
@@ -1305,6 +2636,44 @@
       "tier": "S+",
       "tier_score": 14.17,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.72,
+          "pick_rate": 0.68,
+          "ban_rate": 45.78,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 53.97,
+          "pick_rate": 0.63,
+          "ban_rate": 56.6,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 53.43,
+          "pick_rate": 0.68,
+          "ban_rate": 59.95,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 52.77,
+          "pick_rate": 0.66,
+          "ban_rate": 54.6,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 52.15,
+          "pick_rate": 0.7,
+          "ban_rate": 37.92,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 51.88,
+          "pick_rate": 0.7,
+          "ban_rate": 22.7,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Regen",
         "Guard"
@@ -1340,6 +2709,44 @@
       "tier": "S+",
       "tier_score": 14.66,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.52,
+          "pick_rate": 1.91,
+          "ban_rate": 56.55,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 49.83,
+          "pick_rate": 1.88,
+          "ban_rate": 42.1,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 50.46,
+          "pick_rate": 1.82,
+          "ban_rate": 58.5,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 50.79,
+          "pick_rate": 1.71,
+          "ban_rate": 64.11,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 50.5,
+          "pick_rate": 1.93,
+          "ban_rate": 60.14,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 50.71,
+          "pick_rate": 2.18,
+          "ban_rate": 49.54,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Control",
         "Burst"
@@ -1375,6 +2782,44 @@
       "tier": "C",
       "tier_score": -7.05,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 42.45,
+          "pick_rate": 0.66,
+          "ban_rate": 1.99,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 44.31,
+          "pick_rate": 0.41,
+          "ban_rate": 3.71,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 42.59,
+          "pick_rate": 0.59,
+          "ban_rate": 2.17,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 41.61,
+          "pick_rate": 0.68,
+          "ban_rate": 1.91,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 42.22,
+          "pick_rate": 0.73,
+          "ban_rate": 1.59,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 42.75,
+          "pick_rate": 0.78,
+          "ban_rate": 1.48,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Finisher"
@@ -1412,6 +2857,44 @@
       "tier": "A",
       "tier_score": 0.98,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.9,
+          "pick_rate": 0.09,
+          "ban_rate": 0.31,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 45.91,
+          "pick_rate": 0.02,
+          "ban_rate": 0.17,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 48.63,
+          "pick_rate": 0.05,
+          "ban_rate": 0.22,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50.55,
+          "pick_rate": 0.07,
+          "ban_rate": 0.39,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 51.27,
+          "pick_rate": 0.11,
+          "ban_rate": 0.39,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.96,
+          "pick_rate": 0.16,
+          "ban_rate": 0.31,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Guard",
         "Charge"
@@ -1447,6 +2930,44 @@
       "tier": "S+",
       "tier_score": 7.27,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.92,
+          "pick_rate": 0.91,
+          "ban_rate": 13.38,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 54.91,
+          "pick_rate": 0.42,
+          "ban_rate": 4.94,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 54.11,
+          "pick_rate": 0.67,
+          "ban_rate": 13.05,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 53.88,
+          "pick_rate": 0.85,
+          "ban_rate": 18.99,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 53.86,
+          "pick_rate": 0.99,
+          "ban_rate": 13.73,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 53.73,
+          "pick_rate": 1.42,
+          "ban_rate": 12.42,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Poke",
         "Guard"
@@ -1482,6 +3003,44 @@
       "tier": "C",
       "tier_score": -7.49,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 41.66,
+          "pick_rate": 1.01,
+          "ban_rate": 3.41,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 43.89,
+          "pick_rate": 1.73,
+          "ban_rate": 6.32,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 42.02,
+          "pick_rate": 1.29,
+          "ban_rate": 4.13,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 41.68,
+          "pick_rate": 0.98,
+          "ban_rate": 4.07,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 40.62,
+          "pick_rate": 0.8,
+          "ban_rate": 2.66,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 38.96,
+          "pick_rate": 0.54,
+          "ban_rate": 1.37,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Initiator",
         "Control"
@@ -1518,6 +3077,44 @@
       "tier": "A",
       "tier_score": 1.34,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.95,
+          "pick_rate": 0.44,
+          "ban_rate": 1.55,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 50.21,
+          "pick_rate": 0.19,
+          "ban_rate": 1.84,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 49.76,
+          "pick_rate": 0.28,
+          "ban_rate": 1.61,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50.35,
+          "pick_rate": 0.42,
+          "ban_rate": 1.73,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.96,
+          "pick_rate": 0.51,
+          "ban_rate": 1.4,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 52.06,
+          "pick_rate": 0.68,
+          "ban_rate": 1.33,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Damage",
         "Chase"
@@ -1554,6 +3151,44 @@
       "tier": "B",
       "tier_score": -1.42,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.07,
+          "pick_rate": 0.69,
+          "ban_rate": 2.04,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 46.75,
+          "pick_rate": 0.97,
+          "ban_rate": 4.01,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 46.68,
+          "pick_rate": 0.65,
+          "ban_rate": 2.85,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 47.5,
+          "pick_rate": 0.62,
+          "ban_rate": 1.94,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 47.96,
+          "pick_rate": 0.61,
+          "ban_rate": 1.19,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 51.01,
+          "pick_rate": 0.76,
+          "ban_rate": 1.14,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -1591,6 +3226,44 @@
       "tier": "C",
       "tier_score": -4.6,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 45.33,
+          "pick_rate": 0.58,
+          "ban_rate": 0.3,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 48.11,
+          "pick_rate": 1.12,
+          "ban_rate": 0.93,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 45.05,
+          "pick_rate": 0.78,
+          "ban_rate": 0.42,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 44.52,
+          "pick_rate": 0.57,
+          "ban_rate": 0.25,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 44.15,
+          "pick_rate": 0.41,
+          "ban_rate": 0.13,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 44.64,
+          "pick_rate": 0.28,
+          "ban_rate": 0.07,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Burst"
@@ -1627,6 +3300,44 @@
       "tier": "S+",
       "tier_score": 14.51,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 54.57,
+          "pick_rate": 0.74,
+          "ban_rate": 39.76,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 56.45,
+          "pick_rate": 0.41,
+          "ban_rate": 18.65,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 56.56,
+          "pick_rate": 0.59,
+          "ban_rate": 39.88,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 55.74,
+          "pick_rate": 0.68,
+          "ban_rate": 51.59,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 54.21,
+          "pick_rate": 0.84,
+          "ban_rate": 45.46,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 52.31,
+          "pick_rate": 1.04,
+          "ban_rate": 32.02,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Regen",
         "Control"
@@ -1662,6 +3373,44 @@
       "tier": "S",
       "tier_score": 3.15,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53,
+          "pick_rate": 0.62,
+          "ban_rate": 0.58,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 52.56,
+          "pick_rate": 0.8,
+          "ban_rate": 1.88,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 52.9,
+          "pick_rate": 0.73,
+          "ban_rate": 0.88,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 53.45,
+          "pick_rate": 0.59,
+          "ban_rate": 0.44,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 53.32,
+          "pick_rate": 0.56,
+          "ban_rate": 0.25,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 52.59,
+          "pick_rate": 0.49,
+          "ban_rate": 0.1,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Poke",
         "Burst"
@@ -1697,6 +3446,44 @@
       "tier": "C",
       "tier_score": -6.77,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 42.81,
+          "pick_rate": 1.38,
+          "ban_rate": 1.67,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 43.15,
+          "pick_rate": 1.24,
+          "ban_rate": 3.47,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 41.62,
+          "pick_rate": 1.4,
+          "ban_rate": 2.6,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 41.85,
+          "pick_rate": 1.47,
+          "ban_rate": 1.54,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 42.62,
+          "pick_rate": 1.31,
+          "ban_rate": 0.76,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 45.4,
+          "pick_rate": 1.42,
+          "ban_rate": 0.75,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Burst",
         "Finisher"
@@ -1733,6 +3520,44 @@
       "tier": "C",
       "tier_score": -3.05,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 46.77,
+          "pick_rate": 0.37,
+          "ban_rate": 0.72,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 49.53,
+          "pick_rate": 0.32,
+          "ban_rate": 0.59,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 47.53,
+          "pick_rate": 0.41,
+          "ban_rate": 0.96,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 46.96,
+          "pick_rate": 0.42,
+          "ban_rate": 1,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 45.93,
+          "pick_rate": 0.36,
+          "ban_rate": 0.65,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 44.89,
+          "pick_rate": 0.29,
+          "ban_rate": 0.3,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Initiator"
@@ -1768,6 +3593,44 @@
       "tier": "A",
       "tier_score": 1.73,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.21,
+          "pick_rate": 0.81,
+          "ban_rate": 2.08,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.87,
+          "pick_rate": 0.4,
+          "ban_rate": 1.83,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.88,
+          "pick_rate": 0.65,
+          "ban_rate": 2.62,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.02,
+          "pick_rate": 0.8,
+          "ban_rate": 2.38,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 51.23,
+          "pick_rate": 0.93,
+          "ban_rate": 2,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.47,
+          "pick_rate": 1.09,
+          "ban_rate": 1.31,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Burst",
         "Magic Damage"
@@ -1804,6 +3667,44 @@
       "tier": "B",
       "tier_score": -0.39,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.59,
+          "pick_rate": 1.33,
+          "ban_rate": 4.09,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.7,
+          "pick_rate": 1.09,
+          "ban_rate": 6.42,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.61,
+          "pick_rate": 1.46,
+          "ban_rate": 5.77,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.42,
+          "pick_rate": 1.58,
+          "ban_rate": 4,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.53,
+          "pick_rate": 1.29,
+          "ban_rate": 3.28,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.81,
+          "pick_rate": 1.08,
+          "ban_rate": 1.74,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Magic Damage"
@@ -1839,6 +3740,44 @@
       "tier": "S",
       "tier_score": 3.83,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.61,
+          "pick_rate": 2.62,
+          "ban_rate": 4.9,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 54.32,
+          "pick_rate": 4.33,
+          "ban_rate": 8.78,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 53.46,
+          "pick_rate": 3.57,
+          "ban_rate": 7.74,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 52.39,
+          "pick_rate": 2.61,
+          "ban_rate": 5.42,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 50.92,
+          "pick_rate": 1.99,
+          "ban_rate": 2.89,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.1,
+          "pick_rate": 1.25,
+          "ban_rate": 1.13,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -1874,6 +3813,44 @@
       "tier": "A",
       "tier_score": 2.02,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.84,
+          "pick_rate": 0.39,
+          "ban_rate": 8.73,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.2,
+          "pick_rate": 0.28,
+          "ban_rate": 4.44,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.98,
+          "pick_rate": 0.39,
+          "ban_rate": 10.61,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 50.01,
+          "pick_rate": 0.38,
+          "ban_rate": 11.91,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.61,
+          "pick_rate": 0.42,
+          "ban_rate": 9.4,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 47.88,
+          "pick_rate": 0.38,
+          "ban_rate": 4.5,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Poke"
@@ -1909,6 +3886,44 @@
       "tier": "C",
       "tier_score": -4.18,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 45.81,
+          "pick_rate": 0.13,
+          "ban_rate": 0.05,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 44.65,
+          "pick_rate": 0.05,
+          "ban_rate": 0.07,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 44.47,
+          "pick_rate": 0.09,
+          "ban_rate": 0.05,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 45.12,
+          "pick_rate": 0.14,
+          "ban_rate": 0.06,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 45.73,
+          "pick_rate": 0.16,
+          "ban_rate": 0.04,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 47.31,
+          "pick_rate": 0.2,
+          "ban_rate": 0.03,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -1946,6 +3961,44 @@
       "tier": "B",
       "tier_score": -1.42,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.75,
+          "pick_rate": 0.84,
+          "ban_rate": 3.3,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.01,
+          "pick_rate": 0.98,
+          "ban_rate": 7.74,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 47.46,
+          "pick_rate": 1.11,
+          "ban_rate": 5.88,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 47.76,
+          "pick_rate": 0.91,
+          "ban_rate": 2.87,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.83,
+          "pick_rate": 0.7,
+          "ban_rate": 1.31,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.17,
+          "pick_rate": 0.52,
+          "ban_rate": 0.42,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Poke"
@@ -1981,6 +4034,44 @@
       "tier": "B",
       "tier_score": -1.3,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.21,
+          "pick_rate": 0.86,
+          "ban_rate": 1.95,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.62,
+          "pick_rate": 0.57,
+          "ban_rate": 4.75,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.16,
+          "pick_rate": 0.79,
+          "ban_rate": 2.77,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.72,
+          "pick_rate": 0.95,
+          "ban_rate": 1.97,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.46,
+          "pick_rate": 0.96,
+          "ban_rate": 1.11,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.64,
+          "pick_rate": 0.87,
+          "ban_rate": 0.49,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -2017,6 +4108,44 @@
       "tier": "B",
       "tier_score": -1.29,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.48,
+          "pick_rate": 0.6,
+          "ban_rate": 4.92,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.37,
+          "pick_rate": 0.85,
+          "ban_rate": 6.88,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.04,
+          "pick_rate": 0.83,
+          "ban_rate": 7.63,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 47.62,
+          "pick_rate": 0.66,
+          "ban_rate": 6.13,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 46.5,
+          "pick_rate": 0.45,
+          "ban_rate": 3.12,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 45.76,
+          "pick_rate": 0.32,
+          "ban_rate": 1.34,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Push",
         "Burst"
@@ -2054,6 +4183,44 @@
       "tier": "S",
       "tier_score": 3.78,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.07,
+          "pick_rate": 0.59,
+          "ban_rate": 10.83,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 55.28,
+          "pick_rate": 0.71,
+          "ban_rate": 21.99,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 52.58,
+          "pick_rate": 0.83,
+          "ban_rate": 20.13,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 50.85,
+          "pick_rate": 0.66,
+          "ban_rate": 10.63,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 48.21,
+          "pick_rate": 0.49,
+          "ban_rate": 4.11,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 46.08,
+          "pick_rate": 0.26,
+          "ban_rate": 1.07,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Damage",
         "Regen"
@@ -2089,6 +4256,44 @@
       "tier": "S+",
       "tier_score": 17.08,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.05,
+          "pick_rate": 0.53,
+          "ban_rate": 68.11,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 50.13,
+          "pick_rate": 0.25,
+          "ban_rate": 14.78,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 50.09,
+          "pick_rate": 0.42,
+          "ban_rate": 48.37,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 50.02,
+          "pick_rate": 0.54,
+          "ban_rate": 77.44,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 50.72,
+          "pick_rate": 0.62,
+          "ban_rate": 86.36,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 49.27,
+          "pick_rate": 0.7,
+          "ban_rate": 90.09,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Chase",
         "Finisher"
@@ -2124,6 +4329,44 @@
       "tier": "B",
       "tier_score": -0.95,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.98,
+          "pick_rate": 0.31,
+          "ban_rate": 0.27,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 51.91,
+          "pick_rate": 0.23,
+          "ban_rate": 0.49,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.49,
+          "pick_rate": 0.33,
+          "ban_rate": 0.39,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.69,
+          "pick_rate": 0.37,
+          "ban_rate": 0.31,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.63,
+          "pick_rate": 0.33,
+          "ban_rate": 0.17,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 46.42,
+          "pick_rate": 0.27,
+          "ban_rate": 0.08,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Guard",
         "Initiator"
@@ -2159,6 +4402,44 @@
       "tier": "A",
       "tier_score": 2.46,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.4,
+          "pick_rate": 0.42,
+          "ban_rate": 0.26,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 50.02,
+          "pick_rate": 0.38,
+          "ban_rate": 0.59,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 52.15,
+          "pick_rate": 0.37,
+          "ban_rate": 0.38,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 53.34,
+          "pick_rate": 0.44,
+          "ban_rate": 0.27,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 53.11,
+          "pick_rate": 0.46,
+          "ban_rate": 0.14,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 51.92,
+          "pick_rate": 0.46,
+          "ban_rate": 0.06,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Finisher",
         "Burst"
@@ -2194,6 +4475,44 @@
       "tier": "B",
       "tier_score": 0.05,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.86,
+          "pick_rate": 0.77,
+          "ban_rate": 0.75,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.14,
+          "pick_rate": 0.86,
+          "ban_rate": 1.05,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 50,
+          "pick_rate": 0.82,
+          "ban_rate": 1.16,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50.14,
+          "pick_rate": 0.81,
+          "ban_rate": 0.82,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.53,
+          "pick_rate": 0.73,
+          "ban_rate": 0.45,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 50.23,
+          "pick_rate": 0.65,
+          "ban_rate": 0.34,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -2230,6 +4549,44 @@
       "tier": "B",
       "tier_score": -1.9,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.02,
+          "pick_rate": 0.35,
+          "ban_rate": 0.3,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.75,
+          "pick_rate": 0.55,
+          "ban_rate": 0.57,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 48.45,
+          "pick_rate": 0.5,
+          "ban_rate": 0.5,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.68,
+          "pick_rate": 0.34,
+          "ban_rate": 0.29,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.69,
+          "pick_rate": 0.27,
+          "ban_rate": 0.16,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 46.19,
+          "pick_rate": 0.17,
+          "ban_rate": 0.07,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Charge",
         "Burst"
@@ -2266,6 +4623,44 @@
       "tier": "B",
       "tier_score": -0.48,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.98,
+          "pick_rate": 0.75,
+          "ban_rate": 2.18,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 51.92,
+          "pick_rate": 0.97,
+          "ban_rate": 5.2,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 50.05,
+          "pick_rate": 1.05,
+          "ban_rate": 3.47,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 48.55,
+          "pick_rate": 0.82,
+          "ban_rate": 1.98,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 46.98,
+          "pick_rate": 0.6,
+          "ban_rate": 1.15,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 45.74,
+          "pick_rate": 0.35,
+          "ban_rate": 0.4,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Support",
         "Crowd Control"
@@ -2301,6 +4696,44 @@
       "tier": "B",
       "tier_score": -1.41,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.54,
+          "pick_rate": 0.14,
+          "ban_rate": 0.2,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 46.52,
+          "pick_rate": 0.05,
+          "ban_rate": 0.2,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 46.46,
+          "pick_rate": 0.08,
+          "ban_rate": 0.21,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 47.21,
+          "pick_rate": 0.13,
+          "ban_rate": 0.24,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 49.53,
+          "pick_rate": 0.18,
+          "ban_rate": 0.2,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.38,
+          "pick_rate": 0.25,
+          "ban_rate": 0.14,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -2338,6 +4771,44 @@
       "tier": "B",
       "tier_score": 0.4,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.19,
+          "pick_rate": 0.68,
+          "ban_rate": 0.83,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.82,
+          "pick_rate": 0.85,
+          "ban_rate": 1.8,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.31,
+          "pick_rate": 0.78,
+          "ban_rate": 1.26,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.29,
+          "pick_rate": 0.73,
+          "ban_rate": 0.89,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.34,
+          "pick_rate": 0.63,
+          "ban_rate": 0.44,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.07,
+          "pick_rate": 0.49,
+          "ban_rate": 0.17,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Chase",
         "Magic Damage"
@@ -2374,6 +4845,44 @@
       "tier": "A",
       "tier_score": 2.39,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.56,
+          "pick_rate": 0.78,
+          "ban_rate": 3.31,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 49.73,
+          "pick_rate": 0.45,
+          "ban_rate": 2.58,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 50.44,
+          "pick_rate": 0.63,
+          "ban_rate": 4.14,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.18,
+          "pick_rate": 0.77,
+          "ban_rate": 4.1,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 51.94,
+          "pick_rate": 0.87,
+          "ban_rate": 3.14,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 52.76,
+          "pick_rate": 1.03,
+          "ban_rate": 1.99,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Burst",
         "Charge"
@@ -2409,6 +4918,44 @@
       "tier": "A",
       "tier_score": 1.84,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.59,
+          "pick_rate": 0.6,
+          "ban_rate": 0.99,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.01,
+          "pick_rate": 0.27,
+          "ban_rate": 0.81,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.82,
+          "pick_rate": 0.41,
+          "ban_rate": 1.01,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.58,
+          "pick_rate": 0.54,
+          "ban_rate": 1.07,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 51.83,
+          "pick_rate": 0.69,
+          "ban_rate": 1.1,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.31,
+          "pick_rate": 0.96,
+          "ban_rate": 0.84,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Poke",
         "Finisher"
@@ -2444,6 +4991,44 @@
       "tier": "S",
       "tier_score": 3.48,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.84,
+          "pick_rate": 0.54,
+          "ban_rate": 14.56,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 47.53,
+          "pick_rate": 0.17,
+          "ban_rate": 1.32,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 49.13,
+          "pick_rate": 0.31,
+          "ban_rate": 5.98,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.82,
+          "pick_rate": 0.48,
+          "ban_rate": 15.62,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 50.55,
+          "pick_rate": 0.67,
+          "ban_rate": 19.79,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 49.74,
+          "pick_rate": 0.91,
+          "ban_rate": 25.37,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Initiator",
         "Charge"
@@ -2480,6 +5065,44 @@
       "tier": "B",
       "tier_score": -0.39,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.36,
+          "pick_rate": 0.38,
+          "ban_rate": 1,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.2,
+          "pick_rate": 0.24,
+          "ban_rate": 0.41,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.7,
+          "pick_rate": 0.28,
+          "ban_rate": 0.61,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.22,
+          "pick_rate": 0.34,
+          "ban_rate": 1.04,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.21,
+          "pick_rate": 0.42,
+          "ban_rate": 1.19,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 50.04,
+          "pick_rate": 0.58,
+          "ban_rate": 1.57,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Control",
         "Regen"
@@ -2515,6 +5138,44 @@
       "tier": "B",
       "tier_score": -1.29,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.92,
+          "pick_rate": 0.81,
+          "ban_rate": 3.16,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.17,
+          "pick_rate": 0.79,
+          "ban_rate": 4.89,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.18,
+          "pick_rate": 0.91,
+          "ban_rate": 4.03,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 47.99,
+          "pick_rate": 0.97,
+          "ban_rate": 4.34,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.23,
+          "pick_rate": 0.76,
+          "ban_rate": 2.27,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 47.56,
+          "pick_rate": 0.59,
+          "ban_rate": 1.18,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Finisher",
         "Magic Damage"
@@ -2550,6 +5211,44 @@
       "tier": "B",
       "tier_score": -0.99,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.8,
+          "pick_rate": 0.57,
+          "ban_rate": 0.83,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.47,
+          "pick_rate": 0.44,
+          "ban_rate": 0.94,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.6,
+          "pick_rate": 0.49,
+          "ban_rate": 0.84,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.89,
+          "pick_rate": 0.59,
+          "ban_rate": 0.97,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.26,
+          "pick_rate": 0.65,
+          "ban_rate": 0.86,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.63,
+          "pick_rate": 0.63,
+          "ban_rate": 0.59,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -2586,6 +5285,44 @@
       "tier": "A",
       "tier_score": 0.92,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.9,
+          "pick_rate": 0.12,
+          "ban_rate": 0.08,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.22,
+          "pick_rate": 0.07,
+          "ban_rate": 0.1,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 52.65,
+          "pick_rate": 0.1,
+          "ban_rate": 0.1,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 52.32,
+          "pick_rate": 0.12,
+          "ban_rate": 0.11,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.89,
+          "pick_rate": 0.14,
+          "ban_rate": 0.07,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 48.22,
+          "pick_rate": 0.15,
+          "ban_rate": 0.05,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Damage",
         "Regen"
@@ -2621,6 +5358,44 @@
       "tier": "S",
       "tier_score": 5.19,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 54.71,
+          "pick_rate": 0.34,
+          "ban_rate": 1.92,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 54.93,
+          "pick_rate": 0.07,
+          "ban_rate": 0.27,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 54.62,
+          "pick_rate": 0.16,
+          "ban_rate": 0.54,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 54.68,
+          "pick_rate": 0.28,
+          "ban_rate": 0.8,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 54.97,
+          "pick_rate": 0.4,
+          "ban_rate": 2.46,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 54.56,
+          "pick_rate": 0.68,
+          "ban_rate": 4.95,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Initiator",
         "Crowd Control"
@@ -2658,6 +5433,44 @@
       "tier": "B",
       "tier_score": -0.99,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.88,
+          "pick_rate": 0.79,
+          "ban_rate": 0.52,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.47,
+          "pick_rate": 0.45,
+          "ban_rate": 0.49,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.3,
+          "pick_rate": 0.65,
+          "ban_rate": 0.59,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.82,
+          "pick_rate": 0.8,
+          "ban_rate": 0.62,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.13,
+          "pick_rate": 0.9,
+          "ban_rate": 0.49,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.24,
+          "pick_rate": 1,
+          "ban_rate": 0.41,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Damage",
         "Magic Damage"
@@ -2693,6 +5506,44 @@
       "tier": "C",
       "tier_score": -6.82,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 43.07,
+          "pick_rate": 0.54,
+          "ban_rate": 0.45,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 44.91,
+          "pick_rate": 0.42,
+          "ban_rate": 1.35,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 43.71,
+          "pick_rate": 0.55,
+          "ban_rate": 0.68,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 42.92,
+          "pick_rate": 0.58,
+          "ban_rate": 0.35,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 42.77,
+          "pick_rate": 0.58,
+          "ban_rate": 0.2,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 41.85,
+          "pick_rate": 0.48,
+          "ban_rate": 0.1,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -2728,6 +5579,44 @@
       "tier": "B",
       "tier_score": -1.41,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.52,
+          "pick_rate": 0.34,
+          "ban_rate": 0.27,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.24,
+          "pick_rate": 0.13,
+          "ban_rate": 0.48,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 49.5,
+          "pick_rate": 0.25,
+          "ban_rate": 0.45,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.65,
+          "pick_rate": 0.38,
+          "ban_rate": 0.29,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.53,
+          "pick_rate": 0.4,
+          "ban_rate": 0.14,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.38,
+          "pick_rate": 0.44,
+          "ban_rate": 0.06,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -2763,6 +5652,44 @@
       "tier": "B",
       "tier_score": -0.1,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.55,
+          "pick_rate": 1.57,
+          "ban_rate": 1.39,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.8,
+          "pick_rate": 3.08,
+          "ban_rate": 3.81,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.13,
+          "pick_rate": 2.21,
+          "ban_rate": 2.04,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.14,
+          "pick_rate": 1.52,
+          "ban_rate": 1.2,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.34,
+          "pick_rate": 1.06,
+          "ban_rate": 0.68,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.26,
+          "pick_rate": 0.64,
+          "ban_rate": 0.39,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -2798,6 +5725,44 @@
       "tier": "A",
       "tier_score": 0.6,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.47,
+          "pick_rate": 0.3,
+          "ban_rate": 0.52,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.99,
+          "pick_rate": 0.12,
+          "ban_rate": 0.98,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 50.41,
+          "pick_rate": 0.2,
+          "ban_rate": 0.84,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.38,
+          "pick_rate": 0.3,
+          "ban_rate": 0.55,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.21,
+          "pick_rate": 0.37,
+          "ban_rate": 0.28,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 50.52,
+          "pick_rate": 0.46,
+          "ban_rate": 0.14,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -2834,6 +5799,44 @@
       "tier": "B",
       "tier_score": 0.18,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.15,
+          "pick_rate": 1.8,
+          "ban_rate": 8.11,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.79,
+          "pick_rate": 1.69,
+          "ban_rate": 10.3,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.18,
+          "pick_rate": 1.98,
+          "ban_rate": 12.75,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 48.49,
+          "pick_rate": 1.92,
+          "ban_rate": 9.66,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 48.18,
+          "pick_rate": 1.79,
+          "ban_rate": 5.49,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.86,
+          "pick_rate": 1.51,
+          "ban_rate": 2.49,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Finisher",
         "Burst"
@@ -2869,6 +5872,44 @@
       "tier": "S",
       "tier_score": 3.02,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.85,
+          "pick_rate": 0.7,
+          "ban_rate": 0.68,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 54.87,
+          "pick_rate": 0.26,
+          "ban_rate": 0.53,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 53.69,
+          "pick_rate": 0.44,
+          "ban_rate": 0.55,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 53.2,
+          "pick_rate": 0.68,
+          "ban_rate": 0.83,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 52.97,
+          "pick_rate": 0.88,
+          "ban_rate": 0.77,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 51.82,
+          "pick_rate": 1.09,
+          "ban_rate": 0.68,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -2905,6 +5946,44 @@
       "tier": "S",
       "tier_score": 4.07,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 54.02,
+          "pick_rate": 0.08,
+          "ban_rate": 0.19,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 55.29,
+          "pick_rate": 0.05,
+          "ban_rate": 0.36,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 55.82,
+          "pick_rate": 0.08,
+          "ban_rate": 0.21,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 55.34,
+          "pick_rate": 0.08,
+          "ban_rate": 0.2,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 53.69,
+          "pick_rate": 0.09,
+          "ban_rate": 0.16,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 50.86,
+          "pick_rate": 0.09,
+          "ban_rate": 0.14,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Guard",
         "Crowd Control"
@@ -2941,6 +6020,44 @@
       "tier": "S+",
       "tier_score": 12.04,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.6,
+          "pick_rate": 0.87,
+          "ban_rate": 37.77,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 52.26,
+          "pick_rate": 0.34,
+          "ban_rate": 4.1,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 52.23,
+          "pick_rate": 0.58,
+          "ban_rate": 14.13,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 52.79,
+          "pick_rate": 0.86,
+          "ban_rate": 37.9,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 52.98,
+          "pick_rate": 1.05,
+          "ban_rate": 55,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 52.4,
+          "pick_rate": 1.32,
+          "ban_rate": 65.29,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Regen",
         "Damage"
@@ -2976,6 +6093,44 @@
       "tier": "B",
       "tier_score": -1.22,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.73,
+          "pick_rate": 0.25,
+          "ban_rate": 0.21,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.46,
+          "pick_rate": 0.1,
+          "ban_rate": 0.41,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.27,
+          "pick_rate": 0.17,
+          "ban_rate": 0.3,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.87,
+          "pick_rate": 0.24,
+          "ban_rate": 0.23,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.3,
+          "pick_rate": 0.29,
+          "ban_rate": 0.13,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.44,
+          "pick_rate": 0.38,
+          "ban_rate": 0.07,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Damage"
@@ -3011,6 +6166,44 @@
       "tier": "C",
       "tier_score": -2.03,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.95,
+          "pick_rate": 0.16,
+          "ban_rate": 0.07,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 48.72,
+          "pick_rate": 0.16,
+          "ban_rate": 0.12,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 47.93,
+          "pick_rate": 0.17,
+          "ban_rate": 0.1,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 48.01,
+          "pick_rate": 0.16,
+          "ban_rate": 0.09,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.97,
+          "pick_rate": 0.16,
+          "ban_rate": 0.05,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 47.53,
+          "pick_rate": 0.15,
+          "ban_rate": 0.03,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Support",
         "Crowd Control"
@@ -3046,6 +6239,44 @@
       "tier": "B",
       "tier_score": -0.41,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.5,
+          "pick_rate": 0.46,
+          "ban_rate": 0.37,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.75,
+          "pick_rate": 0.39,
+          "ban_rate": 0.65,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.36,
+          "pick_rate": 0.44,
+          "ban_rate": 0.58,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.7,
+          "pick_rate": 0.45,
+          "ban_rate": 0.41,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.99,
+          "pick_rate": 0.49,
+          "ban_rate": 0.21,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.41,
+          "pick_rate": 0.5,
+          "ban_rate": 0.1,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Push",
         "Damage"
@@ -3081,6 +6312,44 @@
       "tier": "S+",
       "tier_score": 16.58,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 57.78,
+          "pick_rate": 0.29,
+          "ban_rate": 35.19,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 56.18,
+          "pick_rate": 0.08,
+          "ban_rate": 1.92,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 57.46,
+          "pick_rate": 0.16,
+          "ban_rate": 8.92,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 58.21,
+          "pick_rate": 0.26,
+          "ban_rate": 27.54,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 57.98,
+          "pick_rate": 0.38,
+          "ban_rate": 51.6,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 57.64,
+          "pick_rate": 0.47,
+          "ban_rate": 74.15,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Support"
@@ -3117,6 +6386,44 @@
       "tier": "C",
       "tier_score": -2.44,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.45,
+          "pick_rate": 0.62,
+          "ban_rate": 0.45,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 46.56,
+          "pick_rate": 1.18,
+          "ban_rate": 1.12,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 47.21,
+          "pick_rate": 0.69,
+          "ban_rate": 0.62,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 48.24,
+          "pick_rate": 0.58,
+          "ban_rate": 0.42,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.82,
+          "pick_rate": 0.53,
+          "ban_rate": 0.29,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 47.63,
+          "pick_rate": 0.42,
+          "ban_rate": 0.12,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Finisher",
         "Charge"
@@ -3153,6 +6460,44 @@
       "tier": "S+",
       "tier_score": 19.79,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 61.03,
+          "pick_rate": 0.55,
+          "ban_rate": 35.05,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 55.96,
+          "pick_rate": 0.18,
+          "ban_rate": 1.74,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 59.28,
+          "pick_rate": 0.31,
+          "ban_rate": 8.55,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 60.72,
+          "pick_rate": 0.49,
+          "ban_rate": 28.29,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 61.62,
+          "pick_rate": 0.73,
+          "ban_rate": 50.08,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 61.92,
+          "pick_rate": 0.88,
+          "ban_rate": 75.27,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Push",
         "Damage"
@@ -3189,6 +6534,44 @@
       "tier": "C",
       "tier_score": -5.45,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 44.51,
+          "pick_rate": 0.14,
+          "ban_rate": 0.18,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 46.22,
+          "pick_rate": 0.04,
+          "ban_rate": 0.07,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 45.21,
+          "pick_rate": 0.08,
+          "ban_rate": 0.13,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 45.05,
+          "pick_rate": 0.13,
+          "ban_rate": 0.23,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 44.24,
+          "pick_rate": 0.16,
+          "ban_rate": 0.21,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 43.98,
+          "pick_rate": 0.23,
+          "ban_rate": 0.23,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Initiator",
         "Guard"
@@ -3224,6 +6607,44 @@
       "tier": "B",
       "tier_score": -1.24,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.52,
+          "pick_rate": 0.36,
+          "ban_rate": 0.96,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.05,
+          "pick_rate": 0.49,
+          "ban_rate": 1.31,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 47.62,
+          "pick_rate": 0.39,
+          "ban_rate": 1.33,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 48.16,
+          "pick_rate": 0.35,
+          "ban_rate": 1.04,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.82,
+          "pick_rate": 0.34,
+          "ban_rate": 0.81,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 50,
+          "pick_rate": 0.27,
+          "ban_rate": 0.37,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -3260,6 +6681,44 @@
       "tier": "S+",
       "tier_score": 6.54,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 54.36,
+          "pick_rate": 1.04,
+          "ban_rate": 8.73,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 54.86,
+          "pick_rate": 0.34,
+          "ban_rate": 3.92,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 55.38,
+          "pick_rate": 0.62,
+          "ban_rate": 5.54,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 55.18,
+          "pick_rate": 0.93,
+          "ban_rate": 8.02,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 54.27,
+          "pick_rate": 1.28,
+          "ban_rate": 9.72,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 53.52,
+          "pick_rate": 1.75,
+          "ban_rate": 14.88,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Crowd Control"
       ],
@@ -3295,6 +6754,44 @@
       "tier": "A",
       "tier_score": 2.88,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.68,
+          "pick_rate": 0.65,
+          "ban_rate": 4.81,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 53.32,
+          "pick_rate": 0.71,
+          "ban_rate": 3.01,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 52.41,
+          "pick_rate": 0.72,
+          "ban_rate": 5.17,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 51.96,
+          "pick_rate": 0.65,
+          "ban_rate": 6.53,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 51.12,
+          "pick_rate": 0.63,
+          "ban_rate": 5.27,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 49.77,
+          "pick_rate": 0.53,
+          "ban_rate": 3.07,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Initiator",
         "Crowd Control"
@@ -3330,6 +6827,44 @@
       "tier": "A",
       "tier_score": 1.09,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.6,
+          "pick_rate": 2.51,
+          "ban_rate": 5.94,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 48.46,
+          "pick_rate": 4.59,
+          "ban_rate": 10.96,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 49.36,
+          "pick_rate": 3.24,
+          "ban_rate": 8.05,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.29,
+          "pick_rate": 2.38,
+          "ban_rate": 6.94,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.1,
+          "pick_rate": 1.87,
+          "ban_rate": 4.08,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.27,
+          "pick_rate": 1.4,
+          "ban_rate": 2.03,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -3365,6 +6900,44 @@
       "tier": "B",
       "tier_score": 0.49,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.41,
+          "pick_rate": 0.97,
+          "ban_rate": 0.31,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.17,
+          "pick_rate": 0.73,
+          "ban_rate": 0.83,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 49.01,
+          "pick_rate": 0.74,
+          "ban_rate": 0.37,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50.36,
+          "pick_rate": 0.96,
+          "ban_rate": 0.3,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 51.63,
+          "pick_rate": 1.08,
+          "ban_rate": 0.2,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.2,
+          "pick_rate": 1.29,
+          "ban_rate": 0.13,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Finisher",
         "Chase"
@@ -3400,6 +6973,44 @@
       "tier": "B",
       "tier_score": -1.39,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.55,
+          "pick_rate": 2,
+          "ban_rate": 4.26,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.78,
+          "pick_rate": 3.5,
+          "ban_rate": 12.55,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 48.24,
+          "pick_rate": 2.8,
+          "ban_rate": 6.55,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 47.05,
+          "pick_rate": 2.02,
+          "ban_rate": 3.89,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 45.7,
+          "pick_rate": 1.46,
+          "ban_rate": 1.7,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 45.01,
+          "pick_rate": 0.84,
+          "ban_rate": 0.6,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Poke",
         "Burst"
@@ -3436,6 +7047,44 @@
       "tier": "A",
       "tier_score": 1.52,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.04,
+          "pick_rate": 0.3,
+          "ban_rate": 1.93,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.29,
+          "pick_rate": 0.33,
+          "ban_rate": 1.96,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.71,
+          "pick_rate": 0.42,
+          "ban_rate": 3.04,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.76,
+          "pick_rate": 0.31,
+          "ban_rate": 2.54,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.97,
+          "pick_rate": 0.24,
+          "ban_rate": 1.33,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.87,
+          "pick_rate": 0.18,
+          "ban_rate": 0.56,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Chase",
         "Finisher"
@@ -3471,6 +7120,44 @@
       "tier": "A",
       "tier_score": 0.85,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.82,
+          "pick_rate": 0.28,
+          "ban_rate": 0.13,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 49.73,
+          "pick_rate": 0.2,
+          "ban_rate": 0.25,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 50.31,
+          "pick_rate": 0.2,
+          "ban_rate": 0.15,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 50.98,
+          "pick_rate": 0.26,
+          "ban_rate": 0.15,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 51.33,
+          "pick_rate": 0.32,
+          "ban_rate": 0.1,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.84,
+          "pick_rate": 0.39,
+          "ban_rate": 0.08,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Burst",
         "Magic Damage"
@@ -3506,6 +7193,44 @@
       "tier": "A",
       "tier_score": 1.37,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.43,
+          "pick_rate": 1.45,
+          "ban_rate": 7.75,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 48.42,
+          "pick_rate": 0.67,
+          "ban_rate": 4.05,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.18,
+          "pick_rate": 1.06,
+          "ban_rate": 6.29,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.88,
+          "pick_rate": 1.38,
+          "ban_rate": 8.98,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.7,
+          "pick_rate": 1.68,
+          "ban_rate": 8.66,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 50.49,
+          "pick_rate": 2.16,
+          "ban_rate": 9.32,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -3541,6 +7266,44 @@
       "tier": "A",
       "tier_score": 0.74,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.72,
+          "pick_rate": 1.3,
+          "ban_rate": 4.09,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 49.9,
+          "pick_rate": 0.76,
+          "ban_rate": 3.37,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.16,
+          "pick_rate": 1.28,
+          "ban_rate": 5.97,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.94,
+          "pick_rate": 1.52,
+          "ban_rate": 5.99,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.72,
+          "pick_rate": 1.38,
+          "ban_rate": 3.06,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.8,
+          "pick_rate": 1.27,
+          "ban_rate": 1.37,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Poke"
@@ -3576,6 +7339,44 @@
       "tier": "S+",
       "tier_score": 11.02,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.35,
+          "pick_rate": 2.41,
+          "ban_rate": 30.68,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 51.89,
+          "pick_rate": 1.12,
+          "ban_rate": 8.72,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 53.27,
+          "pick_rate": 1.69,
+          "ban_rate": 19.31,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 53.76,
+          "pick_rate": 2.31,
+          "ban_rate": 32.22,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 53.57,
+          "pick_rate": 2.96,
+          "ban_rate": 39.68,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 53.14,
+          "pick_rate": 3.46,
+          "ban_rate": 44.46,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Finisher",
         "Damage"
@@ -3611,6 +7412,44 @@
       "tier": "B",
       "tier_score": -0.42,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.5,
+          "pick_rate": 0.58,
+          "ban_rate": 0.3,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.42,
+          "pick_rate": 0.91,
+          "ban_rate": 0.89,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 48.48,
+          "pick_rate": 0.66,
+          "ban_rate": 0.43,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.67,
+          "pick_rate": 0.56,
+          "ban_rate": 0.27,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 50.28,
+          "pick_rate": 0.48,
+          "ban_rate": 0.14,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 52.32,
+          "pick_rate": 0.45,
+          "ban_rate": 0.09,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Burst",
         "Poke"
@@ -3647,6 +7486,44 @@
       "tier": "S+",
       "tier_score": 7.49,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.22,
+          "pick_rate": 1.46,
+          "ban_rate": 29.1,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 50.02,
+          "pick_rate": 0.84,
+          "ban_rate": 12.32,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 50.15,
+          "pick_rate": 1.16,
+          "ban_rate": 28.36,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 50.52,
+          "pick_rate": 1.4,
+          "ban_rate": 36.17,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 50.68,
+          "pick_rate": 1.64,
+          "ban_rate": 34.69,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 49.67,
+          "pick_rate": 1.99,
+          "ban_rate": 24.89,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -3682,6 +7559,44 @@
       "tier": "C",
       "tier_score": -2.3,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.65,
+          "pick_rate": 0.35,
+          "ban_rate": 0.19,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 47.81,
+          "pick_rate": 0.55,
+          "ban_rate": 0.63,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 47.67,
+          "pick_rate": 0.41,
+          "ban_rate": 0.28,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 47.45,
+          "pick_rate": 0.34,
+          "ban_rate": 0.14,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 47.43,
+          "pick_rate": 0.3,
+          "ban_rate": 0.07,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 47.99,
+          "pick_rate": 0.26,
+          "ban_rate": 0.03,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Burst",
         "Poke"
@@ -3717,6 +7632,44 @@
       "tier": "B",
       "tier_score": -1.45,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.39,
+          "pick_rate": 0.28,
+          "ban_rate": 0.63,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.33,
+          "pick_rate": 0.16,
+          "ban_rate": 0.95,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.33,
+          "pick_rate": 0.25,
+          "ban_rate": 0.96,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.39,
+          "pick_rate": 0.3,
+          "ban_rate": 0.75,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.11,
+          "pick_rate": 0.32,
+          "ban_rate": 0.43,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.6,
+          "pick_rate": 0.32,
+          "ban_rate": 0.19,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Regen",
         "Damage"
@@ -3753,6 +7706,44 @@
       "tier": "S",
       "tier_score": 4.77,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 54.69,
+          "pick_rate": 0.45,
+          "ban_rate": 0.31,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 56.07,
+          "pick_rate": 0.49,
+          "ban_rate": 0.57,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 55.71,
+          "pick_rate": 0.56,
+          "ban_rate": 0.45,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 54.86,
+          "pick_rate": 0.47,
+          "ban_rate": 0.34,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 53.53,
+          "pick_rate": 0.4,
+          "ban_rate": 0.2,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 52.61,
+          "pick_rate": 0.3,
+          "ban_rate": 0.1,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Push",
         "Burst"
@@ -3788,6 +7779,44 @@
       "tier": "S+",
       "tier_score": 9.69,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 55.18,
+          "pick_rate": 1.04,
+          "ban_rate": 18.04,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 53.49,
+          "pick_rate": 0.64,
+          "ban_rate": 4.51,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 55.23,
+          "pick_rate": 0.84,
+          "ban_rate": 12.03,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 55.88,
+          "pick_rate": 0.97,
+          "ban_rate": 22.19,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 55.49,
+          "pick_rate": 1.14,
+          "ban_rate": 21.36,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 54.76,
+          "pick_rate": 1.45,
+          "ban_rate": 25.01,
+          "tier": "S+"
+        }
+      },
       "speciality": [
         "Regen",
         "Guard"
@@ -3824,6 +7853,44 @@
       "tier": "B",
       "tier_score": -1.09,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.88,
+          "pick_rate": 0.28,
+          "ban_rate": 0.1,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 51.06,
+          "pick_rate": 0.24,
+          "ban_rate": 0.22,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.52,
+          "pick_rate": 0.3,
+          "ban_rate": 0.12,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.59,
+          "pick_rate": 0.33,
+          "ban_rate": 0.11,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.75,
+          "pick_rate": 0.28,
+          "ban_rate": 0.06,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 45.42,
+          "pick_rate": 0.22,
+          "ban_rate": 0.04,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Finisher",
         "Burst"
@@ -3859,6 +7926,44 @@
       "tier": "B",
       "tier_score": -0.52,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.41,
+          "pick_rate": 0.32,
+          "ban_rate": 0.29,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.34,
+          "pick_rate": 0.19,
+          "ban_rate": 0.53,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 49.73,
+          "pick_rate": 0.27,
+          "ban_rate": 0.43,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.8,
+          "pick_rate": 0.32,
+          "ban_rate": 0.32,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.35,
+          "pick_rate": 0.36,
+          "ban_rate": 0.18,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.89,
+          "pick_rate": 0.39,
+          "ban_rate": 0.07,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Crowd Control",
         "Regen"
@@ -3895,6 +8000,44 @@
       "tier": "S+",
       "tier_score": 6.91,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.88,
+          "pick_rate": 1.06,
+          "ban_rate": 24.1,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 48.78,
+          "pick_rate": 1.85,
+          "ban_rate": 36.95,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 50.29,
+          "pick_rate": 1.36,
+          "ban_rate": 37.78,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 51.11,
+          "pick_rate": 0.94,
+          "ban_rate": 28.13,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 51.77,
+          "pick_rate": 0.82,
+          "ban_rate": 15.53,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 53.71,
+          "pick_rate": 0.67,
+          "ban_rate": 5.92,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Charge",
         "Finisher"
@@ -3932,6 +8075,44 @@
       "tier": "B",
       "tier_score": -0.05,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.47,
+          "pick_rate": 1.63,
+          "ban_rate": 5.91,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.72,
+          "pick_rate": 0.75,
+          "ban_rate": 3.68,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 48.74,
+          "pick_rate": 1.35,
+          "ban_rate": 5.92,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.36,
+          "pick_rate": 1.71,
+          "ban_rate": 7.67,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.39,
+          "pick_rate": 1.85,
+          "ban_rate": 6.22,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.16,
+          "pick_rate": 2.08,
+          "ban_rate": 5.01,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Initiator",
         "Finisher"
@@ -3967,6 +8148,44 @@
       "tier": "A",
       "tier_score": 2.04,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.57,
+          "pick_rate": 1.05,
+          "ban_rate": 1.89,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.43,
+          "pick_rate": 1.76,
+          "ban_rate": 3.5,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 52.33,
+          "pick_rate": 1.51,
+          "ban_rate": 3.21,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 51.55,
+          "pick_rate": 1.07,
+          "ban_rate": 2.07,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.11,
+          "pick_rate": 0.75,
+          "ban_rate": 0.93,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.23,
+          "pick_rate": 0.41,
+          "ban_rate": 0.3,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Initiator",
         "Magic Damage"
@@ -4003,6 +8222,44 @@
       "tier": "B",
       "tier_score": 0.14,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.24,
+          "pick_rate": 0.59,
+          "ban_rate": 3.58,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.59,
+          "pick_rate": 0.28,
+          "ban_rate": 3.56,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.98,
+          "pick_rate": 0.4,
+          "ban_rate": 4.68,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.22,
+          "pick_rate": 0.58,
+          "ban_rate": 4.45,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.25,
+          "pick_rate": 0.72,
+          "ban_rate": 3.32,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.53,
+          "pick_rate": 0.85,
+          "ban_rate": 1.59,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Charge",
         "Burst"
@@ -4039,6 +8296,44 @@
       "tier": "S+",
       "tier_score": 8.66,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 53.02,
+          "pick_rate": 1.68,
+          "ban_rate": 22.56,
+          "tier": "S+"
+        },
+        "epic": {
+          "win_rate": 56.17,
+          "pick_rate": 1.75,
+          "ban_rate": 26.78,
+          "tier": "S+"
+        },
+        "legend": {
+          "win_rate": 54.95,
+          "pick_rate": 1.91,
+          "ban_rate": 29.16,
+          "tier": "S+"
+        },
+        "mythic": {
+          "win_rate": 52.97,
+          "pick_rate": 1.83,
+          "ban_rate": 27.09,
+          "tier": "S+"
+        },
+        "honor": {
+          "win_rate": 51.22,
+          "pick_rate": 1.6,
+          "ban_rate": 19.64,
+          "tier": "S+"
+        },
+        "glory": {
+          "win_rate": 49.88,
+          "pick_rate": 1.32,
+          "ban_rate": 10.92,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Push",
         "Damage"
@@ -4075,6 +8370,44 @@
       "tier": "B",
       "tier_score": -0.24,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.51,
+          "pick_rate": 0.79,
+          "ban_rate": 1.01,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.61,
+          "pick_rate": 0.37,
+          "ban_rate": 0.95,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 49.72,
+          "pick_rate": 0.58,
+          "ban_rate": 1.13,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.4,
+          "pick_rate": 0.81,
+          "ban_rate": 1.38,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.51,
+          "pick_rate": 0.92,
+          "ban_rate": 0.96,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.25,
+          "pick_rate": 1.11,
+          "ban_rate": 0.59,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Chase",
         "Burst"
@@ -4111,6 +8444,44 @@
       "tier": "A",
       "tier_score": 0.9,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.86,
+          "pick_rate": 0.35,
+          "ban_rate": 0.18,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.18,
+          "pick_rate": 0.32,
+          "ban_rate": 0.37,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.88,
+          "pick_rate": 0.35,
+          "ban_rate": 0.26,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51.68,
+          "pick_rate": 0.38,
+          "ban_rate": 0.19,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 50.17,
+          "pick_rate": 0.37,
+          "ban_rate": 0.1,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.62,
+          "pick_rate": 0.29,
+          "ban_rate": 0.04,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Crowd Control"
@@ -4146,6 +8517,44 @@
       "tier": "B",
       "tier_score": -0.73,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.87,
+          "pick_rate": 0.83,
+          "ban_rate": 1.62,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.35,
+          "pick_rate": 1.84,
+          "ban_rate": 4.97,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 49.03,
+          "pick_rate": 1.07,
+          "ban_rate": 2.54,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.68,
+          "pick_rate": 0.8,
+          "ban_rate": 1.28,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.63,
+          "pick_rate": 0.55,
+          "ban_rate": 0.61,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.39,
+          "pick_rate": 0.39,
+          "ban_rate": 0.27,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -4181,6 +8590,44 @@
       "tier": "C",
       "tier_score": -3.34,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 44.95,
+          "pick_rate": 2.04,
+          "ban_rate": 6.85,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 48.42,
+          "pick_rate": 2.07,
+          "ban_rate": 6.68,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 45.6,
+          "pick_rate": 2.39,
+          "ban_rate": 8.87,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 44.26,
+          "pick_rate": 2.44,
+          "ban_rate": 9.51,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 44.07,
+          "pick_rate": 2.01,
+          "ban_rate": 6.25,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 43.43,
+          "pick_rate": 1.22,
+          "ban_rate": 2.46,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Crowd Control"
       ],
@@ -4215,6 +8662,44 @@
       "tier": "B",
       "tier_score": -0.46,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.45,
+          "pick_rate": 0.34,
+          "ban_rate": 0.35,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 51.42,
+          "pick_rate": 0.26,
+          "ban_rate": 0.74,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.3,
+          "pick_rate": 0.35,
+          "ban_rate": 0.5,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.98,
+          "pick_rate": 0.36,
+          "ban_rate": 0.37,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.64,
+          "pick_rate": 0.35,
+          "ban_rate": 0.2,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.97,
+          "pick_rate": 0.32,
+          "ban_rate": 0.1,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Regen"
       ],
@@ -4249,6 +8734,44 @@
       "tier": "B",
       "tier_score": 0.37,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.32,
+          "pick_rate": 0.55,
+          "ban_rate": 0.2,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 51.58,
+          "pick_rate": 0.94,
+          "ban_rate": 0.66,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 50.79,
+          "pick_rate": 0.73,
+          "ban_rate": 0.31,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.11,
+          "pick_rate": 0.55,
+          "ban_rate": 0.16,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.38,
+          "pick_rate": 0.42,
+          "ban_rate": 0.08,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.53,
+          "pick_rate": 0.26,
+          "ban_rate": 0.03,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Crowd Control"
@@ -4284,6 +8807,44 @@
       "tier": "C",
       "tier_score": -5,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 44.95,
+          "pick_rate": 0.19,
+          "ban_rate": 0.18,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 42.82,
+          "pick_rate": 0.03,
+          "ban_rate": 0.09,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 42.47,
+          "pick_rate": 0.07,
+          "ban_rate": 0.1,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 43.68,
+          "pick_rate": 0.14,
+          "ban_rate": 0.16,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 44.71,
+          "pick_rate": 0.23,
+          "ban_rate": 0.21,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 46.14,
+          "pick_rate": 0.43,
+          "ban_rate": 0.32,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Burst",
         "Finisher"
@@ -4319,6 +8880,44 @@
       "tier": "S",
       "tier_score": 5.08,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 54.4,
+          "pick_rate": 1.14,
+          "ban_rate": 2.74,
+          "tier": "S"
+        },
+        "epic": {
+          "win_rate": 54.3,
+          "pick_rate": 1.15,
+          "ban_rate": 3.25,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 54.65,
+          "pick_rate": 1.17,
+          "ban_rate": 3.41,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 54.99,
+          "pick_rate": 1.12,
+          "ban_rate": 3.33,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 54.3,
+          "pick_rate": 1.16,
+          "ban_rate": 2.38,
+          "tier": "S"
+        },
+        "glory": {
+          "win_rate": 53.66,
+          "pick_rate": 1.1,
+          "ban_rate": 1.46,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Damage",
         "Guard"
@@ -4354,6 +8953,44 @@
       "tier": "B",
       "tier_score": -0.07,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.63,
+          "pick_rate": 1.55,
+          "ban_rate": 1.18,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 50.18,
+          "pick_rate": 2.57,
+          "ban_rate": 3.03,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 49.9,
+          "pick_rate": 1.91,
+          "ban_rate": 1.74,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.75,
+          "pick_rate": 1.52,
+          "ban_rate": 1.14,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.26,
+          "pick_rate": 1.28,
+          "ban_rate": 0.62,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.6,
+          "pick_rate": 0.94,
+          "ban_rate": 0.24,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Poke",
         "Control"
@@ -4389,6 +9026,44 @@
       "tier": "C",
       "tier_score": -2.2,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 47.77,
+          "pick_rate": 0.14,
+          "ban_rate": 0.13,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 46.17,
+          "pick_rate": 0.09,
+          "ban_rate": 0.22,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 48.48,
+          "pick_rate": 0.12,
+          "ban_rate": 0.18,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.7,
+          "pick_rate": 0.15,
+          "ban_rate": 0.14,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 47.93,
+          "pick_rate": 0.18,
+          "ban_rate": 0.09,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 46.55,
+          "pick_rate": 0.16,
+          "ban_rate": 0.05,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Finisher",
         "Burst"
@@ -4424,6 +9099,44 @@
       "tier": "A",
       "tier_score": 0.61,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.13,
+          "pick_rate": 0.61,
+          "ban_rate": 1.9,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 50.78,
+          "pick_rate": 0.49,
+          "ban_rate": 2.14,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 51.22,
+          "pick_rate": 0.63,
+          "ban_rate": 3.08,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 51,
+          "pick_rate": 0.64,
+          "ban_rate": 2,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.64,
+          "pick_rate": 0.66,
+          "ban_rate": 1.55,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 47.91,
+          "pick_rate": 0.55,
+          "ban_rate": 0.51,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Regen",
         "Burst"
@@ -4459,6 +9172,44 @@
       "tier": "B",
       "tier_score": -0.55,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.42,
+          "pick_rate": 0.49,
+          "ban_rate": 0.12,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 47.65,
+          "pick_rate": 0.34,
+          "ban_rate": 0.2,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 48.51,
+          "pick_rate": 0.42,
+          "ban_rate": 0.15,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.6,
+          "pick_rate": 0.48,
+          "ban_rate": 0.12,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 50.54,
+          "pick_rate": 0.56,
+          "ban_rate": 0.09,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 49.36,
+          "pick_rate": 0.59,
+          "ban_rate": 0.05,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Damage",
         "Guard"
@@ -4495,6 +9246,44 @@
       "tier": "A",
       "tier_score": 0.65,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.66,
+          "pick_rate": 1.06,
+          "ban_rate": 3.95,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.68,
+          "pick_rate": 0.44,
+          "ban_rate": 2.59,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 49.85,
+          "pick_rate": 0.77,
+          "ban_rate": 4,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 49.52,
+          "pick_rate": 1.05,
+          "ban_rate": 4.72,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 49.58,
+          "pick_rate": 1.26,
+          "ban_rate": 4.01,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 49.43,
+          "pick_rate": 1.54,
+          "ban_rate": 3.76,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Finisher",
         "Chase"
@@ -4532,6 +9321,44 @@
       "tier": "B",
       "tier_score": -0.4,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 49.18,
+          "pick_rate": 0.5,
+          "ban_rate": 1.69,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 49.64,
+          "pick_rate": 0.98,
+          "ban_rate": 5.39,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 48.96,
+          "pick_rate": 0.71,
+          "ban_rate": 2.74,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.08,
+          "pick_rate": 0.46,
+          "ban_rate": 1.17,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.89,
+          "pick_rate": 0.34,
+          "ban_rate": 0.62,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 49.83,
+          "pick_rate": 0.24,
+          "ban_rate": 0.27,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Burst",
         "Control"
@@ -4567,6 +9394,44 @@
       "tier": "B",
       "tier_score": -0.92,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 48.9,
+          "pick_rate": 0.55,
+          "ban_rate": 0.72,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 48.52,
+          "pick_rate": 0.31,
+          "ban_rate": 1.47,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 48.6,
+          "pick_rate": 0.46,
+          "ban_rate": 1.16,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 49.35,
+          "pick_rate": 0.59,
+          "ban_rate": 0.73,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 48.94,
+          "pick_rate": 0.62,
+          "ban_rate": 0.37,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 48.84,
+          "pick_rate": 0.65,
+          "ban_rate": 0.15,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Regen",
         "Damage"
@@ -4602,6 +9467,44 @@
       "tier": "A",
       "tier_score": 2.41,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.4,
+          "pick_rate": 0.05,
+          "ban_rate": 0.04,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 50.27,
+          "pick_rate": 0.02,
+          "ban_rate": 0.1,
+          "tier": "B"
+        },
+        "legend": {
+          "win_rate": 50.98,
+          "pick_rate": 0.03,
+          "ban_rate": 0.05,
+          "tier": "A"
+        },
+        "mythic": {
+          "win_rate": 50.65,
+          "pick_rate": 0.04,
+          "ban_rate": 0.04,
+          "tier": "A"
+        },
+        "honor": {
+          "win_rate": 52.8,
+          "pick_rate": 0.06,
+          "ban_rate": 0.03,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 53.28,
+          "pick_rate": 0.12,
+          "ban_rate": 0.02,
+          "tier": "S"
+        }
+      },
       "speciality": [
         "Burst",
         "Poke"
@@ -4637,6 +9540,44 @@
       "tier": "A",
       "tier_score": 2.13,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 51.08,
+          "pick_rate": 1.62,
+          "ban_rate": 4.22,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 51.42,
+          "pick_rate": 0.84,
+          "ban_rate": 3.91,
+          "tier": "A"
+        },
+        "legend": {
+          "win_rate": 52.18,
+          "pick_rate": 1.28,
+          "ban_rate": 5.57,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 51.94,
+          "pick_rate": 1.71,
+          "ban_rate": 5.9,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 50.71,
+          "pick_rate": 2,
+          "ban_rate": 3.64,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 49.77,
+          "pick_rate": 1.94,
+          "ban_rate": 1.67,
+          "tier": "B"
+        }
+      },
       "speciality": [
         "Damage",
         "Crowd Control"
@@ -4672,6 +9613,44 @@
       "tier": "A",
       "tier_score": 2.86,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 52.76,
+          "pick_rate": 0.36,
+          "ban_rate": 0.4,
+          "tier": "A"
+        },
+        "epic": {
+          "win_rate": 52.94,
+          "pick_rate": 0.49,
+          "ban_rate": 1.11,
+          "tier": "S"
+        },
+        "legend": {
+          "win_rate": 53.23,
+          "pick_rate": 0.45,
+          "ban_rate": 0.65,
+          "tier": "S"
+        },
+        "mythic": {
+          "win_rate": 53.32,
+          "pick_rate": 0.35,
+          "ban_rate": 0.33,
+          "tier": "S"
+        },
+        "honor": {
+          "win_rate": 52.38,
+          "pick_rate": 0.32,
+          "ban_rate": 0.18,
+          "tier": "A"
+        },
+        "glory": {
+          "win_rate": 51.32,
+          "pick_rate": 0.25,
+          "ban_rate": 0.07,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
@@ -4707,6 +9686,44 @@
       "tier": "B",
       "tier_score": 0.21,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 50.13,
+          "pick_rate": 0.18,
+          "ban_rate": 0.33,
+          "tier": "B"
+        },
+        "epic": {
+          "win_rate": 46.04,
+          "pick_rate": 0.05,
+          "ban_rate": 0.23,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 47.99,
+          "pick_rate": 0.07,
+          "ban_rate": 0.27,
+          "tier": "B"
+        },
+        "mythic": {
+          "win_rate": 48.28,
+          "pick_rate": 0.12,
+          "ban_rate": 0.31,
+          "tier": "B"
+        },
+        "honor": {
+          "win_rate": 49.79,
+          "pick_rate": 0.19,
+          "ban_rate": 0.29,
+          "tier": "B"
+        },
+        "glory": {
+          "win_rate": 51.48,
+          "pick_rate": 0.43,
+          "ban_rate": 0.5,
+          "tier": "A"
+        }
+      },
       "speciality": [
         "Damage",
         "Crowd Control"
@@ -4743,6 +9760,44 @@
       "tier": "C",
       "tier_score": -3.6,
       "rank_scope": "all",
+      "rates_by_rank": {
+        "all": {
+          "win_rate": 46.27,
+          "pick_rate": 0.79,
+          "ban_rate": 0.5,
+          "tier": "C"
+        },
+        "epic": {
+          "win_rate": 47.22,
+          "pick_rate": 2.07,
+          "ban_rate": 1.68,
+          "tier": "C"
+        },
+        "legend": {
+          "win_rate": 46.61,
+          "pick_rate": 1.12,
+          "ban_rate": 0.59,
+          "tier": "C"
+        },
+        "mythic": {
+          "win_rate": 46.05,
+          "pick_rate": 0.68,
+          "ban_rate": 0.39,
+          "tier": "C"
+        },
+        "honor": {
+          "win_rate": 45.01,
+          "pick_rate": 0.43,
+          "ban_rate": 0.27,
+          "tier": "C"
+        },
+        "glory": {
+          "win_rate": 43.65,
+          "pick_rate": 0.25,
+          "ban_rate": 0.19,
+          "tier": "C"
+        }
+      },
       "speciality": [
         "Chase",
         "Damage"
