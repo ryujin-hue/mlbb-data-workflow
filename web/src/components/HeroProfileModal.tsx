@@ -205,7 +205,11 @@ export function HeroProfileModal({ heroId, onClose, onAddToTeam, inTeam }: Props
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         onTouchCancel={onTouchEnd}
-        style={dragY ? { transform: `translateY(${dragY}px)` } : undefined}
+        style={
+          dragY
+            ? { transform: `translateY(${dragY}px)`, transition: 'none' }
+            : undefined
+        }
       >
         <div className="profile__grip" aria-hidden="true" />
 
@@ -223,6 +227,8 @@ export function HeroProfileModal({ heroId, onClose, onAddToTeam, inTeam }: Props
               alt={track ? `Potret ${heroName}` : ''}
               width={88}
               height={88}
+              loading="lazy"
+              decoding="async"
               onError={(event) => {
                 event.currentTarget.style.visibility = 'hidden';
               }}
