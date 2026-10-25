@@ -56,9 +56,26 @@ jobs:
 
       - name: Cek ukuran bundle
         run: |
-          total=$(du -sk site | cut -f1)
-          echo "site/: ${total} KB"
+          # Bundle JS/CSS dikira TANPA aset audio - lagu hero ~4.8 MB dan ia
+          # bukan bundle kod, jadi tidak ikut dikira sebagai "bundle kegedean".
+          total=$(du -sk --exclude=audio site | cut -f1)
+          echo "site/ (tanpa audio): ${total} KB"
           test "$total" -lt 1200 || { echo "Bundle kegedean (>1.2 MB)"; exit 1; }
+          if [ -d site/audio ]; then
+            echo "site/audio/: $(du -sk site/audio | cut -f1) KB"
+          fi
+
+      - name: Cek aset lagu hero
+        run: |
+          test -d site/audio/PICS || { echo "folder aset audio hilang"; exit 1; }
+          # Nama folder mengandungi koma dan ruang - jangan diubah.
+          test -f "site/audio/PICS/Mathilda/336387.mp3" || { echo "fail audio Mathilda hilang"; exit 1; }
+          test -f "site/audio/PICS/Miya,layla/336388.mp3" || { echo "fail audio Miya/Layla hilang"; exit 1; }
+          test -f "site/audio/PICS/Vexana,Valentina/336390.mp3" || { echo "fail audio Vexana/Valentina hilang"; exit 1; }
+          test -f "site/audio/PICS/Bruno,nolan,Fredrinn,aamon,brody/Tik4Down_01_emergency_-_breakbeat_breakbeat.mp3" || { echo "fail audio Bruno hilang"; exit 1; }
+          test -f "site/audio/PICS/Camila,hanabi,alice,edith/Tik4Down_02_fanny_skin_aspirant_kau_pikir_hidup_ini_cuma_makan_batu_danc.mp3" || { echo "fail audio Camila hilang"; exit 1; }
+          test -f "site/audio/PICS/Dori,hirara,zetian,fanny ,floryn/Tik4Down_03_pinjem_helm_yah_riri_jipon.mp3" || { echo "fail audio Dori hilang"; exit 1; }
+          echo "Aset lagu hero OK."
 
       # --- smoke test browser ---
       - name: Install Playwright

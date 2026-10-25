@@ -1,0 +1,56 @@
+name: Deploy Worker + Site
+
+# Deploy aplikasi Meta Center (worker API + aset statik) ke Cloudflare Workers.
+#
+# Token dijangka sebagai secret repository:
+#   CLOUDFLARE_API_TOKEN  - API token Cloudflare (Workers Scripts:Edit, Workers KV Storage:Edit)
+#   CLOUDFLARE_ACCOUNT_ID - account id Cloudflare
+#
+# Deploy juga boleh dibuat terus dari mesin lokal:
+#   cd worker && npm install && npm run deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "worker/**"
+      - "shared/**"
+      - "wrangler.jsonc"
+      - ".github/workflows/deploy.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build web (site/)
+        working-directory: web
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+
+      - name: Deploy ke Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+          # Guna wrangler.jsonc di root repo:
+          #   main   = worker/src/index.ts
+          #   assets = ./site  (hasil build web, termasuk /audio/PICS)

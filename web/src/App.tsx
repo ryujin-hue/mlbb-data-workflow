@@ -3,8 +3,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CompositionPanel } from './components/CompositionPanel';
 import { FilterPanel } from './components/FilterPanel';
 import { FilterToolbar } from './components/FilterToolbar';
-import { HeroDetailDrawer } from './components/HeroDetailDrawer';
 import { HeroGrid } from './components/HeroGrid';
+import { HeroProfileModal } from './components/HeroProfileModal';
 import { MoversPanel } from './components/MoversPanel';
 import { SourcesPanel } from './components/SourcesPanel';
 import { StatStrip } from './components/StatStrip';
@@ -262,7 +262,7 @@ export default function App() {
                       onClose={() => setFiltersOpen(false)}
                     />
 
-                    <StatStrip stats={stats} rank={meta.rank} />
+                    <StatStrip stats={stats} rank={meta.rank} onOpen={setOpenHero} />
                   </div>
 
                   <HeroGrid
@@ -293,6 +293,7 @@ export default function App() {
                   windowOptions={WINDOW_OPTIONS}
                   window={meta.window}
                   onWindow={meta.setWindow}
+                  onOpen={setOpenHero}
                 />
               ) : null}
 
@@ -319,7 +320,8 @@ export default function App() {
       </footer>
 
       {openHero ? (
-        <HeroDetailDrawer
+        <HeroProfileModal
+          key={openHero}
           heroId={openHero}
           onClose={() => setOpenHero(null)}
           onAddToTeam={(id) => meta.toggleComposition(id)}

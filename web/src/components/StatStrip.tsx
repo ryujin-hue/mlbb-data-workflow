@@ -28,7 +28,16 @@ const RANK_LABELS: Record<string, string> = {
  * tidak membawa informasi apa pun. Yang penting justru selisihnya terhadap
  * rata-rata 50%.
  */
-export function StatStrip({ stats, rank }: { stats: Summary; rank: string }) {
+export function StatStrip({
+  stats,
+  rank,
+  onOpen,
+}: {
+  stats: Summary;
+  rank: string;
+  /** Buka profil hero bila nama diklik. */
+  onOpen?: (heroId: string) => void;
+}) {
   const roles = Object.entries(stats.avgWinRateByRole).sort((a, b) => b[1] - a[1]);
 
   // Skala diverging: 50% di tengah, lebar setengah track = deviasi terbesar.
@@ -53,13 +62,29 @@ export function StatStrip({ stats, rank }: { stats: Summary; rank: string }) {
 
         <div className="kpi">
           <div className="kpi__label">Paling Banyak di-Ban</div>
-          <div className="kpi__value kpi__value--sm">{stats.mostBanned?.name ?? '–'}</div>
+          <div className="kpi__value kpi__value--sm">
+            {stats.mostBanned ? (
+              <button type="button" className="linkish" onClick={() => onOpen?.(stats.mostBanned!.id)}>
+                {stats.mostBanned.name}
+              </button>
+            ) : (
+              '–'
+            )}
+          </div>
           <div className="kpi__note">{formatPercent(stats.mostBanned?.value ?? null)} ban rate</div>
         </div>
 
         <div className="kpi">
           <div className="kpi__label">Paling Banyak di-Pick</div>
-          <div className="kpi__value kpi__value--sm">{stats.mostPicked?.name ?? '–'}</div>
+          <div className="kpi__value kpi__value--sm">
+            {stats.mostPicked ? (
+              <button type="button" className="linkish" onClick={() => onOpen?.(stats.mostPicked!.id)}>
+                {stats.mostPicked.name}
+              </button>
+            ) : (
+              '–'
+            )}
+          </div>
           <div className="kpi__note">{formatPercent(stats.mostPicked?.value ?? null)} pick rate</div>
         </div>
 

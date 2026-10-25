@@ -1,7 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { API, fetchJson, type HeroDetailResponse } from '../data/client';
+import { findHeroAudioTrack } from '../data/heroAudio';
 import { useLocalStore } from '../data/store';
+import {
+  prepareHeroTrack,
+  stopHeroTrack,
+  subscribeHeroAudio,
+  toggleHeroTrack,
+  type HeroAudioState,
+} from '../lib/heroAudio';
 import { formatPercent } from '../lib/format';
 
 interface Props {
@@ -28,22 +36,54 @@ interface DetailHero {
   price: number | null;
   ratings: Record<string, number | null> | null;
   base_stats: Record<string, number | null> | null;
-  skills: { id: string; name: string; type: string; label: string | null; description: string | null; icon_url: string | null }[];
+  skills: {
+    id: string;
+    name: string;
+    type: string;
+    label: string | null;
+    description: string | null;
+    icon_url: string | null;
+  }[];
   stats: {
     tier: string | null;
     win_rate: number | null;
     pick_rate: number | null;
     ban_rate: number | null;
     rank_scope: string | null;
-    rates_by_rank: Record<string, { win_rate: number | null; pick_rate: number | null; ban_rate: number | null; tier: string | null }> | null;
+    rates_by_rank: Record<
+      string,
+      { win_rate: number | null; pick_rate: number | null; ban_rate: number | null; tier: string | null }
+    > | null;
   } | null;
 }
 
-/** Drawer detail hero - dimuat terpisah supaya payload utama tetap ramping. */
-export function HeroDetailDrawer({ heroId, onClose, onAddToTeam, inTeam }: Props) {
+/** Jarak jari (px) sebelum swipe bawah dianggap "tutup". */
+const SWIPE_CLOSE_DISTANCE = 80;
+
+/**
+ * Profil hero.
+ *
+ * Desktop: modal di tengah (max 640px).
+ * Mobile: bottom sheet yang covering sebahagian bawah skrin, boleh ditutup
+ * dengan swipe turun.
+ *
+ * Menutup profil (X, backdrop, ESC, butang Kembali, swipe turun) akan
+ * menghentikan lagu hero dengan fade-out ~200ms dan reset ke 0:00.
+ */
+export function HeroProfileModal({ heroId, onClose, onAddToTeam, inTeam }: Props) {
   const [detail, setDetail] = useState<HeroDetailResponse | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [error, setError] = useState<string | null>(null);
+  const [audio, setAudio] = useState<HeroAudioState>({
+    hero: null,
+    playing: false,
+    hasTrack: false,
+  });
+  const [dragY, setDragY] = useState(0);
+
+  const panelRef = useRef<HTMLDivElement>(null);
+  const dragStart = useRef<{ y: number; x: number } | null>(null);
+  const dragging = useRef(false);
 
   const favorites = useLocalStore((s) => s.favorites);
   const toggleFavorite = useLocalStore((s) => s.toggleFavorite);
@@ -69,6 +109,20 @@ export function HeroDetailDrawer({ heroId, onClose, onAddToTeam, inTeam }: Props
     return () => controller.abort();
   }, [heroId]);
 
+  // Pra-muat lagu sebaik profil dibuka (id dulu - biasanya sama dengan nama).
+  useEffect(() => {
+    prepareHeroTrack(heroId);
+  }, [heroId]);
+
+  // Bila profil ditutup (atau hero lain dibuka), lagu berhenti dengan fade.
+  useEffect(() => {
+    return () => {
+      stopHeroTrack();
+    };
+  }, []);
+
+  useEffect(() => subscribeHeroAudio(setAudio), []);
+
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
@@ -77,28 +131,141 @@ export function HeroDetailDrawer({ heroId, onClose, onAddToTeam, inTeam }: Props
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
+  // Kunci scroll halaman di belakang profil.
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, []);
+
   const hero = detail?.hero as DetailHero | undefined;
+  const heroName = hero?.name ?? heroId;
+  const track = findHeroAudioTrack(heroName);
+  const isPlaying = audio.playing && audio.hero === heroName;
+
+  // Kalau nama sebenar hero berbeza dengan id, pastikan lagunya ikut pra-muat.
+  useEffect(() => {
+    if (hero?.name) prepareHeroTrack(hero.name);
+  }, [hero?.name]);
+
+  const handleArtClick = useCallback(() => {
+    if (!track) return; // hero tanpa lagu: senyap, tiada apa-apa berlaku
+    toggleHeroTrack(heroName);
+  }, [track, heroName]);
+
+  // ------------------------------------------------- swipe turun (mobile)
+  const onTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    if (!touch) return;
+    const panel = panelRef.current;
+    // Swipe hanya bermula dari atas panel (bukan tengah scroll).
+    if (panel && panel.scrollTop > 0) return;
+    dragStart.current = { y: touch.clientY, x: touch.clientX };
+    dragging.current = false;
+  };
+
+  const onTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (!dragStart.current) return;
+    const touch = event.touches[0];
+    if (!touch) return;
+    const dy = touch.clientY - dragStart.current.y;
+    const dx = touch.clientX - dragStart.current.x;
+    if (dy > 0 && dy > Math.abs(dx)) {
+      dragging.current = true;
+      setDragY(dy);
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!dragStart.current) return;
+    const shouldClose = dragging.current && dragY >= SWIPE_CLOSE_DISTANCE;
+    dragStart.current = null;
+    dragging.current = false;
+    setDragY(0);
+    if (shouldClose) onClose();
+  };
+
   const isFavorite = favorites.includes(heroId);
 
   return (
-    <div className="drawer" role="dialog" aria-modal="true" aria-label={`Detail ${heroId}`} onClick={onClose}>
-      <div className="drawer__panel" onClick={(event) => event.stopPropagation()}>
-        <div className="drawer__head">
-          <img src={hero?.icon_url ?? hero?.portrait_url ?? ''} alt="" width={56} height={56} />
-          <div style={{ minWidth: 0 }}>
-            <h2 style={{ margin: 0 }}>{hero?.name ?? heroId}</h2>
-            {hero?.title ? (
-              <div style={{ fontSize: '.74rem', color: 'var(--ink-3)' }}>{hero.title}</div>
+    <div
+      className="profile"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Profil ${heroName}`}
+      onClick={onClose}
+    >
+      <div
+        className="profile__panel"
+        ref={panelRef}
+        onClick={(event) => event.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onTouchCancel={onTouchEnd}
+        style={dragY ? { transform: `translateY(${dragY}px)` } : undefined}
+      >
+        <div className="profile__grip" aria-hidden="true" />
+
+        <div className="profile__head">
+          <button
+            type="button"
+            className={`profile__art${track ? '' : ' profile__art--silent'}`}
+            onClick={handleArtClick}
+            aria-label={track ? `Mainkan lagu ${heroName}` : `${heroName} belum ada lagu`}
+            aria-pressed={track ? isPlaying : undefined}
+            disabled={!track}
+          >
+            <img
+              src={hero?.portrait_url ?? hero?.icon_url ?? ''}
+              alt={track ? `Potret ${heroName}` : ''}
+              width={88}
+              height={88}
+              onError={(event) => {
+                event.currentTarget.style.visibility = 'hidden';
+              }}
+            />
+            {track ? (
+              <span className="profile__articon" aria-hidden="true">
+                {isPlaying ? '❚❚' : '▶'}
+              </span>
+            ) : null}
+            {track && isPlaying ? (
+              <span className="eq" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </span>
+            ) : null}
+          </button>
+
+          <div className="profile__id">
+            <h2 className="profile__name">{heroName}</h2>
+            {hero?.title ? <div className="profile__title">{hero.title}</div> : null}
+            <div className="profile__role">
+              {hero?.roles?.length ? hero.roles.join(' · ') : '—'}
+              {hero?.damage_type ? ` · ${hero.damage_type}` : ''}
+            </div>
+            {hero?.stats?.tier ? (
+              <span className="badge badge--tier" data-tier={hero.stats.tier}>
+                {hero.stats.tier}
+              </span>
             ) : null}
           </div>
-          <button className="btn btn--sm drawer__close" type="button" onClick={onClose} aria-label="Tutup">
-            ✕
-          </button>
+
+          <div className="profile__actions">
+            <button className="btn btn--sm profile__back" type="button" onClick={onClose}>
+              ← Kembali
+            </button>
+            <button className="btn btn--sm profile__close" type="button" onClick={onClose} aria-label="Tutup">
+              ✕
+            </button>
+          </div>
         </div>
 
-        {status === 'loading' ? (
-          <div className="state">Memuat detail…</div>
-        ) : null}
+        {status === 'loading' ? <div className="state">Memuat detail…</div> : null}
 
         {status === 'error' ? (
           <div className="state state--error">

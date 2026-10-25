@@ -219,20 +219,121 @@ def main() -> int:
             names = [c.inner_text().split("\n")[0] for c in page.query_selector_all(".hcard")]
             ck("sorting menghasilkan urutan hero", len(names) > 0, str(names[:3]))
 
-            # ------------------------------------------------ drawer detail
+            # ------------------------------------------------ profil hero
+            # Hero tanpa lagu: Alucard tiada dalam senarai pemetaan.
+            page.fill("input[type='search']", "alucard")
+            page.wait_for_timeout(700)
             page.click(".hcard__name button")
             page.wait_for_timeout(1500)
-            drawer = page.query_selector(".drawer__panel")
-            drawer_text = drawer.inner_text() if drawer else ""
-            drawer_low = drawer_text.lower()
-            ck("drawer detail terbuka", drawer is not None)
-            ck("detail menampilkan Win Rate", "win rate" in drawer_low)
-            ck("detail menampilkan Pick Rate", "pick rate" in drawer_low)
-            ck("detail menampilkan Ban Rate", "ban rate" in drawer_low)
-            ck("detail menampilkan rate per rank", "rate per rank" in drawer_low)
-            ck("detail menampilkan skill", "skill (" in drawer_low)
+            panel = page.query_selector(".profile__panel")
+            panel_text = panel.inner_text() if panel else ""
+            panel_low = panel_text.lower()
+            ck("profil hero terbuka", panel is not None)
+            ck("profil menunjukkan Win Rate", "win rate" in panel_low)
+            ck("profil menunjukkan Pick Rate", "pick rate" in panel_low)
+            ck("profil menunjukkan Ban Rate", "ban rate" in panel_low)
+            ck("profil menunjukkan rate per rank", "rate per rank" in panel_low)
+            ck("profil menunjukkan skill", "skill (" in panel_low)
+            ck("profil menunjukkan nama hero", "alucard" in panel_low, panel_text[:80])
+
+            # -------------------------------------------- lagu hero (audio)
+            # Helper: baca state elemen <audio> global.
+            def audio_state() -> dict:
+                return page.evaluate(
+                    "() => { const a = document.querySelector('audio');"
+                    " if (!a) return {};"
+                    " return { src: a.currentSrc || a.src || '', paused: a.paused,"
+                    " loop: a.loop, volume: a.volume, time: a.currentTime }; }"
+                )
+
+            art = page.query_selector(".profile__art")
+            ck("gambar hero jadi butang", art is not None)
+
+            # Hero TANPA lagu: tekan gambar tiada apa-apa, tiada penanda.
+            disabled = art.get_attribute("disabled") is not None if art else False
+            ck("hero tanpa lagu: butang lumpuh", disabled)
+            ck("hero tanpa lagu: tiada equalizer", page.query_selector(".profile .eq") is None)
+            if art is not None:
+                # Dispatch terus: butang lumpuh =&gt; tiada handler dijalankan.
+                art.evaluate("el => el.click()")
+                page.wait_for_timeout(400)
+            silent = audio_state()
+            ck("hero tanpa lagu: tiada audio bermain", silent.get("paused") in (True, None), str(silent))
+
+            # Tutup profil Alucard sebelum buka hero lain.
             page.keyboard.press("Escape")
-            page.wait_for_timeout(400)
+            page.wait_for_timeout(500)
+            ck("profil Alucard ditutup", page.query_selector(".profile__panel") is None)
+
+            # Hero DENGAN lagu: Bruno.
+            page.fill("input[type='search']", "bruno")
+            page.wait_for_timeout(800)
+            page.click(".hcard__name button")
+            page.wait_for_timeout(1400)
+            art = page.query_selector(".profile__art")
+            ck(
+                "hero dengan lagu: butang gambar aktif",
+                art is not None and art.get_attribute("disabled") is None,
+                (art.get_attribute("aria-label") if art else "tiada butang"),
+            )
+            ck(
+                "butang gambar ada aria-label main lagu",
+                art is not None and "Mainkan lagu" in (art.get_attribute("aria-label") or ""),
+                (art.get_attribute("aria-label") if art else ""),
+            )
+            if art is not None:
+                art.click()
+                page.wait_for_timeout(900)
+            state = audio_state()
+            ck("lagu hero mula selepas tekan gambar", state.get("paused") is False, str(state))
+            ck("lagu hero loop", state.get("loop") is True, str(state))
+            ck("volume lagu 0.7", abs(float(state.get("volume", 0)) - 0.7) < 0.01, str(state))
+            ck(
+                "src lagu mengandungi /audio/PICS",
+                "/audio/PICS/" in str(state.get("src", "")),
+                str(state.get("src")),
+            )
+            ck("penanda equalizer muncul semasa main", page.query_selector(".profile .eq") is not None)
+            ck(
+                "aria-pressed=true semasa main",
+                art is not None and art.get_attribute("aria-pressed") == "true",
+                (art.get_attribute("aria-pressed") if art else ""),
+            )
+
+            # Tekan lagi = jeda.
+            if art is not None:
+                art.click()
+                page.wait_for_timeout(500)
+            ck("tekan lagi menjeda lagu", audio_state().get("paused") is True, str(audio_state()))
+            ck("penanda equalizer hilang semasa jeda", page.query_selector(".profile .eq") is None)
+
+            # Tekan lagi = sambung.
+            if art is not None:
+                art.click()
+                page.wait_for_timeout(500)
+            ck("tekan lagi menyambung lagu", audio_state().get("paused") is False, str(audio_state()))
+
+            # Tutup dengan ESC -> lagu senyap + reset ke 0:00.
+            page.keyboard.press("Escape")
+            page.wait_for_timeout(800)
+            closed = audio_state()
+            ck("tutup profil: lagu berhenti", closed.get("paused") is True, str(closed))
+            ck("tutup profil: reset ke 0:00", float(closed.get("time", 1)) == 0.0, str(closed))
+            ck("tutup profil: panel hilang", page.query_selector(".profile__panel") is None)
+
+            # Buka hero LAIN tanpa tekan gambar -> lagu lama mati, hero baru senyap.
+            page.fill("input[type='search']", "mathilda")
+            page.wait_for_timeout(800)
+            page.click(".hcard__name button")
+            page.wait_for_timeout(1400)
+            switched = audio_state()
+            ck("tukar hero: lagu lama berhenti", switched.get("paused") is True, str(switched))
+            ck("tukar hero: hero baharu tidak main automatis", float(switched.get("time", 1)) == 0.0, str(switched))
+            page.keyboard.press("Escape")
+            page.wait_for_timeout(500)
+
+            page.fill("input[type='search']", "")
+            page.wait_for_timeout(500)
 
             # ------------------------------------------------ tab komposisi
             # Pilih satu hero dari daftar DULU (tombol tambah pada kartu),

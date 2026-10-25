@@ -86,6 +86,36 @@ curl -X POST "http://127.0.0.1:8787/api/refresh" -H "X-Refresh-Token: replace-wi
 5. Dashboard Cloudflare > Worker > Triggers:
    - pastikan cron `0 2 * * *` aktif (UTC).
 
+## Profil Hero + Lagu Hero (v3)
+
+Tekan nama hero (di senarai, jadual komposisi, meta movers, atau ringkasan
+patch) untuk membuka profil: modal di desktop, bottom sheet di mobile.
+Profil memaparkan gambar hero, nama, role, tier, dan win/pick/ban rate.
+
+Tekan gambar hero dalam profil untuk:mainkan lagu hero tersebut (loop,
+volume 0.7). Tekan sekali lagi untuk jeda/sambung. Penanda equalizer
+muncul semasa lagu bermain. Menutup profil (X, backdrop, ESC, butang
+Kembali, swipe turun) menghentikan lagu dengan fade-out ~200ms dan reset
+ke 0:00.
+
+Fail audio berada di `web/public/audio/PICS/` - nama folder dan fail dikekalkan
+seperti asal (ada koma dan ruang, jadi URL di-encode). Pemetaan hero ke fail
+ada dalam satu fail config: `web/src/data/heroAudio.ts`. Manager audio
+(satu objek `Audio` global) ada di `web/src/lib/heroAudio.ts`.
+
+Butiran cara tambah hero/lagu baharu: [`docs/design/hero-audio.md`](docs/design/hero-audio.md).
+
+### Deploy
+
+```bash
+cd worker
+npm install
+npm run deploy      # predeploy: build web -> site/, kemudian wrangler deploy
+```
+
+Atau guna workflow `.github/workflows/deploy.yml` (perlu secret
+`CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`).
+
 ## Frontend Status Bar (v2)
 
 Status bar dipasang di atas hero roster (global di bawah topbar):

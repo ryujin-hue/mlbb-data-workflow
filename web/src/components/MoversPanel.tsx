@@ -8,15 +8,27 @@ interface Props {
   windowOptions: readonly { value: string; label: string }[];
   window: string;
   onWindow: (value: string) => void;
+  /** Buka profil hero (satu klik pada nama). */
+  onOpen: (heroId: string) => void;
 }
 
-function Row({ delta, index }: { delta: HeroDelta; index: number }) {
+function Row({
+  delta,
+  index,
+  onOpen,
+}: {
+  delta: HeroDelta;
+  index: number;
+  onOpen: (heroId: string) => void;
+}) {
   const up = (delta.tier_score_delta ?? 0) >= 0;
   return (
     <div className="mover">
       <span className="mover__rank">{index + 1}</span>
       <span>
-        <strong>{delta.name}</strong>
+        <button type="button" className="mover__name" onClick={() => onOpen(delta.id)}>
+          {delta.name}
+        </button>
         <span style={{ color: 'var(--ink-3)', marginLeft: 6, fontSize: '.74rem' }}>
           {delta.tier ?? '—'} · WR {formatPercent(delta.win_rate)} (Δ{formatTierScore(delta.win_rate_delta)})
         </span>
@@ -36,6 +48,7 @@ export function MoversPanel({
   windowOptions,
   window: windowValue,
   onWindow,
+  onOpen,
 }: Props) {
   return (
     <>
@@ -106,7 +119,9 @@ export function MoversPanel({
                 {deltas.rising.length === 0 ? (
                   <div className="state">Tidak ada hero yang naik melewati ambang.</div>
                 ) : (
-                  deltas.rising.map((delta, index) => <Row key={delta.id} delta={delta} index={index} />)
+                  deltas.rising.map((delta, index) => (
+                    <Row key={delta.id} delta={delta} index={index} onOpen={onOpen} />
+                  ))
                 )}
               </div>
               <div>
@@ -116,7 +131,9 @@ export function MoversPanel({
                 {deltas.falling.length === 0 ? (
                   <div className="state">Tidak ada hero yang turun melewati ambang.</div>
                 ) : (
-                  deltas.falling.map((delta, index) => <Row key={delta.id} delta={delta} index={index} />)
+                  deltas.falling.map((delta, index) => (
+                    <Row key={delta.id} delta={delta} index={index} onOpen={onOpen} />
+                  ))
                 )}
               </div>
             </div>
