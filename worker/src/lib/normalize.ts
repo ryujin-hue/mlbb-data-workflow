@@ -1,5 +1,6 @@
 import { clamp, toIsoNow } from './time';
 import { tierFromScore, tierScore } from '../../../shared/tier';
+import { buildCounterGraph, collectSynergies, deriveCounterSets } from './counters';
 import type {
   CounterEdge,
   DatasetPayload,
@@ -422,6 +423,12 @@ function pickCounterRank(rawCounterNode: unknown): { rank: string; node: Record<
   return null;
 }
 
+function addWarning(warnings: string[], message: string): void {
+  if (warnings.length < 100) {
+    warnings.push(message);
+  }
+}
+
 function getRelations(rawStatistics: unknown): Record<string, unknown> {
   return asRecord(asRecord(rawStatistics).relations);
 }
@@ -430,135 +437,14 @@ function getCounters(rawStatistics: unknown): Record<string, unknown> {
   return asRecord(asRecord(rawStatistics).counters);
 }
 
+function getTeammates(rawStatistics: unknown): Record<string, unknown> {
+  return asRecord(asRecord(rawStatistics).teammates);
+}
+
 function toHeroId(value: unknown): string | null {
   return toStr(value)?.toLowerCase() ?? null;
 }
 
-interface CandidateEdge {
-  from: string;
-  to: string;
-  advantage: number | null;
-  source: string;
-  score: number;
-}
-
-function addWarning(warnings: string[], message: string): void {
-  if (warnings.length < 100) {
-    warnings.push(message);
-  }
-}
-
-function buildEdges(
-  heroIds: Set<string>,
-  countersRaw: Record<string, unknown>,
-  relationsRaw: Record<string, unknown>,
-  warnings: string[]
-): CounterEdge[] {
-  const candidates: CandidateEdge[] = [];
-
-  for (const heroId of heroIds) {
-    const rankNode = pickCounterRank(countersRaw[heroId]);
-
-    if (rankNode) {
-      const strongList = asArray(rankNode.node.strong);
-
-      for (const row of strongList) {
-        const item = asRecord(row);
-        const target = toHeroId(item.slug ?? item.id ?? item.hero);
-        if (!target || !heroIds.has(target) || target === heroId) continue;
-
-        const advantage = toNum(item.advantage);
-        candidates.push({
-          from: heroId,
-          to: target,
-          advantage,
-          source: `MLBBDex statistics counters.${rankNode.rank}.strong`,
-          score: Math.abs(advantage ?? 0),
-        });
-      }
-    }
-
-    const relation = asRecord(relationsRaw[heroId]);
-    const relationStrong = asArray(relation.strongAgainst);
-
-    for (const row of relationStrong) {
-      const target = toHeroId(row);
-      if (!target || !heroIds.has(target) || target === heroId) continue;
-
-      candidates.push({
-        from: heroId,
-        to: target,
-        advantage: null,
-        source: 'MLBBDex statistics relations.strongAgainst',
-        score: 0,
-      });
-    }
-  }
-
-  const direct = new Map<string, CandidateEdge>();
-
-  const keyOf = (from: string, to: string) => `${from}->${to}`;
-
-  for (const edge of candidates) {
-    const directKey = keyOf(edge.from, edge.to);
-    const reverseKey = keyOf(edge.to, edge.from);
-
-    const existing = direct.get(directKey);
-    if (existing) {
-      if (edge.score > existing.score) {
-        direct.set(directKey, edge);
-      }
-      continue;
-    }
-
-    const reverse = direct.get(reverseKey);
-    if (reverse) {
-      if (edge.score > reverse.score) {
-        direct.delete(reverseKey);
-        direct.set(directKey, edge);
-        addWarning(warnings, `counter-conflict-resolved: ${edge.from} > ${edge.to} replaced reverse by stronger advantage`);
-      } else {
-        addWarning(warnings, `counter-conflict-dropped: ${edge.from} -> ${edge.to} ignored due to reverse edge`);
-      }
-      continue;
-    }
-
-    direct.set(directKey, edge);
-  }
-
-  const edges: CounterEdge[] = [...direct.values()].map((edge) => {
-    const strength = edge.advantage === null ? null : clamp(Math.abs(edge.advantage) / 10, 0, 1);
-    return {
-      from: edge.from,
-      to: edge.to,
-      relation: 'counters',
-      strength,
-      advantage_points: edge.advantage,
-      source: edge.source,
-    };
-  });
-
-  edges.sort((a, b) => a.from.localeCompare(b.from) || a.to.localeCompare(b.to));
-  return edges;
-}
-
-function deriveCounterSets(edges: CounterEdge[]): {
-  countersByHero: Map<string, Set<string>>;
-  weakByHero: Map<string, Set<string>>;
-} {
-  const countersByHero = new Map<string, Set<string>>();
-  const weakByHero = new Map<string, Set<string>>();
-
-  for (const edge of edges) {
-    if (!countersByHero.has(edge.from)) countersByHero.set(edge.from, new Set());
-    if (!weakByHero.has(edge.to)) weakByHero.set(edge.to, new Set());
-
-    countersByHero.get(edge.from)?.add(edge.to);
-    weakByHero.get(edge.to)?.add(edge.from);
-  }
-
-  return { countersByHero, weakByHero };
-}
 
 function normalizeItems(rawItems: unknown, visualsItems: Record<string, unknown>): Item[] {
   const payload = asRecord(rawItems);
@@ -776,17 +662,20 @@ export function normalizeBundleToDataset(bundle: UpstreamBundle, upstreamBaseUrl
 
   const countersRaw = getCounters(bundle.statistics);
   const relationsRaw = getRelations(bundle.statistics);
-  const edges = buildEdges(heroIds, countersRaw, relationsRaw, warnings);
+  const teammatesRaw = getTeammates(bundle.statistics);
+  const { edges, conflicts, contradictory, fallback } = buildCounterGraph(
+    heroIds,
+    countersRaw,
+    relationsRaw,
+    (message) => addWarning(warnings, message)
+  );
   const { countersByHero, weakByHero } = deriveCounterSets(edges);
 
   for (const hero of heroes) {
     hero.counters = [...(countersByHero.get(hero.id) ?? new Set())].sort();
     hero.weak_against = [...(weakByHero.get(hero.id) ?? new Set())].sort();
 
-    const relation = asRecord(relationsRaw[hero.id]);
-    hero.synergies = asArray(relation.synergies)
-      .map((value) => toHeroId(value))
-      .filter((value): value is string => typeof value === 'string' && heroIds.has(value));
+    hero.synergies = collectSynergies(hero.id, heroIds, relationsRaw, teammatesRaw);
   }
 
   const items = normalizeItems(bundle.items, visuals.items);

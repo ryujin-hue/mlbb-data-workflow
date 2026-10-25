@@ -205,7 +205,7 @@ web/                       React 19 + TypeScript + Vite
 | **F1 — Data layer v2** | Snapshot immutable di KV + index + retensi. Endpoint `/api/heroes`, `/api/hero`, `/api/deltas`, `/api/snapshots`. Header SWR. | **Selesai** |
 | **F2 — Frontend v2** | React 19 + TS + Vite, Zustand, grid virtual, filter rank/periode/role/lane/damage, 6 mode sorting, deteksi Rising/Falling. | **Selesai** |
 | **F3 — FG4: composition + movers + PWA + persistensi** | Team Composition Analyzer, Meta Movers, service worker + manifest + offline, favorit & catatan lokal, panel transparansi data. | **Selesai** |
-| **F4 — Menutup gap counter (G7)** | Worker pakai `weak[]` + fallback `relations` supaya `weak_against` lengkap dan konsisten dengan kontrak v1.7 (1.563 edge, bukan 1.047). | **Belum** |
+| **F4 — Menutup gap counter (G7)** | Worker pakai `weak[]` + fallback `relations` supaya `weak_against` lengkap dan konsisten dengan kontrak v1.7. | **Selesai** — 1.553 edge unik, 0 mutual, 0 desync, 2.476 synergy |
 | **F5 — Riwayat 30 hari** | Butuh ~30 refresh cron berjalan dulu. Setelah itu window 30d & perbandingan 7d-vs-30d otomatis aktif. | Menunggu waktu |
 | **F6 — Lighthouse ≥ 90 (mobile)** | Audit di CI dengan Lighthouse CI; targetkan LCP < 2.0s dari cache SWR. | **Belum** |
 | **F7 — Delta payload** | Kirim delta terikat bukan array penuh untuk `/api/deltas`. | **Belum** |
@@ -241,6 +241,36 @@ selalu menjawab `available: false` - jadi jalur "history ada" sama sekali
 nggak pernah dieksekusi. Sekarang ada `worker/tests/store.test.ts` yang
 menguji logika snapshot pakai KV in-memory, plus smoke test yang memeriksa
 bahwa `/api/heroes` benar-benar menyertakan `rates_by_rank`.
+
+## 3.5.1 F4: graf counter lengkap (2026-10-25)
+
+Worker versi lama **cuma membaca sisi `strong`** dari `counters`, jadi
+separuh pasangan terukur hilang: 1.047 edge. Sekarang dua-duanya dibaca.
+
+| | Lama | Baru |
+|---|---|---|
+| Edge counter | 1.047 | **1.553** (unik, tanpa duplikat) |
+| Dari `counters.all.strong` | 585 | 585 |
+| Dari `counters.all.weak` | **0** | **581** |
+| Fallback `relations` | 481 (semuanya salah label `strongAgainst`) | 387 (202 `weakAgainst` + 185 `strongAgainst`, label akurat) |
+| Sinergi | 278 (cuma `relations.synergies`) | **2.476** (`relations` ∪ `teammates`) |
+| Pasangan mutual | 0 | 0 |
+| Edge duplikat | 0 | 0 |
+
+**Dua bug di pipeline Python yang diverifikasi (collector) ikut ditemukan:**
+1. **10 edge duplikat** di `counters.json` collector (pasangan yang sama
+   masuk dua kali lewat dua relasi berbeda). Worker sekarang unik.
+2. **387 edge fallback salah label** — collector melabeli semuanya
+   `relations.strongAgainst` padahal sebagian dari `weakAgainst`. Kontrak
+   v1.7 bilang "label sumber harus akurat", jadi worker melabeli sesuai
+   field asalnya.
+
+Sisi `weak` itu berisi hero yang **kalah**, jadi edge-nya dibalik:
+`counters[hero].weak[].slug` -> edge `(slug, hero)`. Membaca `weak` tanpa
+membalik arah akan reverses seluruh matchup.
+
+File baru: `worker/src/lib/counters.ts` (pembangun graf + turunan +
+sinergi), `worker/tests/counters.test.ts` (invariant v1.7 di produksi nyata).
 
 ## 3.6 Redesign UI/UX (v3)
 

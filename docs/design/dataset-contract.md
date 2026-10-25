@@ -1,8 +1,19 @@
 # Kontrak Dataset — MLBB Meta Center
 
-Status: **FROZEN** (v1.9). Track collector DAN track website wajib mengikuti file ini persis.
+Status: **FROZEN** (v1.10). Track collector DAN track website wajib mengikuti file ini persis.
 Kalau ada yang perlu berubah, usulkan lewat owner (bukan diedit sepihak oleh worker).
 
+> **v1.10 (2026-10-25)** — edge counter sekarang **wajib** punya field `rank`
+> (rank sumber: `all`/`epic`/... atau `relations`). Edge fallback dari
+> `relations` wajib dibedakan `strongAgainst` vs `weakAgainst` sesuai field
+> yang benar-benar menghasilkan edge itu — label sumber yang tidak akurat
+> melanggar aturan "label sumber harus akurat".
+>
+> **Kenapa v1.10:** dua-dua sisi `counters` (`strong` **dan** `weak`) harus
+> dibangun. Sisi `weak` berisi hero yang **kalah** dari hero itu, jadi
+> edge-nya dibalik: edge `(target, hero)`. Membaca `weak` sebagai
+> `strong` akan reverses seluruh arah matchup.
+>
 > **v1.9 (2026-10-23)** — `heroes[].stats` **wajib terisi** untuk hero yang punya
 > ranking: `win_rate`, `pick_rate`, `ban_rate`, `rank_scope`, `updated_at_utc`,
 > `tier`, dan `rates_by_rank` (6 bracket rank). `tier` dihitung dari `tierScore`
@@ -478,8 +489,21 @@ Aturan:
   di sini — sudah tercermin di `heroes[].weak_against`.
 - `strength` float 0..1, boleh `null` kalau sumber ga nyediain angka.
 - `from` = hero yang menang, `to` = hero yang kalah.
+- `rank` (WAJIB, v1.10) = rank sumber yang dipakai edge ini: `all`, `epic`,
+  `legend`, `mythic`, `honor`, `glory`, atau `relations` untuk edge fallback.
+- Edge **dari `counters`** punya `advantage_points` (angka mentah dari sumber,
+  bisa negatif kalau asalnya dari sisi `weak`) dan `strength` =
+  `clamp(|advantage| / 10, 0, 1)`.
+- Edge **dari `relations`** punya `advantage_points: null` dan `strength: null`.
+- `source` wajib menyebut field yang benar-benar menghasilkan edge:
+  `MLBBDex statistics.json counters.all.strong`,
+  `MLBBDex statistics.json counters.all.weak`,
+  `MLBBDex statistics.json relations.strongAgainst`, atau
+  `MLBBDex statistics.json relations.weakAgainst`.
 - Wajib konsisten dengan `heroes.json`: kalau edge `(from,to)` ada, maka `to` harus ada di
   `heroes[from].counters` DAN `from` harus ada di `heroes[to].weak_against`.
+- Edge tidak boleh duplikat: satu pasangan hanya boleh punya SATU arah dan
+  hanya boleh muncul SATU kali.
 
 ### Sumber counter yang sudah diverifikasi (JAWABAN ORIENTASI)
 
@@ -515,7 +539,9 @@ dan catat di `manifest.warnings`.
 `strongAgainst` / `weakAgainst` / `synergies` (satu array slug per hero) — ini yang
 dipakai untuk isi `counters` / `weak_against` / `synergies` di `heroes.json`.
 `statistics.json` -> `teammates` memberi synergy DENGAN angka advantage per rank,
-lebih baik daripada `relations.synergies` yang cuma daftar slug.
+lebih baik daripada `relations.synergies` yang cuma daftar slug. **Keduanya
+WAJIB dipakai** (union): `relations.synergies` cuma ~278 entri, `teammates`
+nambah ~2.198, total ~2.476 per dataset.
 `statistics.json` -> `rankings.measuredAt` = kapan data diukur — pakai buat
 `manifest.generated_at_utc` dan `heroes[].stats.updated_at_utc`.
 

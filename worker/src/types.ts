@@ -109,6 +109,8 @@ export interface CounterEdge {
   strength: number | null;
   advantage_points: number | null;
   source: string;
+  /** Rank sumber yang dipakai edge ini (`all`, `epic`, ... atau `relations`). */
+  rank: string;
 }
 
 export interface Item {

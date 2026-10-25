@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0.0",
-  "generated_at_utc": "2026-10-25T02:37:37.939Z",
+  "generated_at_utc": "2026-10-25T07:10:38.859Z",
   "game_patch": null,
   "counts": {
     "heroes": 134,
     "maps": 0,
-    "counter_edges": 1047,
+    "counter_edges": 1553,
     "items": 102,
     "rated_heroes": 133
   },
@@ -51,7 +51,7 @@
       "name": "MLBBDex mirror — heroes",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/heroes.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
+      "retrieved_at_utc": "2026-10-25T07:10:38.859Z",
       "records": 134,
       "status": "ok"
     },
@@ -59,7 +59,7 @@
       "name": "MLBBDex mirror — skills",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/skills.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
+      "retrieved_at_utc": "2026-10-25T07:10:38.859Z",
       "records": 627,
       "status": "ok"
     },
@@ -67,26 +67,41 @@
       "name": "MLBBDex mirror — statistics",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/statistics.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
-      "records": 1047,
+      "retrieved_at_utc": "2026-10-25T07:10:38.859Z",
+      "records": 1553,
       "status": "ok"
     },
     {
       "name": "MLBBDex mirror — items",
       "url": "https://raw.githubusercontent.com/achedon12/mlbb/develop/src/data/game/items.json",
       "license": "CC BY-SA 4.0 (Mobile Legends Wiki)",
-      "retrieved_at_utc": "2026-10-25T02:37:37.939Z",
+      "retrieved_at_utc": "2026-10-25T07:10:38.859Z",
       "records": 102,
       "status": "ok"
     }
   ],
   "warnings": [
-    "counter-conflict-resolved: lolita > floryn replaced reverse by stronger advantage",
-    "counter-conflict-resolved: miya > irithel replaced reverse by stronger advantage",
-    "counter-conflict-dropped: odette -> layla ignored due to reverse edge",
-    "counter-conflict-resolved: tigreal > layla replaced reverse by stronger advantage",
-    "counter-conflict-resolved: vexana > chip replaced reverse by stronger advantage",
-    "counter-conflict-dropped: yi-sun-shin -> uranus ignored due to reverse edge",
+    "counter-conflict: fanny vs lukas (relations says fanny beats lukas, counters says lukas beats fanny)",
+    "counter-conflict: chip vs vexana (relations says chip beats vexana, counters says vexana beats chip)",
+    "counter-conflict: floryn vs lolita (relations says floryn beats lolita, counters says lolita beats floryn)",
+    "counter-conflict: gloo vs lesley (relations says lesley beats gloo, counters says gloo beats lesley)",
+    "counter-conflict: luo-yi vs uranus (relations says uranus beats luo-yi, counters says luo-yi beats uranus)",
+    "counter-conflict: gord vs wanwan (relations says gord beats wanwan, counters says wanwan beats gord)",
+    "counter-conflict: martis vs x-borg (relations says martis beats x-borg, counters says x-borg beats martis)",
+    "counter-conflict: leomord vs yve (relations says leomord beats yve, counters says yve beats leomord)",
+    "counter-conflict: hilda vs vale (relations says vale beats hilda, counters says hilda beats vale)",
+    "counter-relations-contradictory: kaja vs yi-sun-shin (relations says both kaja and yi-sun-shin win; pair skipped)",
+    "counter-conflict: layla vs odette (relations says odette beats layla, counters says layla beats odette)",
+    "counter-conflict: irithel vs miya (relations says irithel beats miya, counters says miya beats irithel)",
+    "counter-relations-contradictory: estes vs saber (relations says both estes and saber win; pair skipped)",
+    "counter-conflict: uranus vs yi-sun-shin (relations says yi-sun-shin beats uranus, counters says uranus beats yi-sun-shin)",
+    "counter-conflict: minsitthar vs natalia (relations says minsitthar beats natalia, counters says natalia beats minsitthar)",
+    "counter-conflict: layla vs tigreal (relations says layla beats tigreal, counters says tigreal beats layla)",
+    "counter-relations-contradictory: nana vs zilong (relations says both nana and zilong win; pair skipped)",
+    "counter-conflict: eudora vs hayabusa (relations says hayabusa beats eudora, counters says eudora beats hayabusa)",
+    "counter-conflict: fanny vs franco (relations says fanny beats franco, counters says franco beats fanny)",
+    "counter-conflict: akai vs nana (relations says nana beats akai, counters says akai beats nana)",
+    "counter-conflict: alice vs martis (relations says martis beats alice, counters says alice beats martis)",
     "data-incomplete: no win/pick/ban rate for 1 hero(s): dori"
   ]
 }
