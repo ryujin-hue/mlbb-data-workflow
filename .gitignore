@@ -8,3 +8,6 @@ node_modules/
 # Hasil build web (dibuat ulang oleh `npm run build` di web/).
 # Dataset fallback yang di-commit ada di web/public/dataset/.
 /site/
+
+# Screenshot lokal untuk review UI (bukan aset repo)
+.tmp-shots/

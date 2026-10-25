@@ -242,6 +242,33 @@ nggak pernah dieksekusi. Sekarang ada `worker/tests/store.test.ts` yang
 menguji logika snapshot pakai KV in-memory, plus smoke test yang memeriksa
 bahwa `/api/heroes` benar-benar menyertakan `rates_by_rank`.
 
+## 3.6 Redesign UI/UX (v3)
+
+UI v2 dibangun ulang karena ada tiga masalah yang bikin situs terasa rusak:
+
+| Masalah | Gejala | Perbaikan |
+|---|---|---|
+| **Preamble terlalu panjang** | Di HP, ringkasan (700px) + filter (900px) mendahului grid. Hero pertama baru kelihatan setelah ~2,5 layar scroll. | Grid hero jadi konten utama. Ringkasan jadi strip KPI ringkas (2x2 di HP), filter role/lane/damage pindah ke **bottom sheet**. Hero pertama sekarang langsung terlihat di layar pertama. |
+| **Scroll di dalam scroll** | Grid punya `overflow:auto` sendiri di dalam halaman yang juga scroll. Di HP itu berasa_rx.scroll dua arah. | Virtualizer pindah ke **scroll window** (`useWindowVirtualizer`). Sekarang hanya satu konteks scroll: halaman. |
+| **Metrik kepotong di desktop** | Kartu hero cuma nampilin WR & PR; BR dan TS hilang. | Penyebabnya tinggi baris virtualizer dikunci `estimateSize: 78px`, padahal isi kartu lebih tinggi (nama panjang wrap, badge tren) sehingga baris berikutnya menimpa baris itu. Sekarang tinggi baris **diukur dinamis** (`measureElement`). |
+
+Perubahan lain:
+
+- **Kartu hero vertikal** (potret di atas, nama + tier, lalu metrik WR/PR/BR).
+  2 kolom di HP, 3 di tablet, 5-6 di desktop.
+- **Toolbar sticky** berisi pencarian + rank + periode + urutan + arah + jumlah
+  hasil. Kontrol yang paling sering dipakai selalu terlihat.
+- **Bar role digambar BERGASANG dari titik 50%**, bukan dari 0. Rentang data
+  cuma ~3 poin (48,8 - 51,7), jadi bar 0-100% selalu terlihat penuh dan
+  tidak membawa informasi. Yang penting selisihnya terhadap rata-rata.
+- Filter jadi **bottom sheet** di HP (dengan grip, scroll lock, tombol
+  Escape) dan panel statis 3 kolom di desktop.
+- `clearFilters` baru di store.
+
+Jumlah breakpoint kolom di `HeroGrid.tsx` (JS) **harus sama persis** dengan
+`.vrow__inner` di `styles.css` (CSS): baris virtualizer dipecah di JS,
+kolom digambar CSS. Kalau berbeda, kartu melompati kolom.
+
 ## 4. Cara menjalankan & deploy
 
 ```bash

@@ -104,8 +104,31 @@ def main() -> int:
             ck("grid merender kartu hero", len(cards) > 0, str(len(cards)))
             first_card = page.query_selector(".hcard")
             card_text = first_card.inner_text() if first_card else ""
-            ck("kartu memuat WR/PR/BR/TS", "WR" in card_text and "PR" in card_text and "BR" in card_text, card_text[:120])
+            ck("kartu memuat WR/PR/BR", "WR" in card_text and "PR" in card_text and "BR" in card_text, card_text[:120])
             ck("kartu bukan menampilkan — untuk rate", "—" not in card_text, card_text[:120])
+
+            # Regresi: di desktop, tinggi baris virtualizer dikunci sehingga
+            # BR/PR sempat tertimpa baris berikutnya dan hilang dari kartu.
+            # Kalau tinggi baris diukur dinamis, ketiga metrik selalu tampil.
+            ck(
+                "ketiga metrik punya nilai di kartu pertama",
+                len([x for x in card_text.split("\n") if "%" in x]) == 3,
+                card_text[:120],
+            )
+
+            # Tidak boleh ada scroll di dalam scroll: panel grid harus
+            # mengikuti scroll halaman.
+            nested = page.evaluate(
+                "() => { const g = document.querySelector('.vgrid');"
+                " if (!g) return 'tidak ada .vgrid';"
+                " const s = getComputedStyle(g);"
+                " return s.overflowY + '/' + s.overflowX; }"
+            )
+            ck(
+                "tidak ada panel scroll di dalam halaman",
+                nested in ("visible/visible", "visible/hidden"),
+                str(nested),
+            )
 
             # Cek banyak hero: rate harus terisi di semua kartu yang ter-render.
             empties = [c.inner_text() for c in page.query_selector_all(".hcard") if "—" in c.inner_text()]
@@ -177,6 +200,17 @@ def main() -> int:
 
             page.query_selector_all("select")[0].select_option("all")
             page.wait_for_timeout(900)
+
+            # ------------------------------------------------ filter sheet
+            page.click(".toolbar__filter")
+            page.wait_for_timeout(700)
+            sheet = page.query_selector(".sheet__panel")
+            sheet_text = (sheet.inner_text() if sheet else "").lower()
+            ck("sheet filter terbuka", sheet is not None and "role" in sheet_text)
+            ck("sheet filter berisi lane", "lane" in sheet_text)
+            ck("sheet filter berisi tipe damage", "tipe damage" in sheet_text)
+            page.click(".sheet__foot .btn--primary")
+            page.wait_for_timeout(600)
 
             # ------------------------------------------------ sorting
             # Urutan select: [0] rank, [1] periode, [2] urutkan.

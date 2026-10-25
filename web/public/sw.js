@@ -7,7 +7,7 @@
  *   - /api/heroes + /api/deltas: stale-while-revalidate, dan hasilnya
  *     dicache supaya aplikasi tetap punya data saat offline.
  */
-const VERSION = 'mlbb-meta-v2.1';
+const VERSION = 'mlbb-meta-v3';
 const SHELL_CACHE = `${VERSION}-shell`;
 const DATA_CACHE = `${VERSION}-data`;
 

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { CompositionPanel } from './components/CompositionPanel';
 import { FilterPanel } from './components/FilterPanel';
+import { FilterToolbar } from './components/FilterToolbar';
 import { HeroDetailDrawer } from './components/HeroDetailDrawer';
 import { HeroGrid } from './components/HeroGrid';
 import { MoversPanel } from './components/MoversPanel';
@@ -50,6 +51,7 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [fromCache, setFromCache] = useState(false);
   const [openHero, setOpenHero] = useState<string | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   // Tab <- hash, supaya state bisa di-share.
   useEffect(() => {
@@ -61,7 +63,29 @@ export default function App() {
   const goTo = useCallback((next: View) => {
     window.location.hash = `#/${next}`;
     setView(next);
+    setFiltersOpen(false);
+    window.scrollTo({ top: 0 });
   }, []);
+
+  // Sheet filter mengunci scroll halaman di belakangnya.
+  useEffect(() => {
+    if (!filtersOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [filtersOpen]);
+
+  // Escape menutup sheet filter.
+  useEffect(() => {
+    if (!filtersOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setFiltersOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [filtersOpen]);
 
   // Muat indeks hero + delta + daftar versi snapshot.
   useEffect(() => {
@@ -220,27 +244,25 @@ export default function App() {
 
               {view === 'heroes' ? (
                 <>
-                  <StatStrip stats={stats} rank={meta.rank} />
-
-                  <FilterPanel
+                  <FilterToolbar
                     rankOptions={RANK_OPTIONS}
                     windowOptions={WINDOW_OPTIONS}
                     sortOptions={SORT_OPTIONS}
-                    heroes={heroes}
+                    resultCount={visible.length}
+                    activeFilters={
+                      meta.roles.length + meta.lanes.length + meta.damageTypes.length
+                    }
+                    onOpenFilters={() => setFiltersOpen(true)}
                   />
 
-                  <div className="grid-toolbar">
-                    <button
-                      className="btn btn--sm"
-                      type="button"
-                      onClick={() => meta.toggleSortDirection()}
-                      aria-label="Ubah arah pengurutan"
-                    >
-                      {meta.desc ? '↓ Turun' : '↑ Naik'}
-                    </button>
-                    <span className="grid-toolbar__count">
-                      {visible.length} hero · {meta.rank.toUpperCase()}
-                    </span>
+                  <div className="heroes-layout">
+                    <FilterPanel
+                      heroes={heroes}
+                      open={filtersOpen}
+                      onClose={() => setFiltersOpen(false)}
+                    />
+
+                    <StatStrip stats={stats} rank={meta.rank} />
                   </div>
 
                   <HeroGrid

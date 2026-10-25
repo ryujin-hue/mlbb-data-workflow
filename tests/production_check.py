@@ -152,6 +152,40 @@ def main() -> int:
         ck("tab data menampilkan sumber", "sumber" in sources or "github" in sources)
 
         ck("tidak ada console error", len(errors) == 0, "; ".join(errors[:3]))
+        # --- desktop: regresi tinggi baris virtualizer ---
+        # Di desktop, kartu sempat terpotong (tinggi baris dikunci 78px
+        # padahal isi kartu lebih tinggi) sehingga BR/PR hilang.
+        dctx = browser.new_context(viewport={"width": 1440, "height": 900})
+        page = dctx.new_page()
+        page.goto(BASE, wait_until="domcontentloaded")
+        page.wait_for_selector(".hcard", timeout=45_000)
+        page.wait_for_timeout(2000)
+        card = page.query_selector(".hcard")
+        card_text = card.inner_text() if card else ""
+        metrics = [x for x in card_text.split("\n") if "%" in x]
+        ck("desktop: kartu menampilkan 3 metrik", len(metrics) == 3, card_text[:120])
+        ck(
+            "desktop: baris virtualizer tidak saling tumpang tindih",
+            page.evaluate(
+                "() => { const rows = [...document.querySelectorAll('.vrow')]"
+                " .map(r => r.getBoundingClientRect().height);"
+                " if (rows.length < 2) return true;"
+                " const min = Math.min(...rows), max = Math.max(...rows);"
+                " return max - min < 2; }"
+            ),
+            "",
+        )
+        ck(
+            "desktop: tidak ada panel scroll di dalam halaman",
+            page.evaluate(
+                "() => { const g = document.querySelector('.vgrid');"
+                " if (!g) return false;"
+                " const s = getComputedStyle(g);"
+                " return s.overflowY === 'visible'; }"
+            ),
+            "",
+        )
+        dctx.close()
         browser.close()
 
     failed = [name for name, ok, _ in checks if not ok]

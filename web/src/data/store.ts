@@ -68,6 +68,7 @@ export interface MetaState {
   toggleRole: (role: string) => void;
   toggleLane: (lane: string) => void;
   toggleDamageType: (value: string) => void;
+  clearFilters: () => void;
   setMoverThreshold: (value: number) => void;
   toggleComposition: (heroId: string) => void;
   clearComposition: () => void;
@@ -109,6 +110,7 @@ export const useMetaStore = create<MetaState>((set) => ({
         ? state.damageTypes.filter((d) => d !== value)
         : [...state.damageTypes, value],
     })),
+  clearFilters: () => set({ roles: [], lanes: [], damageTypes: [], query: '' }),
   setMoverThreshold: (value) => set({ moverThreshold: value }),
   toggleComposition: (heroId) =>
     set((state) => ({
