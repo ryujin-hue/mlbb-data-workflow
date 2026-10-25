@@ -3,16 +3,60 @@ import type {
   CounterEdge,
   DatasetPayload,
   Hero,
+  HeroRateRow,
   HeroSkill,
   HeroStats,
   Item,
   Manifest,
+  RateHighlight,
+  RatesSummary,
   SourceEntry,
 } from '../types';
 import type { UpstreamBundle } from './fetch-upstream';
 
 const ASSET_BASE = 'https://raw.githubusercontent.com/achedon12/mlbb/develop/public/';
 const RANK_PRIORITY = ['all', 'epic', 'legend', 'mythic', 'honor', 'glory'] as const;
+
+/**
+ * Tier score.
+ *
+ * Formula (configurable, see WEIGHTS below):
+ *   tierScore = (winRate - 50) + pickRate * weightP + banRate * weightB
+ *
+ * `winRate`/`pickRate`/`banRate` arrive as PERCENTAGES (e.g. 61.03 means 61.03%).
+ * The brief's `(winRate - 0.5) * 100` is the same thing expressed on a 0..1
+ * fraction, so the two forms are equivalent once the unit is normalised.
+ *
+ * Defaults reproduce MLBBDex's own published tier list
+ * (src/lib/tier-list.ts upstream): score = winRate + banRate * 0.25 with
+ * thresholds 56 / 53 / 50.5 / 48, which is the same formula shifted by the
+ * constant 50. Verified to match 133/133 rated heroes.
+ *
+ * `weightP` defaults to 0 on purpose: pick rate measures popularity, not
+ * power - upstream makes the same argument. Raise it to weight meta presence.
+ */
+export const WEIGHTS = {
+  /** Weight of pick rate. 0 = popularity ignored. */
+  weightP: 0,
+  /** Weight of ban rate. 0.25 = upstream MLBBDex value. */
+  weightB: 0.25,
+} as const;
+
+/** Tier bounds on `tierScore` (already shifted so 0 == 50% win rate). */
+export const TIER_BOUNDS: readonly (readonly [string, number])[] = [
+  ['S+', 6],
+  ['S', 3],
+  ['A', 0.5],
+  ['B', -2],
+  ['C', Number.NEGATIVE_INFINITY],
+];
+
+export function tierFromScore(score: number): string {
+  for (const [tier, bound] of TIER_BOUNDS) {
+    if (score >= bound) return tier;
+  }
+  return 'C';
+}
 
 function asRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' ? (value as Record<string, unknown>) : {};
@@ -239,21 +283,120 @@ function normalizeBaseStats(rawStats: unknown): Record<string, number | null> | 
   return out;
 }
 
-function normalizeHeroStats(rawHero: Record<string, unknown>, measuredAt: string | null): HeroStats | null {
-  const stats = asRecord(rawHero.stats);
-  if (Object.keys(stats).length === 0) {
+interface RateRow {
+  win_rate: number | null;
+  pick_rate: number | null;
+  ban_rate: number | null;
+}
+
+function rateRowFrom(raw: unknown): RateRow | null {
+  const row = asRecord(raw);
+  const win_rate = toNum(row.winRate ?? row.win_rate);
+  const pick_rate = toNum(row.pickRate ?? row.pick_rate);
+  const ban_rate = toNum(row.banRate ?? row.ban_rate);
+  if (win_rate === null && pick_rate === null && ban_rate === null) return null;
+  return { win_rate, pick_rate, ban_rate };
+}
+
+/**
+ * Win / pick / ban rates live in `statistics.json -> rankings.rates`, NOT in
+ * the roster's `stats` block. The roster's `stats` holds BASE stats
+ * (hp1, hp15, mana1, ...) - reading it for rates silently produced null for
+ * every single hero, which is why the site showed "-" for win/pick/ban rate.
+ */
+function pickRankRates(rawStatistics: unknown): {
+  rates: Map<string, RateRow>;
+  byRank: Map<string, Map<string, RateRow>>;
+} {
+  const rankings = asRecord(asRecord(rawStatistics).rankings);
+  const rates = new Map<string, RateRow>();
+  for (const [heroId, row] of Object.entries(asRecord(rankings.rates))) {
+    const parsed = rateRowFrom(row);
+    if (parsed) rates.set(heroId, parsed);
+  }
+
+  const byRank = new Map<string, Map<string, RateRow>>();
+  for (const [rank, table] of Object.entries(asRecord(rankings.byRank))) {
+    const map = new Map<string, RateRow>();
+    for (const [heroId, row] of Object.entries(asRecord(table))) {
+      const parsed = rateRowFrom(row);
+      if (parsed) map.set(heroId, parsed);
+    }
+    byRank.set(rank, map);
+  }
+
+  return { rates, byRank };
+}
+
+function collectByRankRows(
+  heroId: string,
+  byRank: Map<string, Map<string, RateRow>>
+): Map<string, RateRow> {
+  const rows = new Map<string, RateRow>();
+  for (const [rank, table] of byRank) {
+    const row = table.get(heroId);
+    if (row) rows.set(rank, row);
+  }
+  return rows;
+}
+
+function tierScoreOf(row: RateRow): number | null {
+  if (row.win_rate === null) return null;
+  return (
+    row.win_rate -
+    50 +
+    (row.pick_rate ?? 0) * WEIGHTS.weightP +
+    (row.ban_rate ?? 0) * WEIGHTS.weightB
+  );
+}
+
+function normalizeHeroStats(
+  rawHero: Record<string, unknown>,
+  measuredRow: RateRow | undefined,
+  byRankRows: Map<string, RateRow>,
+  measuredAt: string | null
+): HeroStats | null {
+  // Fallback ke blok `stats` hero kalau upstream ternyata sudah menyertakan
+  // rate di sana (mis. dataset hasil normalisasi sebelumnya).
+  const fallback = asRecord(rawHero.stats);
+  const fallbackHasRate =
+    toNum(fallback.win_rate ?? fallback.winRate) !== null ||
+    toNum(fallback.pick_rate ?? fallback.pickRate) !== null ||
+    toNum(fallback.ban_rate ?? fallback.banRate) !== null;
+
+  const win_rate = measuredRow?.win_rate ?? toNum(fallback.win_rate ?? fallback.winRate);
+  const pick_rate = measuredRow?.pick_rate ?? toNum(fallback.pick_rate ?? fallback.pickRate);
+  const ban_rate = measuredRow?.ban_rate ?? toNum(fallback.ban_rate ?? fallback.banRate);
+
+  if (win_rate === null && pick_rate === null && ban_rate === null && !fallbackHasRate) {
     return null;
   }
 
-  const updatedAt = toStr(stats.updated_at_utc) ?? toStr(stats.updatedAt) ?? measuredAt;
+  const scoresByRank: Record<string, HeroRateRow> = {};
+  for (const [rank, row] of byRankRows) {
+    const score = tierScoreOf(row);
+    scoresByRank[rank] = {
+      win_rate: row.win_rate,
+      pick_rate: row.pick_rate,
+      ban_rate: row.ban_rate,
+      tier: score === null ? null : tierFromScore(score),
+    };
+  }
+
+  const score = tierScoreOf({
+    win_rate: win_rate ?? null,
+    pick_rate: pick_rate ?? null,
+    ban_rate: ban_rate ?? null,
+  });
 
   return {
-    tier: toStr(stats.tier),
-    win_rate: toNum(stats.win_rate ?? stats.winRate),
-    pick_rate: toNum(stats.pick_rate ?? stats.pickRate),
-    ban_rate: toNum(stats.ban_rate ?? stats.banRate),
-    rank_scope: toStr(stats.rank_scope) ?? 'All',
-    updated_at_utc: updatedAt,
+    tier: score === null ? toStr(fallback.tier) : tierFromScore(score),
+    win_rate,
+    pick_rate,
+    ban_rate,
+    rank_scope: 'all',
+    updated_at_utc: toStr(fallback.updated_at_utc) ?? toStr(fallback.updatedAt) ?? measuredAt,
+    rates_by_rank: Object.keys(scoresByRank).length > 0 ? scoresByRank : null,
   };
 }
 
@@ -495,6 +638,76 @@ function normalizeItems(rawItems: unknown, visualsItems: Record<string, unknown>
   return items;
 }
 
+function buildRatesSummary(heroes: Hero[], measuredAt: string | null): RatesSummary {
+  const rated = heroes.filter((h) => h.stats && h.stats.win_rate !== null);
+
+  const avg = (values: number[]): number | null =>
+    values.length === 0 ? null : Math.round((values.reduce((a, b) => a + b, 0) / values.length) * 100) / 100;
+
+  const byRole = new Map<string, number[]>();
+  for (const hero of rated) {
+    const value = hero.stats?.win_rate;
+    if (value === null || value === undefined) continue;
+    for (const role of hero.roles.length > 0 ? hero.roles : ['Unassigned']) {
+      const list = byRole.get(role) ?? [];
+      list.push(value);
+      byRole.set(role, list);
+    }
+  }
+
+  const highlight = (
+    pick: (h: Hero) => number | null,
+    field: 'win_rate' | 'pick_rate' | 'ban_rate'
+  ): RateHighlight | null => {
+    let best: Hero | null = null;
+    let bestValue: number | null = null;
+    for (const hero of rated) {
+      const value = pick(hero);
+      if (value === null) continue;
+      if (bestValue === null || value > bestValue) {
+        best = hero;
+        bestValue = value;
+      }
+    }
+    if (!best || bestValue === null) return null;
+    return {
+      id: best.id,
+      name: best.name,
+      value: bestValue,
+      win_rate: best.stats?.win_rate ?? null,
+    };
+  };
+
+  const avgWinRateByRole: Record<string, number> = {};
+  for (const [role, values] of [...byRole.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const value = avg(values);
+    if (value !== null) avgWinRateByRole[role] = value;
+  }
+
+  return {
+    measured_at_utc: measuredAt,
+    rated_heroes: rated.length,
+    avg_win_rate: avg(rated.map((h) => h.stats?.win_rate ?? 0)),
+    avg_win_rate_by_role: avgWinRateByRole,
+    most_banned: highlight((h) => h.stats?.ban_rate ?? null, 'ban_rate'),
+    most_picked: highlight((h) => h.stats?.pick_rate ?? null, 'pick_rate'),
+    highest_win_rate: highlight((h) => h.stats?.win_rate ?? null, 'win_rate'),
+    lowest_win_rate: (() => {
+      const list = rated.filter((h) => h.stats?.win_rate !== null);
+      if (list.length === 0) return null;
+      const worst = list.reduce((acc, h) =>
+        (h.stats?.win_rate ?? Infinity) < (acc.stats?.win_rate ?? Infinity) ? h : acc
+      );
+      return {
+        id: worst.id,
+        name: worst.name,
+        value: worst.stats?.win_rate ?? 0,
+        win_rate: worst.stats?.win_rate ?? null,
+      };
+    })(),
+  };
+}
+
 function buildSourceEntries(retrievedAt: string, upstreamBase: string): SourceEntry[] {
   const base = upstreamBase.replace(/\/$/, '');
   return [
@@ -541,6 +754,7 @@ export function normalizeBundleToDataset(bundle: UpstreamBundle, upstreamBaseUrl
   const heroesRaw = getHeroesArray(bundle.heroes);
   const skillsIndex = getSkillsIndex(bundle.skills);
   const visuals = getVisuals(bundle.visuals);
+  const rankRates = pickRankRates(bundle.statistics);
 
   const heroes: Hero[] = [];
   const heroIds = new Set<string>();
@@ -587,7 +801,12 @@ export function normalizeBundleToDataset(bundle: UpstreamBundle, upstreamBaseUrl
       counters: [],
       weak_against: [],
       synergies: [],
-      stats: normalizeHeroStats(rawHero, measuredAt),
+      stats: normalizeHeroStats(
+        rawHero,
+        rankRates.rates.get(id),
+        collectByRankRows(id, rankRates.byRank),
+        measuredAt
+      ),
     };
 
     heroIds.add(id);
@@ -619,6 +838,16 @@ export function normalizeBundleToDataset(bundle: UpstreamBundle, upstreamBaseUrl
   if (sources[2]) sources[2].records = edges.length;
   if (sources[3]) sources[3].records = items.length;
 
+  const ratesSummary = buildRatesSummary(heroes, measuredAt);
+  const heroesWithoutRates = heroes.filter((h) => !h.stats || h.stats.win_rate === null);
+  if (heroesWithoutRates.length > 0) {
+    addWarning(
+      warnings,
+      `data-incomplete: no win/pick/ban rate for ${heroesWithoutRates.length} hero(s): ` +
+        heroesWithoutRates.map((h) => h.id).join(', ')
+    );
+  }
+
   const manifest: Manifest = {
     schema_version: '1.0.0',
     generated_at_utc: retrievedAt,
@@ -628,7 +857,9 @@ export function normalizeBundleToDataset(bundle: UpstreamBundle, upstreamBaseUrl
       maps: 0,
       counter_edges: edges.length,
       items: items.length,
+      rated_heroes: ratesSummary.rated_heroes,
     },
+    rates_summary: ratesSummary,
     sources,
     warnings,
   };

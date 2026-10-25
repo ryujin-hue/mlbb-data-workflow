@@ -25,9 +25,34 @@ export interface Manifest {
     maps: number;
     counter_edges: number;
     items: number;
+    rated_heroes?: number;
   };
+  /**
+   * Ringkasan rate meta. Dihitung dari `rankings.rates` saat normalisasi,
+   * supaya situs bisa menampilkan rata-rata win rate, hero paling di-ban, dan
+   * hero paling di-pick tanpa menghitung ulang (dan tanpa data hardcoded).
+   */
+  rates_summary?: RatesSummary;
   sources: SourceEntry[];
   warnings: string[];
+}
+
+export interface RateHighlight {
+  id: string;
+  name: string;
+  value: number;
+  win_rate: number | null;
+}
+
+export interface RatesSummary {
+  measured_at_utc: string | null;
+  rated_heroes: number;
+  avg_win_rate: number | null;
+  avg_win_rate_by_role: Record<string, number>;
+  most_banned: RateHighlight | null;
+  most_picked: RateHighlight | null;
+  highest_win_rate: RateHighlight | null;
+  lowest_win_rate: RateHighlight | null;
 }
 
 export interface HeroSkill {
@@ -41,6 +66,14 @@ export interface HeroSkill {
   icon_url: string | null;
 }
 
+/** Satu baris rate untuk satu rank bracket. */
+export interface HeroRateRow {
+  win_rate: number | null;
+  pick_rate: number | null;
+  ban_rate: number | null;
+  tier: string | null;
+}
+
 export interface HeroStats {
   tier: string | null;
   win_rate: number | null;
@@ -48,6 +81,8 @@ export interface HeroStats {
   ban_rate: number | null;
   rank_scope: string | null;
   updated_at_utc: string | null;
+  /** Rate per rank bracket (all/epic/legend/mythic/honor/glory). */
+  rates_by_rank: Record<string, HeroRateRow> | null;
 }
 
 export interface Hero {
