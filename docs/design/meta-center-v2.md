@@ -262,6 +262,18 @@ node --experimental-strip-types --import ./worker/tests/register-ts.mjs \
 python3 tests/smoke_test_v2.py
 ```
 
+### Refresh manual
+
+Endpoint `POST /api/refresh` dilindungi header `X-Refresh-Token` yang nilainya
+harus cocok dengan secret `MANUAL_REFRESH_TOKEN` di Worker. Tanpa header yang benar
+situs membalas **401**. Secret-nya disimpan di secret store Mavis sebagai
+`MLBB_MANUAL_REFRESH_TOKEN`.
+
+```bash
+curl -sk -X POST https://mlbb-data-workflow.mlvv.workers.dev/api/refresh \
+  -H "X-Refresh-Token: $MLBB_MANUAL_REFRESH_TOKEN"
+```
+
 ### Konfigurasi Cloudflare
 
 | Setting | Nilai |
