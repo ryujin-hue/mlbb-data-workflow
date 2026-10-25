@@ -129,11 +129,22 @@ export function playHeroTrack(heroName: string): boolean {
     // Hero lain dibuka: hentikan lagu lama DULU, reset ke 0:00.
     stopHeroTrack({ immediate: true });
     activeHero = heroName;
-    el.src = heroAudioUrl(track);
-    try {
-      el.load();
-    } catch {
-      /* abaikan */
+
+    const url = heroAudioUrl(track);
+    if (el.getAttribute('src') !== url) {
+      el.src = url;
+      try {
+        el.load();
+      } catch {
+        /* abaikan */
+      }
+    } else {
+      // Fail sama yang sudah di-premuat - jangan muat semula, cuma reset.
+      try {
+        el.currentTime = 0;
+      } catch {
+        /* abaikan */
+      }
     }
   }
 
