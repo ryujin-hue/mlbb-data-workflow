@@ -62,6 +62,10 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+          # WAJIB wrangler 4: config repo ialah wrangler.jsonc (JSONC) dan guna
+          # `assets.run_worker_first` sebagai array - wrangler 3 tak boleh
+          # parse dua-dua itu (rangkum "Missing entry-point").
+          wranglerVersion: "4.152.0"
           # Guna wrangler.jsonc di root repo:
           #   main   = worker/src/index.ts
           #   assets = ./site  (hasil build web, termasuk /audio/PICS)
