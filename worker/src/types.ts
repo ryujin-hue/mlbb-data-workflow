@@ -1,5 +1,11 @@
 export interface Env {
   MLBB_KV?: KVNamespace;
+  /**
+   * Binding aset statik (dihasilkan automatik oleh wrangler bila
+   * `assets.directory` ditetapkan). Dipakai untuk_route `/audio/*` supaya
+   * Worker boleh tambah sokong Range request.
+   */
+  ASSETS?: Fetcher;
   UPSTREAM_BASE_URL?: string;
   ALLOWED_ORIGIN?: string;
   MANUAL_REFRESH_TOKEN?: string;

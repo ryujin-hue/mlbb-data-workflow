@@ -16,7 +16,13 @@
     }
   ],
   "assets": {
-    "directory": "./site"
+    "directory": "./site",
+    // Binding untuk akses aset dari dalam Worker (route /audio/*).
+    "binding": "ASSETS",
+    // Route /audio/* dihantar ke Worker dulu supaya boleh pulangkan 206 +
+    // Content-Range (Workers Static Assets sahaja hantar 200 penuh, dan
+    // Safari/iOS perlukan Range untuk main media).
+    "run_worker_first": ["/audio/*"]
   },
   "observability": {
     "enabled": true,

@@ -85,6 +85,41 @@ def main() -> int:
     versions = [e.get("version") for e in entries]
     ck("versi snapshot unik", len(set(versions)) == len(versions), ", ".join(versions))
 
+    # --- lagu hero (aset audio + Range request) ---
+    # Range wajib untuk iOS Safari. Sousa dulu, route /audio/* pulangkan JSON
+    # Worker (bukan mp3) tanpa disedar - jadi ia perlu dikawal setiap hari.
+    audio_path = "/audio/PICS/Mathilda/336387.mp3"
+    req = urllib.request.Request(
+        f"{BASE}{audio_path}", headers={"User-Agent": _UA, "Accept": "audio/mpeg"}
+    )
+    with urllib.request.urlopen(req, timeout=45, context=_CTX) as resp:
+        audio_type = resp.headers.get("Content-Type") or ""
+        audio_len = len(resp.read())
+    ck("audio hero 200", True, f"{audio_len} bait")
+    ck("audio hero Content-Type audio/mpeg", audio_type.startswith("audio/mpeg"), audio_type)
+    ck("audio hero ada bait", audio_len > 100_000, f"{audio_len} bait")
+
+    range_req = urllib.request.Request(
+        f"{BASE}{audio_path}",
+        headers={"User-Agent": _UA, "Range": "bytes=0-1023"},
+    )
+    try:
+        with urllib.request.urlopen(range_req, timeout=45, context=_CTX) as resp:
+            range_status = resp.status
+            content_range = resp.headers.get("Content-Range") or ""
+            range_len = len(resp.read())
+    except urllib.error.HTTPError as err:
+        range_status = err.code
+        content_range = err.headers.get("Content-Range") or ""
+        range_len = 0
+    ck("audio hero Range -> 206", range_status == 206, f"status={range_status}")
+    ck(
+        "audio hero ada Content-Range",
+        content_range.startswith("bytes 0-1023/"),
+        content_range,
+    )
+    ck("audio hero Range hantar 1024 bait", range_len == 1024, f"{range_len} bait")
+
     # --- browser ---
     launch_kwargs = {"args": ["--no-sandbox", "--disable-dev-shm-usage"]}
     if os.path.exists(CHROME):

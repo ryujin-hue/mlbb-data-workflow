@@ -1,4 +1,5 @@
 import { fetchUpstreamBundle } from './lib/fetch-upstream';
+import { handleAudioAsset, isAudioPath } from './lib/audio-range';
 import { normalizeBundleToDataset } from './lib/normalize';
 import { nextDailyUtcIso, toIsoNow } from './lib/time';
 import {
@@ -520,6 +521,14 @@ export default {
 
     if (request.method === 'POST' && url.pathname === '/api/refresh') {
       return handleManualRefresh(request, env);
+    }
+
+    // Lagu hero: dihantar ke Worker dulu (run_worker_first) supaya boleh
+    // pulangkan 206 + Content-Range - Safari/iOS perlukan Range untuk main
+    // media. Tanpa Range, sesetengah peranti tidak boleh memain lagu.
+    if (request.method === 'GET' && isAudioPath(url.pathname)) {
+      const audio = await handleAudioAsset(request, env);
+      if (audio) return audio;
     }
 
     return jsonResponse(

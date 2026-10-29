@@ -56,7 +56,9 @@ export function MoversPanel({
         <div className="panel__head">
           <h2>Meta Movers</h2>
           <span className="panel__hint">
-            {deltas ? `${deltas.from.version.slice(0, 10)} → ${deltas.to.version.slice(0, 10)}` : '—'}
+            {deltas
+              ? `Snapshot ${deltas.from.version.slice(0, 10)} → ${deltas.to.version.slice(0, 10)}`
+              : '—'}
           </span>
         </div>
 

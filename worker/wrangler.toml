@@ -14,6 +14,12 @@ preview_id = "fbbe6f4c452f48cc9426cc3b6ebb5804"
 
 [assets]
 directory = "../site"
+# Binding untuk akses aset dari dalam Worker (bagi route /audio/*).
+binding = "ASSETS"
+# Route /audio/* dihantar ke Worker dulu supaya boleh pulangkan 206 +
+# Content-Range (Workers Static Assets sahaja hantar 200 penuh, dan
+# Safari/iOS perlukan Range untuk main media).
+run_worker_first = ["/audio/*"]
 
 [vars]
 UPSTREAM_BASE_URL = "https://raw.githubusercontent.com/achedon12/mlbb/develop"
