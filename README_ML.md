@@ -1,5 +1,15 @@
 # MLBB Meta & Counter — Full Extraction V3
 
+> **Repositori ini kini menjadi `live/` dalam monorepo
+> [mlbb-almanac](https://github.com/ryujin-hue/mlbb-almanac).**
+> Sumber kebenaran ialah monorepo itu - ia membawa pokok ini di bawah `live/`,
+> menambah lapisan arkib (sejarah patch), dan menjalankan deploy.
+> Workflow deploy di sini **dilumpuhkan** supaya push lama tidak menulis ganti
+> laman live.
+>
+> Ringkasan & panduan mula pantas: [`README.md`](README.md).
+> Dokument ini kekal sebagai rujukan teknikal dalam Bahasa Indonesia.
+
 ## Website
 
 `site/` berisi laman web statik (Hero roster, Counter Lab, Items, Data & Sources)
