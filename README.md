@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/logo-mlbb-a.svg" alt="MLBB Almanac" width="380" />
+
 # MLBB Data Workflow
 
 **The live half of [MLBB Almanac](https://github.com/ryujin-hue/mlbb-almanac).**

@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/logo-mlbb-a.svg" alt="MLBB Almanac" width="340" />
+</div>
+
 # MLBB Meta & Counter — Full Extraction V3
 
 > **Repositori ini kini menjadi `live/` dalam monorepo
@@ -8,7 +12,9 @@
 > laman live.
 >
 > Ringkasan & panduan mula pantas: [`README.md`](README.md).
-> Dokument ini kekal sebagai rujukan teknikal dalam Bahasa Indonesia.
+> Dokument lapisan live yang terkini ( Bahasa Indonesia) ada di
+> [`mlbb-almanac/live/README_ML.md`](https://github.com/ryujin-hue/mlbb-almanac/blob/main/live/README_ML.md).
+> Dokumen ini kekal sebagai rujukan teknikal versi lama.
 
 ## Website
 
